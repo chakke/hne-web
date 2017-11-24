@@ -1,0 +1,14 @@
+table-detail {
+    width: 100%;
+    .box-table {
+        .box-content {
+            .club-logo {
+                height: map-get($map: $FBSizes, $key: lineheight);
+                margin-right: 5px;
+            }
+            .table th {
+                border-top: none;
+            }
+        }
+    }
+}

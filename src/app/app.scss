@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,101 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.show-page {
+    font-size: .9em;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.big-font {
+    font-size: map-get($map: $FBFont, $key: big);
+}
+
+.normal-font {
+    font-size: map-get($map: $FBFont, $key: normal);
+}
+
+.small-font {
+    font-size: map-get($map: $FBFont, $key: small);
+}
+
+.semi-bold {
+    font-weight: 500;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.super-bold {
+    font-weight: bolder;
+}
+
+.color-black {
+    color: map-get($map: $colors, $key: black);
+}
+
+.color-gray {
+    color: map-get($map: $colors, $key: gray);
+}
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+[nowrap] {
+    white-space: nowrap;
+}
+
+.scroll-content .section {
+    background-color: map-get($map: $colors, $key: background);
+    line-height: map-get($map: $FBSizes, $key: lineheight);
+    color: map-get($map: $colors, $key: black);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+[class*="col-md"],
+[class*="col-sm"],
+[class*="col-xs"],
+[class*="col-lg"] {
+    float: left;
+}
+
+.box {
+    background-color: map-get($map: $colors, $key: white);
+    .box-title {
+        border-left-style: solid;
+        border-left-color: map-get($map: $colors, $key: primary);
+        border-left-width: map-get($map: $FBSizes, $key: titleBorderLeft);
+        padding-left: map-get($map: $FBSizes, $key: titlePadding);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        height: map-get($map: $FBSizes, $key: titleHeight);
+        padding-top: 5px;
+        border-bottom: solid 1px map-get($map: $colors, $key: gray);
+        .big-title {
+            display: block;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .small-title {
+            font-size: map-get($map: $FBFont, $key: small);
+            color: map-get($map: $colors, $key: gray);
+        }
+        .right-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: map-get($map: $FBSizes, $key: rightPadding);
+            color: map-get($map: $colors, $key: secondary);
+            background-color: map-get($map: $colors, $key: white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

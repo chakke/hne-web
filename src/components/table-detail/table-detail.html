@@ -1,0 +1,29 @@
+<div class="box box-table">
+    <div class="box-title">
+        <span class="big-title">Bảng xếp hạng</span>
+        <span class="small-title">{{(table|async)?.name}}</span>
+        <span class="right-button">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </span>
+    </div>
+    <div class="box-content">
+        <fb-loader *ngIf="!isDataUpdated"></fb-loader>
+        <table class="table table-hover" *ngIf="isDataUpdated">
+            <tr>
+                <th colspan="2">Đội bóng</th>
+                <th text-center>T</th>
+                <th text-center>G</th>
+                <th text-center>B</th>
+                <th text-center>Điểm</th>
+            </tr>
+            <tr *ngFor="let item of (table| async)?.items ; let i = index">
+                <td>{{i+1}}</td>
+                <td nowrap><img class="club-logo" src="{{item.clubLogo}}" alt="Logo">{{item.clubName}}</td>
+                <td text-center>{{item.won}}</td>
+                <td text-center>{{item.draw}}</td>
+                <td text-center>{{item.lost}}</td>
+                <td text-center>{{item.point}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
