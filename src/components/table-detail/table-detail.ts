@@ -18,7 +18,7 @@ export class TableDetailComponent {
   ngAfterViewInit() {
     this.table = this.appController.getTableById(this.tableId);
     this.table.subscribe(data => {
-      console.log("data", data);
+      // console.log("data", data);
       this.isDataUpdated = true;
     })
   }

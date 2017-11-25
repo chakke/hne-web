@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Toast, ToastController, App } from 'ionic-angular';
 
 import { Menu } from '../interfaces/menu';
-import { Table } from '../interfaces/table'; 
+import { Table } from '../interfaces/table';
 
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
@@ -78,5 +78,15 @@ export class AppControllerProvider {
         items: elm.items
       }
     })
-  } 
+  }
+
+  getNewsId(newsId: string): Observable<any> {
+    return this.firebaseService.getNewsId(newsId).map(elm =>{
+      return {
+        id: elm.id,
+        name: elm.name,
+        items: elm.items
+      }
+    })
+  }
 }
