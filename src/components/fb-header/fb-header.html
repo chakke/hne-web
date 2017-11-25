@@ -3,11 +3,11 @@
         <img src="http://www.cliffordfrench.co.uk/wp-content/uploads/2015/06/logo-premier-league-white.png" alt="Logo">
     </div>
     <div class="col-md-6 col-sm-6 col-xs-12 search-bar hidden-xs">
-        <div class="searchbar">
+        <div class="searchbar" id="searchbar" [class.fixed-top]="fixedTop">
             <span class="button-cancel button" *ngIf="searchTerm" (click)="clearSearch()" tappable>
                 <i class="fa fa-times " aria-hidden="true "></i>
             </span>
-            <input type="text " [(ngModel)]="searchTerm " class="searchbar-input " placeholder="{{placeholder}} ">
+            <input type="text" [class.show]="!fixedTop || searchTerm || showSearchInput" [(ngModel)]="searchTerm " class="searchbar-input" placeholder="{{placeholder}} ">
             <span class="button-search button" (click)="search()" tappable>
                 <i class="fa fa-search " aria-hidden="true "></i>
             </span>
@@ -24,12 +24,55 @@
         <i class="fa fa-youtube "></i>
       </span>
     </div>
-    <div class="menu" id="menu">
+    <div class="menu" [class.toggled]="isMenuToggled" id="menu">
         <div class="home-item">
             <i class="fa fa-home"></i>
         </div>
         <div class="menu-item" *ngFor="let item of menuItems">
             <span>{{item.name}}</span>
         </div>
+        <div class="fake-item"></div>
     </div>
+    <div class="mobile-menu-button pointer" [class.toggled]="isMenuToggled" (click)="toggleMenu()">
+        <span class="bar one"></span>
+        <span class="bar two"></span>
+        <span class="bar three"></span>
+    </div>
+
+
 </div>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
