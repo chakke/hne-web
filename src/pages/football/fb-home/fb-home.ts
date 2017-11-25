@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
- 
+
 @IonicPage()
 @Component({
   selector: 'page-fb-home',
@@ -13,6 +13,10 @@ export class FbHomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FbHomePage');
+  }
+
+  onViewMatchDetail(matchId: number) {
+    this.navCtrl.push("FbMatchDetailPage", { "id": matchId }, { animate: false });
   }
 
 }

@@ -12,6 +12,7 @@
         </div>
         <div class="col-md-4">
             <!-- Lich thi dau, ket qua + Bang xep hang -->
+            <table-matches [tableId]="2" (clickMatch)="onViewMatchDetail($event)"></table-matches>
             <table-detail [tableId]="1"></table-detail>
         </div>
     </div>

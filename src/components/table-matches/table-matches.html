@@ -1,0 +1,38 @@
+<div class="box">
+    <div class="box-title">
+        <span class="big-title">Lịch thi đấu - Kết quả</span>
+        <span class="small-title">{{(table|async)?.name}}</span>
+        <span class="right-button">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </span>
+    </div>
+    <div class="box-content">
+        <fb-loader *ngIf="!isDataUpdated"></fb-loader>
+        <div *ngFor="let matches of (table|async)?.items">
+            <div class="time">{{matches.time}}</div>
+            <div class="match a3-center" *ngFor="let match of matches.matches" (click)="onClickMatch(match)">
+                <div>
+                    <div class="home a3-container a3-items-center a3-justify-end ">
+                        <div class="home-name bold ">{{match.homeFc}}</div>
+                        <div class="logo ">
+                            <img src={{match.homeLogo}}>
+                        </div>
+                    </div>
+                    <div class="result a3-center">
+                        <div>
+                            <span>{{match.homeResult}}</span>
+                            <span> - </span>
+                            <span>{{match.guestResult}}</span>
+                        </div>
+                    </div>
+                    <div class="guest a3-container a3-items-center a3-justify-start ">
+                        <div class="logo ">
+                            <img src={{match.guestLogo}}>
+                        </div>
+                        <div class="guest-name bold ">{{match.guestFc}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
