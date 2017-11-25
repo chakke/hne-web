@@ -84,6 +84,11 @@ export class AppControllerProvider {
 
   getNewsId(newsId: string): Observable<any> {
     return this.firebaseService.getNewsId(newsId).map(elm => {
+      return {
+        id: elm.id,
+        name: elm.name,
+        items: elm.items
+      }
     })
   }
   getMatchesByTableId(tableId: string): Observable<TableMatches> {
