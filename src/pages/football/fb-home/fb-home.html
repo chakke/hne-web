@@ -1,7 +1,7 @@
 <ion-content>
     <div class="col-md-12 section header">
         <!-- Header + Menu -->
-        <fb-header></fb-header>
+        <fb-header [contentScroll]="scrollSubject.asObservable()"></fb-header>
     </div>
     <div class="col-md-12 section banner">
         <!-- Banner + Tran dau noi bat -->
@@ -13,6 +13,7 @@
         </div>
         <div class="col-md-4">
             <!-- Lich thi dau, ket qua + Bang xep hang -->
+            <table-matches [tableId]="2" (clickMatch)="onViewMatchDetail($event)"></table-matches>
             <table-detail [tableId]="1"></table-detail>
         </div>
     </div>

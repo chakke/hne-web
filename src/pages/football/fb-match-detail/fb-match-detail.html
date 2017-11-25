@@ -1,0 +1,26 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>fb-match-detail</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <fb-loader *ngIf="!isDataUpdated"></fb-loader>
+    <div *ngIf="isDataUpdated">
+        <div>id: {{(mDatas|async)?.id}}</div>
+        <div>{{(mDatas|async)?.time}}</div>
+        <div>{{(mDatas|async)?.homeFc}}</div>
+        <div>
+            <img src={{(mDatas|async)?.homeLogo}} alt="">
+        </div>
+        <div>{{(mDatas|async)?.guestFc}}</div>
+        <div>
+            <img src={{(mDatas|async)?.guestLogo}} alt="">
+        </div>
+        <div>{{(mDatas|async)?.homeResult}} - {{(mDatas|async)?.guestResult}}</div>
+        <div>{{(mDatas|async)?.detail}}</div>
+    </div>
+</ion-content>
