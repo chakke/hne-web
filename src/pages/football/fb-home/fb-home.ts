@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { Subject } from 'rxjs/Subject';
+
 
 @IonicPage()
 @Component({
@@ -7,12 +9,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fb-home.html',
 })
 export class FbHomePage {
-
+  @ViewChild(Content) content: Content;
+  scrollSubject: Subject<string> = new Subject<string>();
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FbHomePage');
+
+  }
+  ionViewDidEnter() {
+    this.content.ionScroll.subscribe(event => {
+      console.log(event.scrollTop);
+      this.scrollSubject.next(event.scrollTop);
+    })
   }
 
   onViewMatchDetail(matchId: number) {

@@ -1,10 +1,39 @@
 fb-header {
+    $background: #393a3e;
+    $transitionTime: 400ms;
     .fb-header {
         display: flex;
         flex-wrap: wrap;
-        background-color: #393a3e;
+        background-color: $background;
+        height: 3 * map-get($map: $FBSizes, $key: menuheight);
+        overflow: hidden;
+        position: relative;
+        &.fixed-top {
+            .menu {
+                left: 10%;
+                position: fixed;
+                top: 0;
+                transform: translate3d(0, 0, 0);
+            }
+            .logo-div {
+                position: fixed;
+                width: 10%;
+                height: map-get($map: $FBSizes, $key: menuheight);
+                top: 0;
+                left: 0;
+                background-color: $background;
+                transform: translate3d(0, 0, 0);
+            }
+        }
         .logo-div {
             padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // transition: width $transitionTime, height $transitionTime;
+            width: 30%;
+            height: 3* map-get($map: $FBSizes, $key: menuheight);
+            align-self: flex-end;
             img {
                 object-fit: contain;
                 width: 100%;
@@ -55,6 +84,53 @@ fb-header {
         .social-item {
             font-size: 2em;
             color: map-get($map: $colors, $key: white);
+        }
+    }
+    .menu {
+        width: 100%;
+        height: map-get($map: $FBSizes, $key: menuheight);
+        position: absolute;
+        bottom: 0;
+        left: 30%;
+        background-color: map-get($map: $colors, $key: black);
+        display: flex;
+        // transition: all $transitionTime;
+        .home-item {
+            height: map-get($map: $FBSizes, $key: menuheight);
+            width: map-get($map: $FBSizes, $key: menuheight);
+            position: relative;
+            &::before {
+                content: " ";
+                display: block;
+                color: map-get($map: $colors, $key: white);
+                border-left: solid 15px $background;
+                border-bottom-style: solid;
+                border-bottom-color: map-get($map: $colors, $key: primary);
+                border-bottom-width: map-get($map: $FBSizes, $key: menuheight);
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+            i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-30%, -50%);
+                font-size: 1.4em;
+                color: map-get($map: $colors, $key: white);
+            }
+        }
+        .menu-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: map-get($map: $colors, $key: white);
+            font-weight: bold;
+            font-size: map-get($map: $FBSizes, $key: big);
+            text-transform: uppercase;
+            padding: 0 15px;
         }
     }
 }
