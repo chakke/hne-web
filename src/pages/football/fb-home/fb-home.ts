@@ -25,4 +25,8 @@ export class FbHomePage {
     })
   }
 
+  onViewMatchDetail(matchId: number) {
+    this.navCtrl.push("FbMatchDetailPage", { "id": matchId }, { animate: false });
+  }
+
 }

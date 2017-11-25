@@ -23,7 +23,7 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 $colors: (primary: #438310, secondary: #3ab2e2, danger: #f53d3d, light: #f4f4f4, dark: #222, black:#141a10, gray: #b4b4b4, background: #eff0f5, white: #FFF);
 $FBFont: (big: 1.1em, normal: 1em, small: 0.8em);
-$FBSizes: (titleHeight: 3.3em, titlePadding: 16px, titleBorderLeft: 5px, defaultPadding: 16px, rightPadding: 10px, lineheight: 1.3em, menuheight: 3.5em);
+$FBSizes: (titleHeight: 3.3em, titlePadding: 16px, titleBorderLeft: 5px, defaultPadding: 16px, smallerPadding: 10px, rightPadding: 10px, lineheight: 1.3em, menuheight: 3.5em);
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here

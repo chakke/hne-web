@@ -4,6 +4,8 @@ import { Toast, ToastController, App } from 'ionic-angular';
 
 import { Menu } from '../interfaces/menu';
 import { Table } from '../interfaces/table'; 
+import { TableMatches } from '../interfaces/table-matches'; 
+import { Match } from '../interfaces/match'; 
 
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
@@ -79,4 +81,30 @@ export class AppControllerProvider {
       }
     })
   } 
+
+  getMatchesByTableId(tableId: string): Observable<TableMatches>{
+    return this.firebaseService.getTableById(tableId).map(elm => {
+      return {
+        id: elm.id,
+        name: elm.name,
+        items: elm.items
+      }
+    })
+  }
+
+  getMatchById(matchId: number): Observable<Match>{
+    return this.firebaseService.getMatchById(matchId).map(elm => {
+      return {
+        id: elm.id,
+        time: elm.time,
+        homeFc: elm.homeFc,
+        homeLogo: elm.homeLogo,
+        homeResult: elm.homeResult,
+        guestFc: elm.guestFc,
+        guestLogo: elm.guestLogo,
+        guestResult: elm.guestResult,
+        detail: elm.detail
+      }
+    })
+  }
 }

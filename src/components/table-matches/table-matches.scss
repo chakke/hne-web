@@ -1,0 +1,73 @@
+table-matches {
+    .box {
+        .box-content {
+            .time {
+                font-size: map-get($map: $FBFont, $key: small);
+                color: map-get($map: $colors, $key: gray);
+                padding-left: map-get($map: $FBSizes, $key: titlePadding);
+                padding-right: map-get($map: $FBSizes, $key: titlePadding);
+                padding-top: map-get($map: $FBSizes, $key: smallerPadding);
+            }
+            .match {
+                display: flex;
+                align-items: center;
+                >div {
+                    width: 100%;
+                    display: flex;
+                    padding: 4px 0;
+                    border-bottom: 1px solid lightgray;
+                    .home {
+                        padding: 0;
+                        width: 45%;
+                        .home-name {
+                            text-align: right;
+                        }
+                    }
+                    .guest {
+                        padding: 0;
+                        width: 45%;
+                        text-align: center;
+                        .guest-name {
+                            text-align: left;
+                        }
+                    }
+                    .result {
+                        padding: 0;
+                        width: 10%;
+                        background-color: map-get($map: $colors, $key: primary);
+                        color: white;
+                        white-space: nowrap;
+                        min-width: 3em;
+                    }
+                    .logo {
+                        width: 2em;
+                        margin: 0 6px;
+                    }
+                }
+                >div:hover {
+                    background-color: #eee;
+                    .result {
+                        opacity: .6;
+                    }
+                }
+            }
+        }
+    }
+    .a3-container {
+        display: flex;
+    }
+    .a3-justify-end {
+        justify-content: flex-end;
+    }
+    .a3-justify-start {
+        justify-content: flex-start;
+    }
+    .a3-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .a3-items-center {
+        align-items: center;
+    }
+}
