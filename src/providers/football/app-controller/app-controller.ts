@@ -6,6 +6,7 @@ import { Menu } from '../interfaces/menu';
 import { Table } from '../interfaces/table'; 
 import { TableMatches } from '../interfaces/table-matches'; 
 import { Match } from '../interfaces/match'; 
+import { ImageArr } from '../interfaces/image'; 
 
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
@@ -104,6 +105,17 @@ export class AppControllerProvider {
         guestLogo: elm.guestLogo,
         guestResult: elm.guestResult,
         detail: elm.detail
+      }
+    })
+  }
+
+  loadMoreImage(from: number): Observable<ImageArr>{
+    if(from > 30){
+      return;
+    }
+    return this.firebaseService.loadImage(from).map(elm => {
+      return {
+        images: elm.images
       }
     })
   }

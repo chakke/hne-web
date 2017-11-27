@@ -163,7 +163,7 @@ export class FirebaseServiceProvider {
                 }
               ]
             })
-          }, 0);
+          }, 2000);
         })
 
       }
@@ -184,10 +184,102 @@ export class FirebaseServiceProvider {
             guestFc: "TopGroup",
             guestLogo: "http://vietfootball.vn/data/uploads/2017/09/TopGroup5.png",
             guestResult: 10,
-            detail:"Goal:            MV Corp: Nguyễn Kim Mạnh (9) 21′, 39′            Moon: Nguyễn Đình Cường (12) 32′            Thẻ vàng:            MV Corp: Bùi Minh Quang (7) 14′            Thẻ đỏ:            Moon: Vũ Hoàng Thuận (6) 35′, 49′ (2TV)"
+            detail: "Goal:            MV Corp: Nguyễn Kim Mạnh (9) 21′, 39′            Moon: Nguyễn Đình Cường (12) 32′            Thẻ vàng:            MV Corp: Bùi Minh Quang (7) 14′            Thẻ đỏ:            Moon: Vũ Hoàng Thuận (6) 35′, 49′ (2TV)"
           })
-        }, 2000);
+        }, 1000);
       })
     }
+  }
+
+  loadImage(from: number): Observable<any> {
+    return new Observable(observer => {
+      setTimeout(() => {
+        observer.next({
+          from: from,
+          images: [
+            {
+              id: from,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+            },
+            {
+              id: from + 1,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+            },
+            {
+              id: from + 2,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+            },
+            {
+              id: from + 3,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+            },
+            {
+              id: from + 4,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+            },
+            {
+              id: from + 5,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+            },
+            {
+              id: from + 6,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+            },
+            {
+              id: from + 7,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+            },
+            {
+              id: from+8,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+            },
+            {
+              id: from + 9,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+            },
+            {
+              id: from + 10,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+            },
+            {
+              id: from + 11,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+            },
+            {
+              id: from + 12,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+            },
+            {
+              id: from + 13,
+              name: "",
+              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+            },
+            // {
+            //   id: from + 14,
+            //   name: "",
+            //   url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+            // },
+            // {
+            //   id: from + 15,
+            //   name: "",
+            //   url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+            // },
+          ]
+        })
+      }, 1000);
+    })
   }
 }

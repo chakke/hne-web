@@ -1,0 +1,66 @@
+page-fb-gallery {
+    .main-title {
+        margin-top: map-get($map: $FBSizes, $key: defaultPadding);
+        margin-bottom: map-get($map: $FBSizes, $key: defaultPadding);
+        position: relative;
+        img {
+            width: 100%;
+            min-height: 10vh;
+        }
+        .title {
+            font-size: 1.5em;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 10%;
+            line-height: 1.1em;
+        }
+    }
+    .main-content {
+        padding-top: map-get($map: $FBSizes, $key: defaultPadding);
+        padding-left: 32px;
+        padding-right: 32px;
+        position: relative;
+        .image-container {
+            margin-bottom: map-get($map: $FBSizes, $key: defaultPadding);
+            .image {
+                width: 100%;
+                height: 30vh;
+                // background-image: url("http://vietfootball.vn/data/uploads/2017/11/TU1A4905-400x300.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                .image-info {
+                    position: absolute;
+                    bottom: map-get($map: $FBSizes, $key: defaultPadding);
+                    left: map-get($map: $FBSizes, $key: defaultPadding);
+                    color: white;
+                    display: flex;
+                    .icon {
+                        background-color: #468010;
+                        padding: 4px;
+                    }
+                    .number {
+                        background-color: #66AB1A;
+                        padding: 4px;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+            .img-description {
+                height: 4em;
+                background-color: white;
+                font-weight: bold;
+            }
+        }
+    }
+    .hidden {
+        display: none;
+    }
+}

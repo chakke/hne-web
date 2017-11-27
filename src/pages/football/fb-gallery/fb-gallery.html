@@ -1,0 +1,55 @@
+<ion-content>
+    <div>
+        <div class="col-md-12 section header" id="header">
+            <!-- Header + Menu -->
+            <fb-header [contentScroll]="scrollSubject.asObservable()"></fb-header>
+        </div>
+        <div class="col-md-12 section main body-padding" id="main-content">
+            <div class="col-md-12 section main-title">
+                <!-- main title -->
+                <img src="assets/image_2/title_bar.png">
+                <div class="title">
+                    <span>{{mDatas.title.toUpperCase()}}</span>
+                </div>
+
+            </div>
+            <!-- noi dung chinh -->
+            <div class="main-content">
+                <div class="col-md-3 image-container" *ngFor="let i of images">
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + i.url + ')'}">
+                        <div class="image-info">
+                            <div class="icon">
+                                <ion-icon name="camera"></ion-icon>
+                            </div>
+                            <div class="number">
+                                <span>132</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div padding class="img-description">
+                        {{i.id}} - B-Gate B-Gate FC vs MenU FC (v1)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loading-icon" class="hidden section">
+            <!-- loading -->
+            <fb-spinner></fb-spinner>
+        </div>
+        <div class="col-md-12 section sponsor">
+            <!-- Nha tai tro -->
+        </div>
+        <div class="col-md-12 section footer" id="footer">
+            <!-- Footer -->
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+            <div>AAAAAAAA</div>
+        </div>
+    </div>
+</ion-content>

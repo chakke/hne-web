@@ -8,7 +8,8 @@ import { AppControllerProvider } from '../providers/football/app-controller/app-
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = "FbHomePage";
+  // rootPage: any = "FbHomePage";
+  rootPage: any = "FbGalleryPage";
 
   constructor(
     platform: Platform,
