@@ -1,6 +1,8 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { Content, Platform } from 'ionic-angular';
 import { Menu } from '../../providers/football/interfaces/menu';
 import { Observable } from 'rxjs/Observable';
+import { AppControllerProvider } from '../../providers/football/app-controller/app-controller';
 
 @Component({
   selector: 'fb-header',
@@ -8,13 +10,17 @@ import { Observable } from 'rxjs/Observable';
 })
 export class FbHeaderComponent {
   @Input() placeholder: string = "Nhập từ khóa tìm kiếm";
-  @Input() contentScroll: Observable<number>;
-  @Output()
-  onSearch = new EventEmitter<string>();
+  @Input() content: Content;
+  @Output() onSearch = new EventEmitter<string>();
+
   searchTerm: string = "";
-  fixedTop = false;
-  showSearchInput = false;
   isMenuToggled = false;
+  isInSmallScreen = false;
+  maxSmallScreenWidth = 768;
+
+  headerElement: HTMLElement;
+  logoElement: HTMLElement;
+  menuElement: HTMLElement;
 
   menuItems: Array<Menu> = [
     {
@@ -61,56 +67,78 @@ export class FbHeaderComponent {
     }
   ]
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(platform: Platform,private appController: AppControllerProvider ) {
+    platform.ready().then(() => {
+      let width = platform.width();
+      if (width < this.maxSmallScreenWidth) {
+        this.isInSmallScreen = true;
+      } else {
+        this.isInSmallScreen = false;
+      }
+      platform.resize.subscribe(() => {
+        let width = platform.width();
+        if (width < this.maxSmallScreenWidth) {
+          this.isInSmallScreen = true;
+          this.resetAttribute();
+        } else {
+          this.isInSmallScreen = false;
+        }
+      })
+    })
   }
 
   ngAfterViewInit() {
-    let menu = document.getElementById("menu");
-    let header = document.getElementById("fb-header");
-    let logo = document.getElementById("logo");
-    let searchBar = document.getElementById("searchbar");
-    let height = menu.offsetHeight;
-    if (this.contentScroll) {
-      this.contentScroll.subscribe(scrollTop => {
-        if (scrollTop > 2 * height) {
-          header.classList.add("fixed-top");
-          logo.style.height = null;
-          logo.style.width = null;
-          logo.style.maxWidth = null;
-          menu.style.width = null;
-          this.fixedTop = true;
-        } else {
-          header.classList.remove("fixed-top");
-          logo.style.height = 3 * height - scrollTop + "px";
-          logo.style.width = 30 - 20 * scrollTop / (3 * height) + "%";
-          logo.style.maxWidth = 30 - 20 * scrollTop / (2 * height) + "%";
-          menu.style.width = 70 + 20 * scrollTop / (2 * height) + "%";
-          this.fixedTop = false;
+    this.menuElement = document.getElementById("menu");
+    this.headerElement = document.getElementById("fb-header");
+    this.logoElement = document.getElementById("logo");
+    if (this.content) {
+      this.content.ionScroll.subscribe(() => {
+        if (!this.isInSmallScreen) {
+          let height = this.menuElement.offsetHeight;
+          let scrollTop = this.content.scrollTop;
+          if (scrollTop == 0) {
+            this.resetAttribute();
+          }
+          if (scrollTop > 2 * height) {
+            if (!this.headerElement.classList.contains("fixed-top")) {
+              this.resetAttribute();
+              this.headerElement.classList.add("fixed-top");
+            }
+          } else {
+            if (this.headerElement.classList.contains("fixed-top")) {
+              this.headerElement.classList.remove("fixed-top");
+            }
+            this.logoElement.style.height = 3 * height - scrollTop + "px";
+            this.logoElement.style.maxWidth = 30 - 20 * scrollTop / (2 * height) + "%";
+          }
         }
-        this.cdr.detectChanges();
       })
     }
+  }
+
+  resetAttribute() {
+    this.headerElement.classList.remove("fixed-top");
+    this.logoElement.style.height = null;
+    this.logoElement.style.maxWidth = null;
   }
 
   search() {
     if (this.searchTerm) {
       console.log("on search");
       this.onSearch.emit(this.searchTerm);
-      this.showSearchInput = true;
     } else {
-      if (this.fixedTop) {
-        this.showSearchInput = !this.showSearchInput;
-      }
     }
   }
 
   clearSearch() {
     this.searchTerm = "";
-    this.showSearchInput = false;
   }
 
   toggleMenu() {
-    console.log("toggle menu");
     this.isMenuToggled = !this.isMenuToggled;
+  }
+
+  gotoRootPage(){
+    this.appController.setRootPage("FbHomePage");
   }
 }

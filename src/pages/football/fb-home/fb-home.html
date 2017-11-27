@@ -1,12 +1,12 @@
-<ion-content>
-    <div class="col-md-12 section header">
+<ion-content #content>
+    <div class="container-fluid section header">
         <!-- Header + Menu -->
-        <fb-header [contentScroll]="scrollSubject.asObservable()"></fb-header>
+        <fb-header [content]="content"></fb-header>
     </div>
-    <div class="col-md-12 section banner">
+    <div class="container-fluid section banner">
         <!-- Banner + Tran dau noi bat -->
     </div>
-    <div class="col-md-12 section main body-padding">
+    <div class="container-fluid section main body-padding">
         <div class="col-md-8">
             <!-- Tin tuc su kien -->
         </div>
@@ -16,14 +16,14 @@
             <table-detail [tableId]="1"></table-detail>
         </div>
     </div>
-    <div class="col-md-12 section slider">
+    <div class="container-fluid section slider">
         <!-- Slider -->
     </div>
-    <div class="col-md-12 section video body-padding">
+    <div class="container-fluid section video body-padding">
         <!-- Video moi nhat -->
     </div>
-    <div class="col-md-12 section sponsor">
+    <div class="container-fluid section sponsor">
         <!-- Nha tai tro -->
     </div>
-    <div class="col-md-12 section footer"></div>
+    <div class="container-fluid section footer"></div>
 </ion-content>

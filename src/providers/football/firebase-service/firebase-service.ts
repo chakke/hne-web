@@ -171,7 +171,7 @@ export class FirebaseServiceProvider {
 
   }
 
-  getMatchById(matchId: number): Observable<any> {
+  getMatchById(matchId: number): Observable<any> { 
     if (this.isUseFakeData) {
       return new Observable(observer => {
         setTimeout(() => {
