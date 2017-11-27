@@ -6,6 +6,7 @@ import { TableDetailComponent } from './table-detail/table-detail';
 import { FbLoaderComponent } from './fb-loader/fb-loader';
 import { FbHeaderComponent } from './fb-header/fb-header';
 import { FbFooterComponent } from './fb-footer/fb-footer';
+import { MainNewsComponent } from './main-news/main-news';
 import { TableMatchesComponent } from './table-matches/table-matches';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TableMatchesComponent } from './table-matches/table-matches';
 		FbLoaderComponent,
     FbHeaderComponent,
     FbFooterComponent,
+    MainNewsComponent,
     TableMatchesComponent
 	],
 	imports: [IonicPageModule],
@@ -26,6 +28,7 @@ import { TableMatchesComponent } from './table-matches/table-matches';
 		FbLoaderComponent,
     FbHeaderComponent,
     FbFooterComponent,
+    MainNewsComponent,
     TableMatchesComponent
 	]
 })

@@ -189,5 +189,60 @@ export class FirebaseServiceProvider {
         }, 2000);
       })
     }
+
+  }
+
+  getNewsId(newsId: string): Observable<any> {
+    if (this.isUseFakeData) return new Observable(obserable => {
+      setTimeout(() => {
+        obserable.next({
+          id: newsId,
+          name: "Tất cả các bài báo",
+          items: [
+            {
+              id: "1",
+              title: "Vòng loại Special Nhí Cup diễn ra sôi nổi. Các cầu thủ có nguy cơ ngủ trong trận đấu.",
+              description: "Vòng loại Special Nhí Cup diễn ra sôi nổi. Các cầu thủ có nguy cơ ngủ trong trận đấu. Vòng loại Special Nhí Cup diễn ra sôi nổi. Các cầu thủ có nguy cơ ngủ trong trận đấu.",
+              pictureUrl: "assets/test/fb-pic2.jpg",
+              date: "25 thg 11, 2017",
+              comment: 1,
+              tag: "Hanoi Eleven Cup",
+            },{
+              id: "",
+              title: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
+              description: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào. Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
+              pictureUrl: "assets/test/fb-pic1.jpg",
+              date: "23 thg 11, 2017",
+              comment: 2,
+              tag: "Hanoi Eleven Cup"
+            },{
+              id: "",
+              title: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
+              description: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân. Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
+              pictureUrl: "assets/test/fb-pic3.jpg",
+              date: "22 thg 11, 2017",
+              comment: 6,
+              tag: "Ao Làng Cup"
+            },{
+              id: "",
+              title: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ",
+              description: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ diễn ra hết sức sôi nổi cùng 16 đội bóng đến từ các bản cùng tranh tài",
+              pictureUrl: "assets/test/fb-pic4.jpg",
+              date: "21 thg 11, 2017",
+              comment: 69,
+              tag: "Bản Mới Cup"
+            },{
+              id: "",
+              title: "Phóng viên đưa tin bọ bóng bay trúng đầu",
+              description: "Phóng viên Lò A Sửu tại trận đấu giữa FC Nậm Cháy và FC A Pó trong lúc đưa tin bị bóng từ chân của VĐV trên sên bay vào đầu ngã lăn quay. Hiện tại vẫn chưa biết chính xác ai là thủ phạm",
+              pictureUrl: "assets/test/fb-pic5.jpg",
+              date: "20 thg 11, 2017",
+              comment: 96,
+              tag: "Lom Dom Cup"
+            }
+          ]
+        })
+      }, 1000);
+    })
   }
 }
