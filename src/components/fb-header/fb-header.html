@@ -1,14 +1,14 @@
 <div class="fake-height">
 </div>
-<div class="fb-header" id="fb-header">
-    <div class="logo-div pointer" id="logo" (click)="gotoRootPage()" tappale>
+<div class="fb-header" #header>
+    <div class="logo-div pointer" #logo (click)="gotoRootPage()" tappale>
         <img class="normal" src="assets/football/images/home/logo_1.png" alt="Logo">
         <img class="special" src="assets/football/images/home/logo_2.png" alt="Logo">
     </div>
     <div class="menu-div">
         <div class="search-bar">
             <div class="col-md-8">
-                <div class="searchbar" id="searchbar">
+                <div class="searchbar">
                     <span class="button-cancel button" *ngIf="searchTerm" (click)="clearSearch()" tappable>
                         <i class="fa fa-times " aria-hidden="true "></i>
                     </span>
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <div class="menu" [class.toggled]="isMenuToggled" id="menu">
+        <div class="menu" [class.toggled]="isMenuToggled" #menu>
             <!-- <div class="home-item pointer" (click)="gotoRootPage()" tappale>
                 <i class="fa fa-home"></i>
             </div> -->

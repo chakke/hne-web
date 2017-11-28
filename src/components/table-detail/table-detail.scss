@@ -8,8 +8,15 @@ table-detail {
                 width: 1.5em;
                 vertical-align: bottom;
             }
-            .table th {
-                border-top: none;
+            .table {
+                tr {
+                    &.first {
+                        background-color: #e3ffc3;
+                    }
+                }
+                th {
+                    border-top: none;
+                }
             }
             $arrowSize: 7px;
             .arrow {
