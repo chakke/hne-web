@@ -1,0 +1,139 @@
+<div class="fb-home-slider-container" padding-left padding-right>
+    <div class="img-background d-none d-md-block">
+        <img src="assets/test/gallery_bar.png" alt="">
+    </div>
+    <div class="container-fluid" *ngIf="!isLoadingData">
+
+        <div class="row background max-height sm-background">
+
+            <!-- ///////row-container////// -->
+            <div class="col-md-2 col-sm-2 d-none d-md-block" text-center id="fb-slide-logo">
+                <img src="assets/test/logo_3.png" alt="">
+            </div>
+
+            <div class="col-md-1 d-none d-md-block"></div>
+            <div class="col-md-8 col-sm-12 col-xs-12 pd-sm" style="padding-right: 0px">
+
+                <div class="container-fluid">
+                    <div class="row border-bottom fb-slide-title">
+                        <div class="col-md-9 col-sm-7 col-xs-8 slide-title">
+                            <span>Những hình ảnh đẹp của giải đấu</span>
+                        </div>
+                        <div class="col-md-3 col-sm-5 col-xs-4 button-all d-none d-sm-block">
+                            <span>Xem tất cả </span>
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid padding-none">
+                    <div class="row no-gutters align-items-center">
+
+                        <div class="col-md-1 col-sm-1 arrow-button d-none d-md-block" text-left (click)="preSlide()">
+                            <div class="around">
+                                <i class="arrow left"></i>
+                            </div>
+                        </div>
+                        <!-- ===========slides========== -->
+                        <div class="col-md-10 col-xs-12 col-sm-12" style="overflow:hidden">
+                            <!-- =========show in md============ -->
+                            <div class="slider-container d-none d-md-block" id="slidesContainer">
+                                <div class="slide-box-container" *ngFor="let item of (slidesList | async)?.items" id="sliderBox">
+                                    <div class="slide-box">
+                                        <img [src]="item.arrayImage[0]" alt="">
+                                        <div class="slide-footer">
+                                            <div class="badges-container">
+                                                <div class="icon-bad">
+                                                    <i class="fa fa-camera" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="number-bd">
+                                                    {{item.arrayImage.length}}
+                                                </div>
+                                            </div>
+                                            <div class="name-club">
+                                                <span>{{item.nameOfClub1}} FC vs {{item.nameOfClub2}} FC (v{{item.numberOfHaft}})</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- =============end================ -->
+
+                            <!--=============== show in sm and xs =================== -->
+                            <div class="container-fluid d-block d-sm-block d-md-none" no-padding margin-top margin-bottom *ngIf="!isLoadingData">
+                                <div class="row ">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="slide-box">
+                                            <img [src]="list_fillter[0].arrayImage[0]" alt="">
+                                            <div class="slide-footer">
+                                                <div class="badges-container">
+                                                    <div class="icon-bad">
+                                                        <i class="fa fa-camera" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="number-bd">
+                                                        {{list_fillter[0].arrayImage.length}}
+                                                    </div>
+                                                </div>
+                                                <div class="name-club">
+                                                    <span>{{list_fillter[0].nameOfClub1}} FC vs {{list_fillter[0].nameOfClub2}} FC (v{{list_fillter[0].numberOfHaft}})</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="container-fluid no-xs-padding" no-padding>
+                                            <div class="row no-gutters">
+                                                <div class="col-sm-12 col-xs-6">
+                                                    <div class="box-sm">
+                                                        <img [src]="list_fillter[1].arrayImage[0]" alt="">
+                                                        <div class="slide-footer">
+                                                            <div class="badges-container">
+                                                                <div class="icon-bad">
+                                                                    <i class="fa fa-camera" aria-hidden="true"></i>
+                                                                </div>
+                                                                <div class="number-bd">
+                                                                    {{list_fillter[1].arrayImage.length}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-xs-6">
+                                                    <div style="height: 10px" class="d-none d-sm-block"></div>
+                                                    <div class="box-sm">
+                                                        <img [src]="list_fillter[2].arrayImage[0]" alt="">
+                                                        <div class="slide-footer">
+                                                            <div class="badges-container">
+                                                                <div class="icon-bad">
+                                                                    <i class="fa fa-camera" aria-hidden="true"></i>
+                                                                </div>
+                                                                <div class="number-bd">
+                                                                    {{list_fillter[2].arrayImage.length}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===============end=============== -->
+                        </div>
+                        <!-- ==========end========= -->
+                        <div class="col-md-1  col-sm-1 arrow-button d-none d-md-block text-right" text-right (click)="nextSlide()">
+                            <div class="around">
+                                <i class="arrow right"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-secondary btn-lg btn-block d-block d-sm-none">
+        <span>More</span>
+        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+    </button>
+</div>
