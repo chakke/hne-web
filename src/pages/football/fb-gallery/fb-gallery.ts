@@ -19,7 +19,6 @@ export class FbGalleryPage {
   mDatas = {
     title: "Các khoảnh khắc đẹp trong giải đấu"
   }
-  changed;
   images: Array<GaleryElement> = [];
   isLoading = false;
   constructor(public navCtrl: NavController,
@@ -27,11 +26,6 @@ export class FbGalleryPage {
     public mModalController: ModalController,
     public mAppControllerProvider: AppControllerProvider,
     public navParams: NavParams) {
-    this.changed = 'false';
-    setTimeout(() => {
-      this.mChangeDetectorRef.detach();
-      this.changed = 'true';
-    }, 2000);
     // this.loadImage();
   }
 

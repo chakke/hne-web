@@ -53,14 +53,14 @@ export class ModalGalleryPage {
 
   getGaleryById(id: number) {
     this.isLoading = true;
-      this.galery = this.mAppControllerProvider.getGaleryById(id);
-      this.galery.subscribe(data => {
-        this.tempG = data;
-        console.log("data", data);        
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 1000);
-      })
+    this.galery = this.mAppControllerProvider.getGaleryById(id);
+    this.galery.subscribe(data => {
+      this.tempG = data;
+      console.log("data", data);
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
+    })
 
   }
 
@@ -78,7 +78,7 @@ export class ModalGalleryPage {
     if (this.onScroll) {
       return;
     }
-    if (this.mDatas.currentView < this.tempG.images.length-1) {
+    if (this.mDatas.currentView < this.tempG.images.length - 1) {
       this.mDatas.currentView++;
     }
     this.fixScrollLeft();
@@ -89,8 +89,8 @@ export class ModalGalleryPage {
 
     let fixedScrollLeft = this.mDatas.currentView * (this.imgWidth + this.marginSize) - 1 / 2 * this.content.getContentDimensions().contentWidth + 1 / 2 * this.imgWidth;
     let availableScrLeft = this.photosContainer.scrollWidth - this.photosContainer.clientWidth
-    
-    if (fixedScrollLeft < 0) {      
+
+    if (fixedScrollLeft < 0) {
       this.scrollLeftTo(0);
     } else if (fixedScrollLeft >= availableScrLeft) {
       this.scrollLeftTo(availableScrLeft);
