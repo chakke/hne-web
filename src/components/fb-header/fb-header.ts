@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { Content, Platform } from 'ionic-angular';
 import { Menu } from '../../providers/football/interfaces/menu';
 import { Observable } from 'rxjs/Observable';
@@ -18,9 +18,9 @@ export class FbHeaderComponent {
   isInSmallScreen = false;
   maxSmallScreenWidth = 768;
 
-  headerElement: HTMLElement;
-  logoElement: HTMLElement;
-  menuElement: HTMLElement;
+  @ViewChild("header") headerElement: ElementRef;
+  @ViewChild("logo") logoElement: ElementRef;
+  @ViewChild("menu") menuElement: ElementRef;
 
   menuItems: Array<Menu> = [];
   homePage = "FbHomePage";
@@ -45,29 +45,26 @@ export class FbHeaderComponent {
     })
   }
 
-  ngAfterViewInit() {
-    this.menuElement = document.getElementById("menu");
-    this.headerElement = document.getElementById("fb-header");
-    this.logoElement = document.getElementById("logo");
+  ngAfterViewInit() { 
     if (this.content) {
-      this.content.ionScroll.subscribe(() => {
+      this.content.ionScroll.subscribe(() => { 
         if (!this.isInSmallScreen) {
-          let height = this.menuElement.offsetHeight;
-          let scrollTop = this.content.scrollTop;
+          let height = this.menuElement.nativeElement.offsetHeight;
+          let scrollTop = this.content.scrollTop; 
           if (scrollTop == 0) {
             this.resetAttribute();
           }
           if (scrollTop > 2 * height) {
-            if (!this.headerElement.classList.contains("fixed-top")) {
+            if (!this.headerElement.nativeElement.classList.contains("fixed-top")) {
               this.resetAttribute();
-              this.headerElement.classList.add("fixed-top");
+              this.headerElement.nativeElement.classList.add("fixed-top");
             }
           } else {
-            if (this.headerElement.classList.contains("fixed-top")) {
-              this.headerElement.classList.remove("fixed-top");
+            if (this.headerElement.nativeElement.classList.contains("fixed-top")) {
+              this.headerElement.nativeElement.classList.remove("fixed-top");
             }
-            this.logoElement.style.height = 3 * height - scrollTop + "px";
-            this.logoElement.style.maxWidth = 30 - 20 * scrollTop / (2 * height) + "%";
+            this.logoElement.nativeElement.style.height = 3 * height - scrollTop + "px";
+            this.logoElement.nativeElement.style.maxWidth = 30 - 20 * scrollTop / (2 * height) + "%";
           }
         }
       })
@@ -75,14 +72,13 @@ export class FbHeaderComponent {
   }
 
   resetAttribute() {
-    this.headerElement.classList.remove("fixed-top");
-    this.logoElement.style.height = null;
-    this.logoElement.style.maxWidth = null;
+    this.headerElement.nativeElement.classList.remove("fixed-top");
+    this.logoElement.nativeElement.style.height = null;
+    this.logoElement.nativeElement.style.maxWidth = null;
   }
 
   search() {
-    if (this.searchTerm) {
-      console.log("on search");
+    if (this.searchTerm) { 
       this.onSearch.emit(this.searchTerm);
     } else {
     }

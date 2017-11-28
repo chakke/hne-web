@@ -192,8 +192,11 @@ fb-header {
             }
         }
     }
-    @media (max-width: 575px) {
-        //For extra small screen
+    @media (max-width: 991px) {
+        //For medium screen
+        .fb-header .menu-div .menu .menu-item {
+            padding: 0 10px;
+        }
     }
     @media (max-width: 767px) {
         // For small screen
@@ -333,5 +336,8 @@ fb-header {
                 }
             }
         }
+    }
+    @media (max-width: 575px) {
+        //For extra small screen
     }
 }
