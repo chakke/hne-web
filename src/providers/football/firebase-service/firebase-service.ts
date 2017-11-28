@@ -39,7 +39,8 @@ export class FirebaseServiceProvider {
                   draw: 0,
                   goalsScore: 10,
                   goalsLost: 2,
-                  point: 12
+                  point: 12,
+                  rankChange: "up"
                 },
                 {
                   id: "2",
@@ -51,7 +52,9 @@ export class FirebaseServiceProvider {
                   draw: 3,
                   goalsScore: 5,
                   goalsLost: 3,
-                  point: 6
+                  point: 6,
+                  rankChange: "up"
+
                 },
                 {
                   id: "3",
@@ -63,7 +66,8 @@ export class FirebaseServiceProvider {
                   draw: 1,
                   goalsScore: 5,
                   goalsLost: 5,
-                  point: 7
+                  point: 7,
+                  rankChange: "draw"
                 },
                 {
                   id: "4",
@@ -75,7 +79,8 @@ export class FirebaseServiceProvider {
                   draw: 1,
                   goalsScore: 12,
                   goalsLost: 6,
-                  point: 10
+                  point: 10,
+                  rankChange: "down"
                 },
               ]
             })
@@ -171,7 +176,7 @@ export class FirebaseServiceProvider {
 
   }
 
-  getMatchById(matchId: number): Observable<any> { 
+  getMatchById(matchId: number): Observable<any> {
     if (this.isUseFakeData) {
       return new Observable(observer => {
         setTimeout(() => {
@@ -207,7 +212,7 @@ export class FirebaseServiceProvider {
               date: "25 thg 11, 2017",
               comment: 1,
               tag: "Hanoi Eleven Cup",
-            },{
+            }, {
               id: "",
               title: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
               description: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào. Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
@@ -215,7 +220,7 @@ export class FirebaseServiceProvider {
               date: "23 thg 11, 2017",
               comment: 2,
               tag: "Hanoi Eleven Cup"
-            },{
+            }, {
               id: "",
               title: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
               description: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân. Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
@@ -223,7 +228,7 @@ export class FirebaseServiceProvider {
               date: "22 thg 11, 2017",
               comment: 6,
               tag: "Ao Làng Cup"
-            },{
+            }, {
               id: "",
               title: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ",
               description: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ diễn ra hết sức sôi nổi cùng 16 đội bóng đến từ các bản cùng tranh tài",
@@ -231,7 +236,7 @@ export class FirebaseServiceProvider {
               date: "21 thg 11, 2017",
               comment: 69,
               tag: "Bản Mới Cup"
-            },{
+            }, {
               id: "",
               title: "Phóng viên đưa tin bọ bóng bay trúng đầu",
               description: "Phóng viên Lò A Sửu tại trận đấu giữa FC Nậm Cháy và FC A Pó trong lúc đưa tin bị bóng từ chân của VĐV trên sên bay vào đầu ngã lăn quay. Hiện tại vẫn chưa biết chính xác ai là thủ phạm",
@@ -293,7 +298,7 @@ export class FirebaseServiceProvider {
               url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
             },
             {
-              id: from+8,
+              id: from + 8,
               name: "",
               url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
             },
@@ -336,5 +341,77 @@ export class FirebaseServiceProvider {
         })
       }, 1000);
     })
+  }
+  getImageFBSlides(): Observable<any> {
+    if (this.isUseFakeData) {
+      return new Observable(observable => {
+        setTimeout(() => {
+          observable.next({
+            id: "1",
+            items: [
+              {
+                nameOfClub1: "B-gate",
+                nameOfClub2: "ManU",
+                numberOfHaft: 1,
+                arrayImage: [
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }, {
+                nameOfClub1: "Team1",
+                nameOfClub2: "Team2",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }, {
+                nameOfClub1: "Team1",
+                nameOfClub2: "Team2",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }, {
+                nameOfClub1: "Team2",
+                nameOfClub2: "Team3",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }
+              , {
+                nameOfClub1: "Team4",
+                nameOfClub2: "Team5",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic5.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }
+            ]
+
+          })
+        }, 2000);
+
+      })
+    }
   }
 }

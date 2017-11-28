@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -7,12 +7,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'modal-gallery.html',
 })
 export class ModalGalleryPage {
+  @ViewChild(Content) content: Content;
 
   mDatas = {
-    id: -1
+    id: -1,
+    currentView: 0
   }
 
-  images = ["http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg","http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"]
+  imgWidth = 0;
+  marginSize = 16;
+
+  images = ["http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg",
+    "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg",]
 
   tempImage = "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg";
 
@@ -23,8 +43,11 @@ export class ModalGalleryPage {
     }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModalGalleryPage');
+  ionViewDidEnter() {
+    let imgs = document.getElementsByClassName("photo");
+    this.imgWidth = imgs[0].clientWidth;
+
+
   }
 
   onClickClose() {
@@ -33,6 +56,41 @@ export class ModalGalleryPage {
 
   getPhotosById(id: number) {
 
+  }
+
+  onClickPrevious() {
+    if (this.mDatas.currentView > 0) {
+      this.mDatas.currentView--;
+    }
+    console.log("onClickPrevious", this.mDatas.currentView);
+    this.fixScrollLeft();
+  }
+
+  onClickNext() {
+
+    if (this.mDatas.currentView < this.images.length - 1) {
+      this.mDatas.currentView++;
+    }
+    console.log("onClickNext", this.mDatas.currentView);
+
+    this.fixScrollLeft();
+
+  }
+
+  fixScrollLeft() {
+    let c = document.getElementById("photos-container");
+    let scrollLeft = c.scrollLeft;
+
+    let fixedScrollLeft = this.mDatas.currentView * (this.imgWidth + this.marginSize) - 1/2 * this.content.getContentDimensions().contentWidth + 1/2 * this.imgWidth;
+
+    console.log(fixedScrollLeft);
+    
+    c.scrollLeft = fixedScrollLeft;
+  }
+
+  moveToImg(index){
+    this.mDatas.currentView = index;
+    this.fixScrollLeft();
   }
 
 }

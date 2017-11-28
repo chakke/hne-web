@@ -23,6 +23,7 @@ page-fb-gallery {
     }
     .main-content {
         padding-top: map-get($map: $FBSizes, $key: defaultPadding);
+        margin-bottom: map-get($map: $FBSizes, $key: defaultMargin);
         padding-left: 32px;
         padding-right: 32px;
         position: relative;
@@ -63,6 +64,9 @@ page-fb-gallery {
                 font-weight: bold;
             }
         }
+    }
+    #loading-icon {
+        padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
     }
     .hidden {
         display: none;

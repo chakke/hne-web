@@ -3,24 +3,80 @@ import { Injectable } from '@angular/core';
 import { Toast, ToastController, App } from 'ionic-angular';
 
 import { Menu } from '../interfaces/menu';
-import { Table } from '../interfaces/table'; 
-import { TableMatches } from '../interfaces/table-matches'; 
-import { Match } from '../interfaces/match'; 
-import { ImageArr } from '../interfaces/image'; 
+import { Table } from '../interfaces/table';
+import { TableMatches } from '../interfaces/table-matches';
+import { Match } from '../interfaces/match';
+import { ImageArr } from '../interfaces/image';
 
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
+import { FBSlides } from '../interfaces/fb-slide';
 
 
 @Injectable()
 export class AppControllerProvider {
   private toast: Toast;
-  menuItems: Array<Menu> = [];
+  menuItems: Array<Menu> = [
+    {
+      id: 1,
+      name: "Home",
+      active: false,
+      page: "FbHomePage",
+      link: "fb-home"
+    },
+    {
+      id: 2,
+      name: "Tin tức",
+      active: false,
+      page: "FbNewsPage",
+      link: "fb-news"
+    },
+    {
+      id: 3,
+      name: "Lịch thi đấu",
+      active: false,
+      page: "FbScheducePage",
+      link: "fb-scheduce"
+    },
+    {
+      id: 4,
+      name: "Bảng xếp hạng",
+      active: false,
+      page: "FbTablesPage",
+      link: "fb-tables"
+    },
+    {
+      id: 5,
+      name: "Video",
+      active: false,
+      page: "FbVideosPage",
+      link: "fb-videos"
+    },
+    {
+      id: 6,
+      name: "Hình ảnh",
+      active: false,
+      page: "FbImagesPage",
+      link: "fb-images"
+    },
+    {
+      id: 7,
+      name: "Câu lạc bộ",
+      active: false,
+      page: "FbClubsPage",
+      link: "fb-clubs"
+    }
+  ];
   constructor(
     public firebaseService: FirebaseServiceProvider,
     private app: App,
     private toastCtrl: ToastController) {
   }
+
+  getMenu() {
+    return this.menuItems;
+  }
+
 
   setRootPage(page: any, param?: any) {
     if (this.setActivePage(page)) {
@@ -118,13 +174,22 @@ export class AppControllerProvider {
     })
   }
 
-  loadMoreImage(from: number): Observable<ImageArr>{
-    if(from > 30){
+  loadMoreImage(from: number): Observable<ImageArr> {
+    if (from > 50) {
       return;
     }
     return this.firebaseService.loadImage(from).map(elm => {
       return {
         images: elm.images
+      }
+    })
+  }
+
+  getImageFBSlides(): Observable<FBSlides> {
+    return this.firebaseService.getImageFBSlides().map(elm => {
+      return {
+        id: elm.id,
+        items: elm.items
       }
     })
   }

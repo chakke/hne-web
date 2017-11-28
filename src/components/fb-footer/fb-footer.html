@@ -1,4 +1,60 @@
-<!-- Generated template for the FbFooterComponent component -->
-<div>
-  {{text}}
+<div class="background-footer">
+  <div class="col-md-3 col-sm-3 col-xs-12 div-col-cm">
+    <div class="div-cm">
+      <span class="span-cm big-font">CHUYÊN MỤC</span>
+    </div>
+    <div class="div-list-item">
+      <div class="div-item">
+        <img class="img-item" src="assets/test/item.png" alt="">
+        <span class="small-font">Tin tức</span>
+      </div>
+      <div class="div-item">
+        <img class="img-item" src="assets/test/item.png" alt="">
+        <span class="small-font">Lịch thi đấu - kết quả</span>
+      </div>
+      <div class="div-item">
+        <img class="img-item" src="assets/test/item.png" alt="">
+        <span class="small-font">Bảng xếp hạng</span>
+      </div>
+      <div class="div-item">
+        <img class="img-item" src="assets/test/item.png" alt="">
+        <span class="small-font">Thư viện</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12 div-col-bvm">
+    <div class="div-bvm">
+      <span class="span-bvm big-font">BÀI VIẾT MỚI</span>
+    </div>
+    <div class="div-list-bvm" *ngFor="let item of listNewPost">
+      <div class="col-md-3 col-sm-3 col-xs-12 div-img">
+        <img class="img-item" src="{{item.pictureUrl}}" alt="">
+      </div>
+      <div class="col-md-9 col-sm-9 col-lg-9 col-xs-12 div-title">
+        <span class="small-font ">{{item.title}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-3 col-xs-12 div-col-mxh">
+    <div class="div-mxh">
+      <span class="span-mxh big-font">MẠNG XÃ HỘI</span>
+    </div>
+    <div class="div-list-item">
+      <div class="div-item">
+        <img class="img-item" src="assets/test/item.png" alt="">
+        <span class="small-font">Facebook</span>
+      </div>
+      <div class="div-item">
+        <img class="img-item" src="assets/test/item.png" alt="">
+        <span class="small-font">Google</span>
+      </div>
+      <div class="div-item">
+        <img class="img-item" src="assets/test/item.png" alt="">
+        <span class="small-font">Youtube</span>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <span class="copr">Bản quyền thuộc về <span class="name-copr">&nbsp;Hanoielevencup.com</span></span>
+  </div>
 </div>

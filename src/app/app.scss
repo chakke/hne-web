@@ -13,7 +13,7 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .show-page {
-    font-size: .9em;
+    font-size: 1.2em;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -53,8 +53,16 @@
     text-transform: uppercase;
 }
 
+[tappale] {
+    cursor: pointer;
+}
+
 [nowrap] {
     white-space: nowrap;
+}
+
+[no-padding] {
+    padding: 0;
 }
 
 .pointer {
@@ -121,4 +129,31 @@
 
 .header {
     background-color: #393a3e !important;
+}
+
+// -------------------FLEX
+.a3-container {
+    display: flex;
+}
+
+.a3-justify-end {
+    justify-content: flex-end;
+}
+
+.a3-justify-center {
+    justify-content: center;
+}
+
+.a3-justify-start {
+    justify-content: flex-start;
+}
+
+.a3-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a3-items-center {
+    align-items: center;
 }

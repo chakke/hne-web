@@ -1,23 +1,39 @@
-<ion-content (click)="onClickClose()">
+<ion-content no-bounce>
 
-    <div class="close-button">
+    <div class="close-button" (click)="onClickClose()">
         <ion-icon name="md-close"></ion-icon>
     </div>
     <div class="main-content">
-        <div class="col-2"></div>
-        <div class="col-8 current-photo">
-            <div class="photo-title">
-                <span>B-Gate B-Gate FC vs MenU FC (v1)</span>
-                <span class="photo-number">2/22</span>
+        <div no-padding class="col-2 a3-container a3-items-center a3-justify-start">
+            <div class="button-left" (click)="onClickPrevious()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
             </div>
-            <div class="photo"></div>
         </div>
-        <div class="col-2"></div>
+        <div class="col-8 current-photo a3-container a3-justify-center">
+            <div class="photo-detail">
+                <div class="photo-title">
+                    <span>B-Gate B-Gate FC vs MenU FC (v1)</span>
+                    <span class="photo-number">{{mDatas.currentView+1}}/{{images.length}}</span>
+                </div>
+                <div class="main-photo">
+                    <img src="{{images[mDatas.currentView]}}">
+                    <!-- <div [ngStyle]="{'background-image': 'url(' + images[mDatas.currentView] + ')'}"></div> -->
+                </div>
+            </div>
+        </div>
+        <div no-padding class="col-2 a3-container a3-items-center a3-justify-end">
+            <div class="button-right" (click)="onClickNext()">
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+            </div>
+        </div>
     </div>
     <div class="photo-preview">
-        <div class="photos-container">
-            <div *ngFor="let i of images" [ngStyle]="{'background-image': 'url(' + i + ')'}">
-
+        <div id="photos-container">
+            <div *ngFor="let img of images; let i = index" (click)="moveToImg(i)">
+                <div class="photo" [class.photo-onview]="i==mDatas.currentView" [ngStyle]="{'background-image': 'url(' + img + ')'}"></div>
+                <div class="info">
+                    <span>{{i+1}}/{{images.length}}</span>
+                </div>
             </div>
         </div>
     </div>

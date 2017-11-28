@@ -1,4 +1,8 @@
-page-modal-gallery {}
+page-modal-gallery {
+    .photo-onview {
+        opacity: 1 !important;
+    }
+}
 
 .modal-gallery {
     .modal-wrapper {
@@ -7,7 +11,7 @@ page-modal-gallery {}
         top: 0;
         left: 0;
         ion-content {
-            background: rgba(black, .6) !important;
+            background: rgba(black, .8) !important;
         }
         .close-button {
             border-radius: 50%;
@@ -15,35 +19,78 @@ page-modal-gallery {}
             position: absolute;
             top: 32px;
             right: 32px;
-            width: 3em;
-            height: 3em;
+            width: 2em;
+            height: 2em;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 10;
             ion-icon {
-                font-size: 2em;
                 font-weight: bold;
             }
         }
         .main-content {
             display: flex;
             height: 80vh;
+            .button-left {
+                width: 6vw;
+                height: 14vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background-color: #0E0E10;
+                padding: 0 10px;
+                color: gray;
+                font-size: 1.4em;
+            }
+            .button-left:hover {
+                background-color: #434348;
+            }
+            .button-right {
+                width: 6vw;
+                height: 14vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                background-color: #0E0E10;
+                padding: 0 10px;
+                color: gray;
+                font-size: 1.4em;
+            }
+            .button-right:hover {
+                background-color: #434348;
+            }
             .current-photo {
-                .photo-title {
-                    color: white;
-                    font-size: 2em;
-                    position: relative;
-                    padding: 4px;
-                    .photo-number {
-                        color: #E4BA28;
-                        position: absolute;
-                        right: 0;
-                        top: 0;
+                .photo-detail {
+                    height: 100%;
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .photo-title {
+                        color: white;
+                        position: relative;
+                        padding: 4px;
+                        .photo-number {
+                            color: #E4BA28;
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                        }
                     }
-                }
-                .photo {
-                    background: #E4BA28;
-                    height: 80%;
+                    .main-photo {
+                        max-height: 60vh;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img {
+                            max-height: 60vh;
+                        }
+                    }
                 }
             }
         }
@@ -51,7 +98,9 @@ page-modal-gallery {}
             height: 20vh;
             display: flex;
             padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
-            .photos-container {
+            // position: absolute;
+            // bottom: 0;
+            #photos-container {
                 background: black;
                 height: 100%;
                 width: 100%;
@@ -59,9 +108,32 @@ page-modal-gallery {}
                 padding-left: map-get($map: $FBSizes, $key: defaultPadding);
                 padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
                 overflow-x: auto;
+                display: flex;
                 >div {
                     // padding-right: map-get($map: $FBSizes, $key: defaultPadding);
                     height: 100%;
+                    width: 120px;
+                    min-width: 120px;
+                    margin-right: map-get($map: $FBSizes, $key: defaultPadding);
+                    position: relative;
+                    .photo {
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        height: 100%;
+                        width: 100%;
+                        opacity: .3;
+                    }
+                    .info {
+                        position: absolute;
+                        color: white;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                 }
             }
         }

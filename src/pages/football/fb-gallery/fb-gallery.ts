@@ -36,20 +36,22 @@ export class FbGalleryPage {
 
   loading;
   ionViewDidEnter() {
-    let header = <HTMLDivElement>document.getElementById("header");
     this.loading = <HTMLElement>document.getElementById("loading-icon");
-    let headerHeight = header.clientHeight;
 
     this.loadImage();
     this.content.ionScroll.subscribe(event => {
+      let header = <HTMLDivElement>document.getElementById("logo");
+      let headerHeight = header.clientHeight;
       let scrollTop = event.scrollTop;
       let scrollHeight = this.content.getContentDimensions().scrollHeight;
       let contentHeight = this.content.getContentDimensions().contentHeight;
-      if (!this.isLoading && (scrollTop >= scrollHeight - headerHeight - contentHeight)) {
+      let loadingHeight = scrollHeight - headerHeight - contentHeight * 1.5;
+
+      if (!this.isLoading && (scrollTop >= loadingHeight)) {
         console.log("LOAD");
         this.loadImage();
       }
-      console.log(event.scrollTop);
+      // console.log(event.scrollTop);
       this.scrollSubject.next(event.scrollTop);
     })
   }
