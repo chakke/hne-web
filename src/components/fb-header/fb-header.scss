@@ -2,6 +2,7 @@ fb-header {
     $background: #393a3e;
     $transitionTime: 400ms;
     $menuHeight: map-get($map: $FBSizes, $key: menuheight);
+    $colorBlack: map-get($map: $colors, $key: black);
     .fb-header {
         display: flex;
         flex-wrap: nowrap;
@@ -9,6 +10,9 @@ fb-header {
         height: 3 * $menuHeight;
         overflow: hidden;
         position: relative;
+        background-image: url("../assets/football/images/home/header_bar.png");
+        background-size: 100% 100%;
+        background-position: center;
         &.fixed-top {
             .logo-div {
                 position: fixed;
@@ -18,6 +22,12 @@ fb-header {
                 left: 0;
                 background-color: $background;
                 transform: translate3d(0, 0, 0);
+                .normal {
+                    display: none;
+                }
+                .special {
+                    display: block;
+                }
             }
             .menu-div {
                 .menu {
@@ -25,6 +35,12 @@ fb-header {
                     position: fixed;
                     top: 0;
                     transform: translate3d(0, 0, 0);
+                    .home-item {
+                        background-color: $background;
+                        &:before {
+                            top: -1px;
+                        }
+                    }
                 }
             }
         }
@@ -35,9 +51,13 @@ fb-header {
             height: 3* $menuHeight;
             align-self: flex-end;
             display: flex;
+            justify-content: center;
+            align-items: center;
             img {
                 object-fit: contain;
-                width: 100%;
+            }
+            .special {
+                display: none;
             }
         }
         .menu-div {
@@ -59,10 +79,9 @@ fb-header {
                     .searchbar-input {
                         width: 25em;
                         border-radius: 20px;
-                        background-color: map-get($map: $colors, $key: black);
+                        background-color: $colorBlack;
                         color: map-get($map: $colors, $key: white);
                         padding: 8px 3em;
-                        transition: width $transitionTime;
                         position: absolute;
                         right: 0;
                         top: 50%;
@@ -107,26 +126,31 @@ fb-header {
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                background-color: map-get($map: $colors, $key: black);
+                // background-color: $colorBlack;
                 display: flex;
-                // transition: all $transitionTime;
                 .home-item {
                     height: $menuHeight;
                     width: $menuHeight;
                     position: relative;
+                    &.active {
+                        &::before {
+                            border-bottom-color: map-get($map: $colors, $key: primary);
+                        }
+                    }
                     &::before {
                         content: " ";
                         display: block;
                         color: map-get($map: $colors, $key: white);
-                        border-left: solid 15px $background;
+                        border-left: solid 15px transparent;
                         border-bottom-style: solid;
-                        border-bottom-color: map-get($map: $colors, $key: primary);
+                        border-bottom-color: $colorBlack;
                         border-bottom-width: $menuHeight;
                         position: absolute;
-                        top: 0;
+                        top: 0px;
                         left: 0;
                         bottom: 0;
                         right: 0;
+                        border-top: solid 1px transparent;
                     }
                     i {
                         position: absolute;
@@ -137,12 +161,18 @@ fb-header {
                         color: map-get($map: $colors, $key: white);
                     }
                 }
+                .fake-item {
+                    width: 100%;
+                    background-color: $colorBlack;
+                    flex: 1;
+                }
                 .menu-item {
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     color: map-get($map: $colors, $key: white);
+                    background-color: $colorBlack;
                     font-weight: bold;
                     font-size: map-get($map: $FBSizes, $key: big);
                     text-transform: uppercase;
@@ -178,11 +208,13 @@ fb-header {
             top: 0;
             left: 0;
             z-index: 5;
+            background-image: none;
+            background-repeat: no-repeat;
             .logo-div {
                 max-width: 20% !important;
                 height: 100%;
                 padding: 0;
-                background-color: map-get($map: $colors, $key: black);
+                background-color: $colorBlack;
                 z-index: 10;
             }
             .menu-div {
@@ -190,14 +222,14 @@ fb-header {
                 .search-bar {
                     height: $menuHeight !important;
                     min-height: auto;
-                    background-color: map-get($map: $colors, $key: black);
+                    background-color: $colorBlack;
                     width: 100%;
                     z-index: 10;
                     .col-md-8 {
                         padding: 0;
                     }
                     .searchbar {
-                        background-color: map-get($map: $colors, $key: black);
+                        background-color: $colorBlack;
                         z-index: 10;
                         .searchbar-input {
                             right: $menuHeight;
@@ -208,7 +240,7 @@ fb-header {
                             }
                         }
                         .button-search {
-                            right:calc( #{$menuHeight} + 8px);
+                            right:calc(#{$menuHeight} - -8px);
                         }
                         .button-cancel {
                             left: 6px;
@@ -227,6 +259,7 @@ fb-header {
                     bottom: auto;
                     height: auto;
                     width: 100%;
+                    background-color: $colorBlack;
                     .home-item {
                         display: none;
                     }
@@ -235,8 +268,11 @@ fb-header {
                         text-align: center;
                         padding: 10px 0;
                     }
+                    .fake-item {
+                        display: none;
+                    }
                     &.toggled {
-                        transform: translateY(0) !important;
+                        transform: translateY(-1px) !important;
                     }
                 }
                 .mobile-menu-button {
@@ -244,7 +280,7 @@ fb-header {
                     display: block;
                     width: $menuHeight;
                     height: $menuHeight;
-                    background-color: map-get($map: $colors, $key: black);
+                    background-color: $colorBlack;
                     position: absolute;
                     right: 0;
                     top: 0;
@@ -274,13 +310,13 @@ fb-header {
                         top: calc(#{map-get($map: $FBSizes, $key: menuheight)}/2 - 1px);
                         left: 25%;
                         &.one {
-                            top: calc(#{map-get($map: $FBSizes, $key: menuheight)}/2 - 6px);
+                            top: calc(#{map-get($map: $FBSizes, $key: menuheight)}/2 - 7px);
                         }
                         &.two {
                             opacity: 1;
                         }
                         &.three {
-                            top: calc(#{map-get($map: $FBSizes, $key: menuheight)}/2 + 4px);
+                            top: calc(#{map-get($map: $FBSizes, $key: menuheight)}/2 - -5px);
                         }
                     }
                 }

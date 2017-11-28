@@ -14,12 +14,67 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AppControllerProvider {
   private toast: Toast;
-  menuItems: Array<Menu> = [];
+  menuItems: Array<Menu> = [
+    {
+      id:1, 
+      name: "Home",
+      active: false,
+      page: "FbHomePage",
+      link: "fb-home"
+    },
+    {
+      id:2, 
+      name: "Tin tức",
+      active: false,
+      page: "FbNewsPage",
+      link: "fb-news"
+    },
+    {
+      id:3, 
+      name: "Lịch thi đấu",
+      active: false,
+      page: "FbScheducePage",
+      link: "fb-scheduce"
+    },
+    {
+      id:4, 
+      name: "Bảng xếp hạng",
+      active: false,
+      page: "FbTablesPage",
+      link: "fb-tables"
+    },
+    {
+      id:5, 
+      name: "Video",
+      active: false,
+      page: "FbVideosPage",
+      link: "fb-videos"
+    },
+    {
+      id:6, 
+      name: "Hình ảnh",
+      active: false,
+      page: "FbImagesPage",
+      link: "fb-images"
+    },
+    {
+      id:7, 
+      name: "Câu lạc bộ",
+      active: false,
+      page: "FbClubsPage",
+      link: "fb-clubs"
+    } 
+  ];
   constructor(
     public firebaseService: FirebaseServiceProvider,
     private app: App,
     private toastCtrl: ToastController) {
   }
+
+  getMenu(){
+    return this.menuItems;
+  }
+
 
   setRootPage(page: any, param?: any) {
     if (this.setActivePage(page)) {

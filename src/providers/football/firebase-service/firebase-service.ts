@@ -39,7 +39,8 @@ export class FirebaseServiceProvider {
                   draw: 0,
                   goalsScore: 10,
                   goalsLost: 2,
-                  point: 12
+                  point: 12,
+                  rankChange: "up"
                 },
                 {
                   id: "2",
@@ -51,7 +52,9 @@ export class FirebaseServiceProvider {
                   draw: 3,
                   goalsScore: 5,
                   goalsLost: 3,
-                  point: 6
+                  point: 6,
+                  rankChange: "up"
+
                 },
                 {
                   id: "3",
@@ -63,7 +66,8 @@ export class FirebaseServiceProvider {
                   draw: 1,
                   goalsScore: 5,
                   goalsLost: 5,
-                  point: 7
+                  point: 7,
+                  rankChange: "draw"
                 },
                 {
                   id: "4",
@@ -75,7 +79,8 @@ export class FirebaseServiceProvider {
                   draw: 1,
                   goalsScore: 12,
                   goalsLost: 6,
-                  point: 10
+                  point: 10,
+                  rankChange: "down" 
                 },
               ]
             })

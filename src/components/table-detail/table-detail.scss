@@ -5,9 +5,38 @@ table-detail {
             .club-logo {
                 height: map-get($map: $FBSizes, $key: lineheight);
                 margin-right: 5px;
+                width: 1.5em;
+                vertical-align: bottom;
             }
             .table th {
                 border-top: none;
+            }
+            $arrowSize: 7px;
+            .arrow {
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 5px;
+            }
+            .draw {
+                display: block;
+                width: $arrowSize;
+                height: $arrowSize;
+                border-radius: 50%;
+                background-color: map-get($map: $colors, $key: gray);
+            }
+            .up {
+                width: 0;
+                height: 0;
+                border-left: $arrowSize/1.9 solid transparent;
+                border-right: $arrowSize/1.9 solid transparent;
+                border-bottom: $arrowSize solid map-get($map: $colors, $key: primary);
+            }
+            .down {
+                width: 0;
+                height: 0;
+                border-left: $arrowSize/1.9 solid transparent;
+                border-right: $arrowSize/1.9 solid transparent;
+                border-top: $arrowSize solid map-get($map: $colors, $key: red);
             }
         }
     }
