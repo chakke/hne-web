@@ -22,52 +22,10 @@ export class FbHeaderComponent {
   logoElement: HTMLElement;
   menuElement: HTMLElement;
 
-  menuItems: Array<Menu> = [
-    {
-      id: 1,
-      name: "Tin tức",
-      active: false,
-      page: "",
-      link: ""
-    },
-    {
-      id: 2,
-      name: "Lịch thi đấu & kết quả",
-      active: false,
-      page: "",
-      link: ""
-    },
-    {
-      id: 3,
-      name: "Bảng xếp hạng",
-      active: false,
-      page: "",
-      link: ""
-    },
-    {
-      id: 4,
-      name: "Video",
-      active: false,
-      page: "",
-      link: ""
-    },
-    {
-      id: 5,
-      name: "Hình ảnh",
-      active: false,
-      page: "",
-      link: ""
-    },
-    {
-      id: 6,
-      name: "Câu lạc bộ",
-      active: false,
-      page: "",
-      link: ""
-    }
-  ]
-
-  constructor(platform: Platform,private appController: AppControllerProvider ) {
+  menuItems: Array<Menu> = [];
+  homePage = "FbHomePage";
+  constructor(platform: Platform, private appController: AppControllerProvider) {
+    this.menuItems = this.appController.getMenu();
     platform.ready().then(() => {
       let width = platform.width();
       if (width < this.maxSmallScreenWidth) {
@@ -138,7 +96,11 @@ export class FbHeaderComponent {
     this.isMenuToggled = !this.isMenuToggled;
   }
 
-  gotoRootPage(){
-    this.appController.setRootPage("FbHomePage");
+  gotoRootPage() {
+    this.appController.setRootPage(this.homePage);
+  }
+
+  menuItemClick(menu: Menu) {
+    this.appController.setRootPage(menu.page);
   }
 }

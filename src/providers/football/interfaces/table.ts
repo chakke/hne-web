@@ -9,7 +9,8 @@ export interface TableItem {
     draw: number;
     goalsScore: number;
     goalsLost: number;
-    point: number;
+    point: number; 
+    rankChange: string;
 }
 
 export interface Table {

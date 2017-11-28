@@ -2,41 +2,44 @@
 </div>
 <div class="fb-header" id="fb-header">
     <div class="logo-div pointer" id="logo" (click)="gotoRootPage()" tappale>
-        <img src="http://www.cliffordfrench.co.uk/wp-content/uploads/2015/06/logo-premier-league-white.png" alt="Logo">
+        <img class="normal" src="assets/football/images/home/logo_1.png" alt="Logo">
+        <img class="special" src="assets/football/images/home/logo_2.png" alt="Logo">
     </div>
     <div class="menu-div">
         <div class="search-bar">
             <div class="col-md-8">
                 <div class="searchbar" id="searchbar">
                     <span class="button-cancel button" *ngIf="searchTerm" (click)="clearSearch()" tappable>
-                                <i class="fa fa-times " aria-hidden="true "></i>
-                            </span>
+                        <i class="fa fa-times " aria-hidden="true "></i>
+                    </span>
                     <input type="text" [(ngModel)]="searchTerm " class="searchbar-input" placeholder="{{placeholder}} ">
                     <span class="button-search button" (click)="search()" tappable>
-                                <i class="fa fa-search " aria-hidden="true "></i>
-                            </span>
+                        <i class="fa fa-search " aria-hidden="true "></i>
+                    </span>
                 </div>
             </div>
             <div class="col-md-4 social d-none d-md-flex">
                 <span class="social-item ">
-                            <i class="fa fa-facebook "></i>
-                        </span>
+                    <i class="fa fa-facebook "></i>
+                </span>
                 <span class="social-item ">
-                            <i class="fa fa-google "></i>
-                        </span>
+                    <i class="fa fa-google "></i>
+                </span>
                 <span class="social-item ">
-                            <i class="fa fa-youtube "></i>
-                        </span>
+                    <i class="fa fa-youtube "></i>
+                </span>
             </div>
         </div>
 
         <div class="menu" [class.toggled]="isMenuToggled" id="menu">
-            <div class="home-item pointer" (click)="gotoRootPage()" tappale>
+            <!-- <div class="home-item pointer" (click)="gotoRootPage()" tappale>
                 <i class="fa fa-home"></i>
+            </div> -->
+            <div [ngClass]="{'menu-item': item.page != homePage, 'home-item': item.page == homePage, 'active': item.active}" *ngFor="let item of menuItems" (click)="menuItemClick(item)" tappale>
+                <i *ngIf="item.page == homePage" class="fa fa-home"></i>
+                <span *ngIf="item.page != homePage">{{item.name}}</span>
             </div>
-            <div class="menu-item" *ngFor="let item of menuItems" tappale>
-                <span>{{item.name}}</span>
-            </div>
+            <div class="fake-item"></div>
         </div>
         <div class="mobile-menu-button pointer" [class.toggled]="isMenuToggled" (click)="toggleMenu()">
             <span class="bar one"></span>

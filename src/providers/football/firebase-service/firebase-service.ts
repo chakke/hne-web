@@ -39,7 +39,8 @@ export class FirebaseServiceProvider {
                   draw: 0,
                   goalsScore: 10,
                   goalsLost: 2,
-                  point: 12
+                  point: 12,
+                  rankChange: "up"
                 },
                 {
                   id: "2",
@@ -51,7 +52,9 @@ export class FirebaseServiceProvider {
                   draw: 3,
                   goalsScore: 5,
                   goalsLost: 3,
-                  point: 6
+                  point: 6,
+                  rankChange: "up"
+
                 },
                 {
                   id: "3",
@@ -63,7 +66,8 @@ export class FirebaseServiceProvider {
                   draw: 1,
                   goalsScore: 5,
                   goalsLost: 5,
-                  point: 7
+                  point: 7,
+                  rankChange: "draw"
                 },
                 {
                   id: "4",
@@ -75,7 +79,8 @@ export class FirebaseServiceProvider {
                   draw: 1,
                   goalsScore: 12,
                   goalsLost: 6,
-                  point: 10
+                  point: 10,
+                  rankChange: "down" 
                 },
               ]
             })
@@ -244,5 +249,78 @@ export class FirebaseServiceProvider {
         })
       }, 1000);
     })
+  }
+
+  getImageFBSlides(): Observable<any>{
+    if(this.isUseFakeData){
+      return new Observable(observable=>{
+        setTimeout(() => {
+          observable.next({
+            id: "1",
+            items:[
+              {
+                nameOfClub1: "B-gate",
+                nameOfClub2: "ManU",
+                numberOfHaft: 1,
+                arrayImage: [
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              },{
+                nameOfClub1: "Team1",
+                nameOfClub2: "Team2",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              },{
+                nameOfClub1: "Team1",
+                nameOfClub2: "Team2",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              },{
+                nameOfClub1: "Team2",
+                nameOfClub2: "Team3",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }
+              ,{
+                nameOfClub1: "Team4",
+                nameOfClub2: "Team5",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic5.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }
+            ]
+           
+          })
+        }, 2000);
+        
+      })
+    }
   }
 }

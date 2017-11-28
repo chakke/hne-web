@@ -4,25 +4,25 @@ main-news {
     background-color: red;
     .box-title-padding{
         background-color: map-get($map: $colors, $key: background);
-        .div-title{
+        .div-title {
             background-color: map-get($map: $colors, $key: white);
         }
     }
-    .box-content-padding{
+    .box-content-padding {
         padding-top: 1em;
         background-color: map-get($map: $colors, $key: background);
-        .div-content{
-            .div-main-new{
+        .div-content {
+            .div-main-new {
                 background-color: map-get($map: $colors, $key: white);
-                .div-img{
+                .div-img {
                     position: relative;
                     height: 30em;
                     width: 100%;
-                    .img-pic1{
+                    .img-pic1 {
                         width: 100%;
                         height: 100%;
                     }
-                    .div-date-title{
+                    .div-date-title {
                         position: absolute;
                         top: 2em;
                         left: 2em;
@@ -30,107 +30,104 @@ main-news {
                         padding: 0.2em;
                     }
                 }
-                .div-title{
+                .div-title {
                     padding-right: 1.5em;
                     padding-left: 1.5em;
                     padding-top: 0.7em;
                     padding-bottom: 0.7em;
                     height: 5em;
-                    .span-title-main{
-                        display: -webkit-box;                        
+                    .span-title-main {
+                        display: -webkit-box;
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }
                 }
-                .div-tag{
+                .div-tag {
                     border-top: 1px solid rgba(128, 128, 128, 0.7);
                     width: 100%;
                     height: 4em;
                     padding: 1em;
-                    .img-tag{
+                    .img-tag {
                         height: 50%;
                     }
                 }
             }
-            .div-two-new{
-                .div-nd-new{
+            .div-two-new {
+                .div-nd-new {
                     width: 100%;
                     padding-left: 0;
                     padding-top: 1em;
                     padding-right: 0.5em;
-                    .div-background{
+                    .div-background {
                         background-color: map-get($map: $colors, $key: white);
-                        .div-img{
+                        .div-img {
                             height: 20em;
                             width: 100%;
-                            .img-pic2{
+                            .img-pic2 {
                                 width: 100%;
                                 height: 100%;
                             }
                         }
-                        .div-date-title{
+                        .div-date-title {
                             padding-left: 1.5em;
                             padding-top: 1em;
                             padding-right: 1.5em;
-                        }          
-                        .div-title{
+                        }
+                        .div-title {
                             padding-right: 1.5em;
                             padding-left: 1.5em;
                             padding-top: 0.7em;
                             padding-bottom: 0.7em;
                             height: 6em;
-                            .span-title{
-                                display: -webkit-box;                        
+                            .span-title {
+                                display: -webkit-box;
                                 -webkit-line-clamp: 3;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
                             }
-                                         
                         }
                     }
-                    
-                    
-                    .div-tag{
+                    .div-tag {
                         border-top: 1px solid rgba(128, 128, 128, 0.7);
                         width: 100%;
                         height: 4em;
                         padding: 1em;
-                        .img-tag{
+                        .img-tag {
                             height: 50%;
                         }
                     }
                 }
-                .div-rd-new{
-                    width: 100%;    
+                .div-rd-new {
+                    width: 100%;
                     padding-top: 1em;
                     padding-left: 0.5em;
                     padding-right: 0;
-                    .div-background{
+                    .div-background {
                         background-color: map-get($map: $colors, $key: white);
-                        .div-img{
+                        .div-img {
                             height: 20em;
                             width: 100%;
-                            .img-pic3{
+                            .img-pic3 {
                                 width: 100%;
                                 height: 100%;
                             }
-                        }            
-                        .div-date-title{
+                        }
+                        .div-date-title {
                             padding-left: 1.5em;
                             padding-top: 1em;
                             padding-right: 1.5em;
-                        } 
-                        .div-title{
+                        }
+                        .div-title {
                             padding-right: 1.5em;
                             padding-left: 1.5em;
                             padding-top: 0.7em;
                             padding-bottom: 0.7em;
                             height: 6em;
-                            .span-title{
-                                display: -webkit-box;                        
+                            .span-title {
+                                display: -webkit-box;
                                 -webkit-line-clamp: 3;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
@@ -138,13 +135,12 @@ main-news {
                             }
                         }
                     }
-                    
-                    .div-tag{
+                    .div-tag {
                         border-top: 1px solid rgba(128, 128, 128, 0.7);
                         width: 100%;
                         height: 4em;
                         padding: 1em;
-                        .img-tag{
+                        .img-tag {
                             height: 50%;
                         }
                     }
@@ -152,5 +148,4 @@ main-news {
             }
         }
     }
-    
 }
