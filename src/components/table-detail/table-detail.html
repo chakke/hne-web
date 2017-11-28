@@ -11,17 +11,13 @@
         <table class="table table-hover" *ngIf="isDataUpdated">
             <tr>
                 <th colspan="2">Đội bóng</th>
-                <th text-center>T</th>
-                <th text-center>G</th>
-                <th text-center>B</th>
+                <th text-center>Trận</th>
                 <th text-center>Điểm</th>
             </tr>
             <tr *ngFor="let item of (table| async)?.items ; let i = index">
                 <td class="d-flex justify-content-center align-items-center">{{i+1}} <span class="{{item.rankChange}} arrow"></span> </td>
-                <td nowrap><img class="club-logo" src="{{item.clubLogo}}" alt="Logo">{{item.clubName}}</td>
-                <td text-center>{{item.won}}</td>
-                <td text-center>{{item.draw}}</td>
-                <td text-center>{{item.lost}}</td>
+                <td><img class="club-logo" src="{{item.clubLogo}}" alt="Logo">{{item.clubName}}</td>
+                <td text-center>{{item.won +item.draw +item.lost}}</td>
                 <td text-center>{{item.point}}</td>
             </tr>
         </table>

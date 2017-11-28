@@ -9,7 +9,7 @@ import { AppControllerProvider } from '../../providers/football/app-controller/a
   templateUrl: 'fb-header.html'
 })
 export class FbHeaderComponent {
-  @Input() placeholder: string = "Nhập từ khóa tìm kiếm";
+  @Input() placeholder: string = "Tìm kiếm";
   @Input() content: Content;
   @Output() onSearch = new EventEmitter<string>();
 
