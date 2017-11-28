@@ -13,7 +13,7 @@
             <div class="match a3-center" *ngFor="let match of matches.matches" (click)="onClickMatch(match)">
                 <div>
                     <div class="home a3-container a3-items-center a3-justify-end ">
-                        <div class="home-name bold ">{{match.homeFc}}</div>
+                        <div class="home-name ">{{match.homeFc}}</div>
                         <div class="logo ">
                             <img src={{match.homeLogo}}>
                         </div>
@@ -29,7 +29,7 @@
                         <div class="logo ">
                             <img src={{match.guestLogo}}>
                         </div>
-                        <div class="guest-name bold ">{{match.guestFc}}</div>
+                        <div class="guest-name ">{{match.guestFc}}</div>
                     </div>
                 </div>
             </div>

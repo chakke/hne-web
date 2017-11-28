@@ -13,8 +13,8 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .show-page {
-    font-size: 1.2em;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-size: map-get($map: $FBFont, $key: normal);
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .big-font {
