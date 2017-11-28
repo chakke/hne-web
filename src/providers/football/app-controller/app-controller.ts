@@ -9,6 +9,7 @@ import { Match } from '../interfaces/match';
 
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
+import { FBSlides } from '../interfaces/fb-slide';
 
 
 @Injectable()
@@ -168,6 +169,14 @@ export class AppControllerProvider {
         guestLogo: elm.guestLogo,
         guestResult: elm.guestResult,
         detail: elm.detail
+      }
+    })
+  }
+  getImageFBSlides(): Observable<FBSlides>{
+    return this.firebaseService.getImageFBSlides().map(elm=>{
+      return {
+       id: elm.id,
+       items: elm.items
       }
     })
   }

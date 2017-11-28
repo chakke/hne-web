@@ -250,4 +250,77 @@ export class FirebaseServiceProvider {
       }, 1000);
     })
   }
+
+  getImageFBSlides(): Observable<any>{
+    if(this.isUseFakeData){
+      return new Observable(observable=>{
+        setTimeout(() => {
+          observable.next({
+            id: "1",
+            items:[
+              {
+                nameOfClub1: "B-gate",
+                nameOfClub2: "ManU",
+                numberOfHaft: 1,
+                arrayImage: [
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              },{
+                nameOfClub1: "Team1",
+                nameOfClub2: "Team2",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              },{
+                nameOfClub1: "Team1",
+                nameOfClub2: "Team2",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              },{
+                nameOfClub1: "Team2",
+                nameOfClub2: "Team3",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic1.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }
+              ,{
+                nameOfClub1: "Team4",
+                nameOfClub2: "Team5",
+                numberOfHaft: 2,
+                arrayImage: [
+                  "assets/test/fb-pic5.jpg",
+                  "assets/test/fb-pic2.jpg",
+                  "assets/test/fb-pic3.jpg",
+                  "assets/test/fb-pic4.jpg",
+                  "assets/test/fb-pic5.jpg",
+                ]
+              }
+            ]
+           
+          })
+        }, 2000);
+        
+      })
+    }
+  }
 }

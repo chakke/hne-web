@@ -8,6 +8,8 @@ import { FbHeaderComponent } from './fb-header/fb-header';
 import { FbFooterComponent } from './fb-footer/fb-footer';
 import { MainNewsComponent } from './main-news/main-news';
 import { TableMatchesComponent } from './table-matches/table-matches';
+import { FbHomeSliderComponent } from './fb-home-slider/fb-home-slider';
+import { DonorsListComponent } from './donors-list/donors-list';
 
 @NgModule({
 	declarations: [
@@ -18,7 +20,9 @@ import { TableMatchesComponent } from './table-matches/table-matches';
     FbHeaderComponent,
     FbFooterComponent,
     MainNewsComponent,
-    TableMatchesComponent
+    TableMatchesComponent,
+    FbHomeSliderComponent,
+    DonorsListComponent
 	],
 	imports: [IonicPageModule],
 	exports: [
@@ -29,7 +33,9 @@ import { TableMatchesComponent } from './table-matches/table-matches';
     FbHeaderComponent,
     FbFooterComponent,
     MainNewsComponent,
-    TableMatchesComponent
+    TableMatchesComponent,
+    FbHomeSliderComponent,
+    DonorsListComponent
 	]
 })
 export class ComponentsModule { }
