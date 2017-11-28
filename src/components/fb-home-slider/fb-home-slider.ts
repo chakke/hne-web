@@ -34,7 +34,7 @@ export class FbHomeSliderComponent {
     this.slidesList = this.appController.getImageFBSlides();
     this.slidesList.subscribe(data => {
       console.log(data);
-      for(let i = 0 ; i< 3; i++){
+      for(let i = 0 ; i< 4; i++){
         this.list_fillter.push(data.items[i]);
       }
       this.lengthSLide = data.items.length;
