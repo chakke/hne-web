@@ -4,7 +4,7 @@
     </div>
     <div class="container-fluid" *ngIf="!isLoadingData">
 
-        <div class="row background max-height sm-background">
+        <div class="row background  sm-background">
 
             <!-- ///////row-container////// -->
             <div class="col-md-2 col-sm-2 d-none d-md-block" text-center id="fb-slide-logo">
@@ -38,9 +38,9 @@
                             <!-- =========show in md============ -->
                             <div class="slider-container d-none d-md-block" id="slidesContainer">
                                 <div class="slide-box-container" *ngFor="let item of (slidesList | async)?.items" id="sliderBox">
-                                    <div class="slide-box">
-                                        <img [src]="item.arrayImage[0]" alt="">
-                                        <div class="slide-footer">
+                                    <div class="card">
+                                        <img class="card-img-top" [src]="item.arrayImage[0]" alt="Card image cap">
+                                        <div class="card-block">
                                             <div class="badges-container">
                                                 <div class="icon-bad">
                                                     <i class="fa fa-camera" aria-hidden="true"></i>
@@ -49,9 +49,7 @@
                                                     {{item.arrayImage.length}}
                                                 </div>
                                             </div>
-                                            <div class="name-club">
-                                                <span>{{item.nameOfClub1}} FC vs {{item.nameOfClub2}} FC (v{{item.numberOfHaft}})</span>
-                                            </div>
+                                            <p class="card-text" text-center>{{item.nameOfClub1}} FC vs {{item.nameOfClub2}} FC (v{{item.numberOfHaft}})</p>
                                         </div>
                                     </div>
                                 </div>
@@ -62,9 +60,9 @@
                             <div class="container-fluid d-block d-sm-block d-md-none" no-padding margin-top margin-bottom *ngIf="!isLoadingData">
                                 <div class="row ">
                                     <div class="col-sm-6 col-xs-12">
-                                        <div class="slide-box">
-                                            <img [src]="list_fillter[0].arrayImage[0]" alt="">
-                                            <div class="slide-footer">
+                                        <div class="card size-sm-xs">
+                                            <img class="card-img-top" [src]="list_fillter[0].arrayImage[0]" alt="Card image cap">
+                                            <div class="card-block">
                                                 <div class="badges-container">
                                                     <div class="icon-bad">
                                                         <i class="fa fa-camera" aria-hidden="true"></i>
@@ -73,9 +71,7 @@
                                                         {{list_fillter[0].arrayImage.length}}
                                                     </div>
                                                 </div>
-                                                <div class="name-club">
-                                                    <span>{{list_fillter[0].nameOfClub1}} FC vs {{list_fillter[0].nameOfClub2}} FC (v{{list_fillter[0].numberOfHaft}})</span>
-                                                </div>
+                                                <p class="card-text" text-center>{{list_fillter[0].nameOfClub1}} FC vs {{list_fillter[0].nameOfClub2}} FC (v{{list_fillter[0].numberOfHaft}})</p>
                                             </div>
                                         </div>
                                     </div>
@@ -83,10 +79,10 @@
                                         <div class="container-fluid no-xs-padding" no-padding>
                                             <div class="row no-gutters">
                                                 <div class="col-sm-12 col-xs-6">
-                                                    <div class="box-sm">
-                                                        <img [src]="list_fillter[1].arrayImage[0]" alt="">
-                                                        <div class="slide-footer">
-                                                            <div class="badges-container">
+                                                    <div class="card size-xs">
+                                                        <img class="card-img-top" [src]="list_fillter[1].arrayImage[0]" alt="Card image cap">
+                                                        <div class="card-block">
+                                                            <div class="badges-container position-xs">
                                                                 <div class="icon-bad">
                                                                     <i class="fa fa-camera" aria-hidden="true"></i>
                                                                 </div>
@@ -99,10 +95,10 @@
                                                 </div>
                                                 <div class="col-sm-12 col-xs-6">
                                                     <div style="height: 10px" class="d-none d-sm-block"></div>
-                                                    <div class="box-sm">
-                                                        <img [src]="list_fillter[2].arrayImage[0]" alt="">
-                                                        <div class="slide-footer">
-                                                            <div class="badges-container">
+                                                    <div class="card size-xs">
+                                                        <img class="card-img-top" [src]="list_fillter[2].arrayImage[0]" alt="Card image cap">
+                                                        <div class="card-block d-non">
+                                                            <div class="badges-container position-xs">
                                                                 <div class="icon-bad">
                                                                     <i class="fa fa-camera" aria-hidden="true"></i>
                                                                 </div>

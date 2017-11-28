@@ -16,6 +16,15 @@ fb-home-slider {
         }
     }
     @media (max-width: 575px) {
+        .position-xs {
+            bottom: 5px !important;
+        }
+        .size-sm-xs {
+            width: 100%;
+        }
+        .size-xs {
+            width: 42vw;
+        }
         .sm-background {
             background: $background;
         }
@@ -23,8 +32,8 @@ fb-home-slider {
             padding: 10px 0px!important;
         }
         .box-sm {
+            height: $img-height-md/2 !important;
             img {
-                height: $img-height-md/2 !important;
                 width: 100% !important;
             }
         }
@@ -42,12 +51,18 @@ fb-home-slider {
         }
     }
     @media (min-width: 576px) and (max-width: 767px) {
+        .size-sm-xs {
+            width: 46vw;
+        }
+        .size-xs {
+            width: 40vw;
+        }
         .sm-background {
             background: $background;
         }
         .box-sm {
+            // height: $img-height-md/2 - 5px !important;
             img {
-                height: $img-height-md/2 - 5px !important;
                 width: 100% !important;
             }
         }
@@ -55,8 +70,8 @@ fb-home-slider {
             width: 50% !important;
         }
         .slide-box {
+            // height: $img-height-md !important;
             img {
-                height: $img-height-md !important;
                 width: 100%;
             }
         }
@@ -69,9 +84,8 @@ fb-home-slider {
             width: 50% !important;
         }
         .slide-box {
-            img {
-                height: 200px;
-            }
+            height: $img-height-md;
+            img {}
         }
     }
     .padding-top {
@@ -162,14 +176,52 @@ fb-home-slider {
             -webkit-transform: rotate(135deg);
         }
     }
+    .card {
+        border: none;
+        border-radius: 0;
+    }
+    .card-img-top {
+        border: none;
+        border-radius: 0;
+        img {}
+    }
+    .card-block {
+        .card-text {
+            padding: 5px 0px;
+            background: map-get($map: $colors, $key: primary);
+            color: map-get($map: $colors, $key: white);
+        }
+    }
+    .badges-container {
+        position: absolute;
+        left: 5px;
+        bottom: 25px;
+        display: flex;
+        padding: 0px 0px 5px 5px;
+        background: transparent;
+        .icon-bad {
+            background: map-get($map: $colors, $key: primary);
+            color: map-get($map: $colors, $key: white);
+            cursor: pointer;
+            padding: 5px;
+            i {
+                font-size: 1.1em;
+            }
+        }
+        .number-bd {
+            background: map-get($map: $colors, $key: primary);
+            color: map-get($map: $colors, $key: white);
+            filter: brightness(120%);
+            font-size: 1.1em;
+            padding: 5px;
+            cursor: pointer;
+        }
+    }
     .slider-container {
         white-space: nowrap;
         overflow: visible;
+        line-height: unset;
         padding: 10px 0px;
-        align-items: center;
-        -webkit-align-items: center;
-        justify-content: center;
-        -webkit-justify-content: center;
         transition: 300ms;
         .slide-box-container {
             width: 33.3333333333%;
@@ -202,9 +254,7 @@ fb-home-slider {
     .slide-box {
         position: relative;
         cursor: pointer;
-        img {
-            height: $img-height-md;
-        }
+        img {}
         transform: scale(1);
         transition: 200ms;
     }
@@ -216,28 +266,6 @@ fb-home-slider {
         bottom: 0;
         left: 0;
         width: 100%;
-        .badges-container {
-            display: flex;
-            padding: 10px 10px;
-            width: 100%;
-            .icon-bad {
-                background: map-get($map: $colors, $key: primary);
-                color: map-get($map: $colors, $key: white);
-                padding: 10px;
-                cursor: pointer;
-                i {
-                    font-size: 1.2em;
-                }
-            }
-            .number-bd {
-                background: map-get($map: $colors, $key: primary);
-                color: map-get($map: $colors, $key: white);
-                filter: brightness(120%);
-                font-size: 1.2em;
-                padding: 10px 15px;
-                cursor: pointer;
-            }
-        }
         .name-club {
             background: map-get($map: $colors, $key: primary);
             padding: 10px;
