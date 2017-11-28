@@ -11,31 +11,28 @@
                 <div class="title">
                     <span>{{mDatas.title.toUpperCase()}}</span>
                 </div>
-
             </div>
+            <span>See if I change: {{changed}}</span>
             <!-- noi dung chinh -->
             <div class="main-content">
                 <div class="col-md-3 image-container" *ngFor="let i of images" (click)="onClickPhotosGroup(i.id)">
-                    <div class="image" [ngStyle]="{'background-image': 'url(' + i.url + ')'}">
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + i.image.url + ')'}">
                         <div class="image-info">
                             <div class="icon">
                                 <ion-icon name="camera"></ion-icon>
                             </div>
                             <div class="number">
-                                <span>132</span>
+                                <div>132</div>
                             </div>
                         </div>
                     </div>
                     <div padding class="img-description">
-                        {{i.id}} - B-Gate B-Gate FC vs MenU FC (v1)
+                        <div>{{i.id}} - B-Gate B-Gate FC vs MenU FC (v1)</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="loading-icon" class="hidden section">
-            <!-- loading -->
-            <fb-spinner></fb-spinner>
-        </div>
+        <fb-spinner id="loading-icon" class="col-md-12 section hidden"></fb-spinner>
         <div class="col-md-12 section sponsor">
             <!-- Nha tai tro -->
         </div>

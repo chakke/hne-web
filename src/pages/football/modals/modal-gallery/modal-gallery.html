@@ -13,10 +13,10 @@
             <div class="photo-detail">
                 <div class="photo-title">
                     <span>B-Gate B-Gate FC vs MenU FC (v1)</span>
-                    <span class="photo-number">{{mDatas.currentView+1}}/{{images.length}}</span>
+                    <span class="photo-number" *ngIf="!isLoading">{{mDatas.currentView+1}}/{{(galery|async)?.images.length}}</span>
                 </div>
                 <div class="main-photo">
-                    <img src="{{images[mDatas.currentView]}}">
+                    <img src="{{(galery|async)?.images[mDatas.currentView].url}}">
                     <!-- <div [ngStyle]="{'background-image': 'url(' + images[mDatas.currentView] + ')'}"></div> -->
                 </div>
             </div>
@@ -29,13 +29,18 @@
     </div>
     <div class="photo-preview">
         <div id="photos-container">
-            <div *ngFor="let img of images; let i = index" (click)="moveToImg(i)">
-                <div class="photo" [class.photo-onview]="i==mDatas.currentView" [ngStyle]="{'background-image': 'url(' + img + ')'}"></div>
+            <div *ngFor="let img of (galery|async)?.images; let i = index" (click)="moveToImg(i)">
+                <div class="photo" [class.photo-onview]="i==mDatas.currentView" [ngStyle]="{'background-image': 'url(' + img.url + ')'}"></div>
                 <div class="info">
-                    <span>{{i+1}}/{{images.length}}</span>
+                    <span>{{i+1}}/{{(galery|async)?.images.length}}</span>
                 </div>
             </div>
         </div>
     </div>
+    <div id="photo-width"></div>
 
 </ion-content>
+
+<div id="loading" *ngIf="isLoading">
+    <fb-spinner></fb-spinner>
+</div>

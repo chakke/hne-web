@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { AppControllerProvider } from '../../../providers/football/app-controller/app-controller';
 
-import { Image } from '../../../providers/football/interfaces/image';
+import { GaleryElement } from '../../../providers/football/interfaces/image';
 import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
@@ -19,14 +19,19 @@ export class FbGalleryPage {
   mDatas = {
     title: "Các khoảnh khắc đẹp trong giải đấu"
   }
-
-  images: Array<Image> = [];
+  changed;
+  images: Array<GaleryElement> = [];
   isLoading = false;
   constructor(public navCtrl: NavController,
     public mChangeDetectorRef: ChangeDetectorRef,
     public mModalController: ModalController,
     public mAppControllerProvider: AppControllerProvider,
     public navParams: NavParams) {
+    this.changed = 'false';
+    setTimeout(() => {
+      this.mChangeDetectorRef.detach();
+      this.changed = 'true';
+    }, 2000);
     // this.loadImage();
   }
 
@@ -36,6 +41,7 @@ export class FbGalleryPage {
 
   loading;
   ionViewDidEnter() {
+    this.mChangeDetectorRef.detectChanges();
     this.loading = <HTMLElement>document.getElementById("loading-icon");
 
     this.loadImage();
@@ -51,7 +57,6 @@ export class FbGalleryPage {
         console.log("LOAD");
         this.loadImage();
       }
-      // console.log(event.scrollTop);
       this.scrollSubject.next(event.scrollTop);
     })
   }
@@ -65,12 +70,13 @@ export class FbGalleryPage {
     try {
       newImg.subscribe(data => {
         console.log("img", data);
-        for (let i = 0; i < data.images.length; i++) {
-          this.images.push(data.images[i]);
+        for (let i = 0; i < data.galeries.length; i++) {
+          this.images.push(data.galeries[i]);
         }
         this.isLoading = false;
         this.hideLoading();
         this.mChangeDetectorRef.detectChanges();
+        // this.mChangeDetectorRef.markForCheck();
 
       });
     } catch (e) {
@@ -78,6 +84,8 @@ export class FbGalleryPage {
       this.isLoading = false;
       this.hideLoading();
     }
+    console.log(this.images);
+
 
   }
 

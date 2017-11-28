@@ -259,82 +259,98 @@ export class FirebaseServiceProvider {
           images: [
             {
               id: from,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+              title: "",
+              image: {
+                id: 1,
+                title: "",
+                url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+              }
             },
             {
               id: from + 1,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+              title: "",
+              image: {
+                id: 1,
+                title: "",
+                url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+              }
             },
             {
               id: from + 2,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+              title: "",
+              image: {
+                id: 1,
+                title: "",
+                url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+              }
             },
             {
               id: from + 3,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+              title: "",
+              image: {
+                id: 1,
+                title: "",
+                url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+              }
             },
             {
               id: from + 4,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             {
               id: from + 5,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
             },
             {
               id: from + 6,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             {
               id: from + 7,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
             },
             {
               id: from + 8,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" }
             },
             {
               id: from + 9,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             {
               id: from + 10,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
             },
             {
               id: from + 11,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" }
             },
             {
               id: from + 12,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             {
               id: from + 13,
-              name: "",
-              url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
+            },
+            {
+              id: from + 14,
+              title: "",
+              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             // {
-            //   id: from + 14,
-            //   name: "",
-            //   url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
-            // },
-            // {
             //   id: from + 15,
-            //   name: "",
+            //   title: "",
             //   url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
             // },
           ]
@@ -411,6 +427,36 @@ export class FirebaseServiceProvider {
           })
         }, 2000);
 
+      })
+    }
+  }
+
+  getGaleryById(id: number): Observable<any>{
+    if (this.isUseFakeData) {
+      return new Observable(observable => {
+        setTimeout(() => {
+          observable.next({
+            id: id,
+            title: "Galery no " + id,
+            images: [
+              { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" },
+              { id: 2, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" },
+              { id: 3, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" },
+              { id: 4, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" },
+              { id: 5, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" },
+              { id: 6, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" },
+              { id: 7, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" },
+              { id: 8, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" },
+              { id: 9, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" },
+              { id: 10, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" },
+              { id: 11, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" },
+              { id: 12, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" },
+              { id: 13, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" },
+              { id: 14, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" },
+              { id: 15, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" },
+            ]
+          })
+        }, 2000);
       })
     }
   }

@@ -6,6 +6,18 @@ export class Image{
     url: string;
 }
 
-export class ImageArr{
+export class Galery{
+    id: number;
+    title: string;
     images: Array<Image>;
+}
+
+export class GaleryArr{
+    galeries: Array<GaleryElement>;
+}
+
+export class GaleryElement{
+    id: number;
+    title: string;
+    image: Image;
 }

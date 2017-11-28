@@ -59,14 +59,14 @@ page-fb-gallery {
                 opacity: 1;
             }
             .img-description {
-                height: 4em;
+                height: 12vh;
                 background-color: white;
-                font-weight: bold;
             }
         }
     }
     #loading-icon {
-        padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
+        margin: 20px 0;
+        position: relative;
     }
     .hidden {
         display: none;

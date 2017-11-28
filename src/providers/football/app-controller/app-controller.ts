@@ -6,7 +6,7 @@ import { Menu } from '../interfaces/menu';
 import { Table } from '../interfaces/table';
 import { TableMatches } from '../interfaces/table-matches';
 import { Match } from '../interfaces/match';
-import { ImageArr } from '../interfaces/image';
+import { GaleryArr, Galery } from '../interfaces/image';
 
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
@@ -174,13 +174,13 @@ export class AppControllerProvider {
     })
   }
 
-  loadMoreImage(from: number): Observable<ImageArr> {
+  loadMoreImage(from: number): Observable<GaleryArr> {
     if (from > 50) {
       return;
     }
     return this.firebaseService.loadImage(from).map(elm => {
       return {
-        images: elm.images
+        galeries: elm.images
       }
     })
   }
@@ -190,6 +190,16 @@ export class AppControllerProvider {
       return {
         id: elm.id,
         items: elm.items
+      }
+    })
+  }
+
+  getGaleryById(id: number): Observable<Galery>{
+    return this.firebaseService.getGaleryById(id).map(elm => {
+      return {
+        id: elm.id,
+        title: elm.title,
+        images: elm.images
       }
     })
   }
