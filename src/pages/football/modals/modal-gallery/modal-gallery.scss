@@ -1,0 +1,69 @@
+page-modal-gallery {}
+
+.modal-gallery {
+    .modal-wrapper {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        ion-content {
+            background: rgba(black, .6) !important;
+        }
+        .close-button {
+            border-radius: 50%;
+            background-color: #E4BA28;
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            width: 3em;
+            height: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ion-icon {
+                font-size: 2em;
+                font-weight: bold;
+            }
+        }
+        .main-content {
+            display: flex;
+            height: 80vh;
+            .current-photo {
+                .photo-title {
+                    color: white;
+                    font-size: 2em;
+                    position: relative;
+                    padding: 4px;
+                    .photo-number {
+                        color: #E4BA28;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+                .photo {
+                    background: #E4BA28;
+                    height: 80%;
+                }
+            }
+        }
+        .photo-preview {
+            height: 20vh;
+            display: flex;
+            padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
+            .photos-container {
+                background: black;
+                height: 100%;
+                width: 100%;
+                padding-top: map-get($map: $FBSizes, $key: defaultPadding);
+                padding-left: map-get($map: $FBSizes, $key: defaultPadding);
+                padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
+                overflow-x: auto;
+                >div {
+                    // padding-right: map-get($map: $FBSizes, $key: defaultPadding);
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

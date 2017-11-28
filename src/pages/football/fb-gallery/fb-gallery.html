@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 section header" id="header">
             <!-- Header + Menu -->
-            <fb-header [contentScroll]="scrollSubject.asObservable()"></fb-header>
+            <fb-header [content]="content"></fb-header>
         </div>
         <div class="col-md-12 section main body-padding" id="main-content">
             <div class="col-md-12 section main-title">
@@ -15,7 +15,7 @@
             </div>
             <!-- noi dung chinh -->
             <div class="main-content">
-                <div class="col-md-3 image-container" *ngFor="let i of images">
+                <div class="col-md-3 image-container" *ngFor="let i of images" (click)="onClickPhotosGroup(i.id)">
                     <div class="image" [ngStyle]="{'background-image': 'url(' + i.url + ')'}">
                         <div class="image-info">
                             <div class="icon">

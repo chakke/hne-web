@@ -1,0 +1,25 @@
+<ion-content (click)="onClickClose()">
+
+    <div class="close-button">
+        <ion-icon name="md-close"></ion-icon>
+    </div>
+    <div class="main-content">
+        <div class="col-2"></div>
+        <div class="col-8 current-photo">
+            <div class="photo-title">
+                <span>B-Gate B-Gate FC vs MenU FC (v1)</span>
+                <span class="photo-number">2/22</span>
+            </div>
+            <div class="photo"></div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="photo-preview">
+        <div class="photos-container">
+            <div *ngFor="let i of images" [ngStyle]="{'background-image': 'url(' + i + ')'}">
+
+            </div>
+        </div>
+    </div>
+
+</ion-content>

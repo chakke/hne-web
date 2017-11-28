@@ -81,9 +81,18 @@ export class AppControllerProvider {
         items: elm.items
       }
     })
-  } 
+  }
 
-  getMatchesByTableId(tableId: string): Observable<TableMatches>{
+  getNewsId(newsId: string): Observable<any> {
+    return this.firebaseService.getNewsId(newsId).map(elm => {
+      return {
+        id: elm.id,
+        name: elm.name,
+        items: elm.items
+      }
+    })
+  }
+  getMatchesByTableId(tableId: string): Observable<TableMatches> {
     return this.firebaseService.getTableById(tableId).map(elm => {
       return {
         id: elm.id,
@@ -93,7 +102,7 @@ export class AppControllerProvider {
     })
   }
 
-  getMatchById(matchId: number): Observable<Match>{
+  getMatchById(matchId: number): Observable<Match> {
     return this.firebaseService.getMatchById(matchId).map(elm => {
       return {
         id: elm.id,

@@ -1,5 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, ModalController } from 'ionic-angular';
 import { Subject } from 'rxjs/Subject';
 
 import { AppControllerProvider } from '../../../providers/football/app-controller/app-controller';
@@ -24,6 +24,7 @@ export class FbGalleryPage {
   isLoading = false;
   constructor(public navCtrl: NavController,
     public mChangeDetectorRef: ChangeDetectorRef,
+    public mModalController: ModalController,
     public mAppControllerProvider: AppControllerProvider,
     public navParams: NavParams) {
     // this.loadImage();
@@ -86,19 +87,12 @@ export class FbGalleryPage {
     this.loading.classList.remove("hidden");
   }
 
-  loadMore() {
-    let scrollTop = this.content.getContentDimensions().scrollTop;
-    let scrollHeight = this.content.getContentDimensions().scrollHeight;
-    let contentHeight = this.content.getContentDimensions().contentHeight;
+  onClickPhotosGroup(id) {
+    console.log(id);
 
-    let header = <HTMLDivElement>document.getElementById("header");
-    let headerHeight = header.clientHeight;
-    if (!this.isLoading && (scrollTop >= scrollHeight - headerHeight - contentHeight)) {
-      console.log("LOAD");
-      setTimeout(() => {
-        this.loadImage();
-      }, 3000);
-    }
+    let modal = this.mModalController.create("ModalGalleryPage", { id: id }, { cssClass: "modal-gallery" });
+
+    modal.present({ animate: false });
   }
 
 }

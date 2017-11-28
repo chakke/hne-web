@@ -6,6 +6,7 @@ import { TableDetailComponent } from './table-detail/table-detail';
 import { FbLoaderComponent } from './fb-loader/fb-loader';
 import { FbHeaderComponent } from './fb-header/fb-header';
 import { FbFooterComponent } from './fb-footer/fb-footer';
+import { MainNewsComponent } from './main-news/main-news';
 import { TableMatchesComponent } from './table-matches/table-matches';
 import { FbSpinnerComponent } from './fb-spinner/fb-spinner';
 
@@ -18,7 +19,9 @@ import { FbSpinnerComponent } from './fb-spinner/fb-spinner';
     FbHeaderComponent,
     FbFooterComponent,
     TableMatchesComponent,
-    FbSpinnerComponent
+    FbSpinnerComponent,
+    MainNewsComponent,
+    TableMatchesComponent
 	],
 	imports: [IonicPageModule],
 	exports: [
@@ -29,7 +32,9 @@ import { FbSpinnerComponent } from './fb-spinner/fb-spinner';
     FbHeaderComponent,
     FbFooterComponent,
     TableMatchesComponent,
-    FbSpinnerComponent
+    FbSpinnerComponent,
+    MainNewsComponent,
+    TableMatchesComponent
 	]
 })
 export class ComponentsModule { }

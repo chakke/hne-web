@@ -57,6 +57,10 @@
     white-space: nowrap;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .scroll-content .section {
     background-color: map-get($map: $colors, $key: background);
     line-height: map-get($map: $FBSizes, $key: lineheight);
@@ -113,4 +117,8 @@
     .box-content {
         position: relative;
     }
+}
+
+.header {
+    background-color: #393a3e !important;
 }
