@@ -56,8 +56,8 @@ export class AppControllerProvider {
       id: 6,
       name: "Hình ảnh",
       active: false,
-      page: "FbImagesPage",
-      link: "fb-images"
+      page: "FbGalleryPage",
+      link: "fb-gallery"
     },
     {
       id: 7,

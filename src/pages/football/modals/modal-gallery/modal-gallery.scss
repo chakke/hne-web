@@ -1,4 +1,7 @@
 page-modal-gallery {
+    ion-content .scroll-content {
+        background: transparent !important;
+    }
     .photo-onview {
         opacity: 1 !important;
     }

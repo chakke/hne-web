@@ -13,7 +13,7 @@ export class ModalGalleryPage {
     id: -1,
     currentView: 0
   }
-
+  // photosContainer;
   imgWidth = 0;
   marginSize = 16;
 
@@ -46,6 +46,7 @@ export class ModalGalleryPage {
   ionViewDidEnter() {
     let imgs = document.getElementsByClassName("photo");
     this.imgWidth = imgs[0].clientWidth;
+    // this.photosContainer = document.getElementById("photos-container");
 
 
   }
@@ -81,16 +82,36 @@ export class ModalGalleryPage {
     let c = document.getElementById("photos-container");
     let scrollLeft = c.scrollLeft;
 
-    let fixedScrollLeft = this.mDatas.currentView * (this.imgWidth + this.marginSize) - 1/2 * this.content.getContentDimensions().contentWidth + 1/2 * this.imgWidth;
+    let fixedScrollLeft = this.mDatas.currentView * (this.imgWidth + this.marginSize) - 1 / 2 * this.content.getContentDimensions().contentWidth + 1 / 2 * this.imgWidth;
 
     console.log(fixedScrollLeft);
-    
+
+    // if (fixedScrollLeft > 0) {
+    //   this.scrollLeftTo(fixedScrollLeft);
+    // }
     c.scrollLeft = fixedScrollLeft;
   }
 
-  moveToImg(index){
+  moveToImg(index) {
     this.mDatas.currentView = index;
     this.fixScrollLeft();
   }
+
+  // requestObject: any;
+  // scrollLeftTo(fixedScrollLeft) {
+  //   console.log(Math.abs(this.photosContainer.scrollLeft - fixedScrollLeft));
+
+  //   if (Math.abs(this.photosContainer.scrollLeft - fixedScrollLeft) >= 10) {
+  //     if (this.requestObject)
+  //       cancelAnimationFrame(this.requestObject);
+  //   }
+  //   else {
+  //     this.photosContainer.scrollLeft += (fixedScrollLeft - this.photosContainer.scrollLeft) / 10;
+  //     this.requestObject = requestAnimationFrame(() => {
+  //       this.scrollLeftTo(fixedScrollLeft);
+  //     });
+  //   }
+
+  // }
 
 }
