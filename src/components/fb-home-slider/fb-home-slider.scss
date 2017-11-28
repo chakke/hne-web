@@ -4,18 +4,42 @@ fb-home-slider {
     $slide-width: 33.333333333333%;
     $img-height-md: 200px;
     $img-height-xs: 160px;
+    .background-image {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .box-img {
+        height: 220px;
+        width: 100%;
+    }
     .img-background {
         position: absolute;
-        top: 0;
+        top: 16px;
         left: 16px;
         right: 16px;
-        height: 100%;
+        bottom: 16px;
         img {
             width: 100%;
             height: 100%;
         }
     }
     @media (max-width: 575px) {
+        .box-xs-image {
+            padding: 5px 5px !important;
+            .image-top {
+                height: 20vh !important;
+            }
+            .image-badges {
+                font-size: .8em !important;
+            }
+            .bd-icon {
+                padding: 2px 5px!important;
+            }
+            .bd-number {
+                padding: 2px 5px !important;
+            }
+        }
         .position-xs {
             bottom: 5px !important;
         }
@@ -30,17 +54,6 @@ fb-home-slider {
         }
         .no-xs-padding {
             padding: 10px 0px!important;
-        }
-        .box-sm {
-            height: $img-height-md/2 !important;
-            img {
-                width: 100% !important;
-            }
-        }
-        .slide-box {
-            img {
-                width: 100%;
-            }
         }
         .col-xs-6 {
             flex: 0 0 50%;
@@ -83,9 +96,8 @@ fb-home-slider {
         .slide-box-container {
             width: 50% !important;
         }
-        .slide-box {
-            height: $img-height-md;
-            img {}
+        .image-description {
+            font-size: 1.8vw !important;
         }
     }
     .padding-top {
@@ -144,78 +156,11 @@ fb-home-slider {
         height: 100%;
         padding: 0;
         cursor: pointer;
-        .around {
-            background: map-get($map: $colors, $key: gray);
-            border-radius: 50%;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 3.5vw;
-            width: 3.5vw;
-            transform: translateX(0px);
-            transition: 200ms;
-        }
-        .around:hover {
-            transform: translateX(2px);
-        }
-        i {
-            border: solid map-get($map: $colors, $key: dark);
-            border-width: 0 4px 4px 0;
-            display: inline-block;
-            padding: .15em;
-        }
-        .right {
-            margin-right: 3px;
-            transform: rotate(-45deg);
-            -webkit-transform: rotate(-45deg);
-        }
-        .left {
-            margin-left: 3px;
-            transform: rotate(135deg);
-            -webkit-transform: rotate(135deg);
-        }
+        transform: scale(1);
+        transition: 200ms;
     }
-    .card {
-        border: none;
-        border-radius: 0;
-    }
-    .card-img-top {
-        border: none;
-        border-radius: 0;
-        img {}
-    }
-    .card-block {
-        .card-text {
-            padding: 5px 0px;
-            background: map-get($map: $colors, $key: primary);
-            color: map-get($map: $colors, $key: white);
-        }
-    }
-    .badges-container {
-        position: absolute;
-        left: 5px;
-        bottom: 25px;
-        display: flex;
-        padding: 0px 0px 5px 5px;
-        background: transparent;
-        .icon-bad {
-            background: map-get($map: $colors, $key: primary);
-            color: map-get($map: $colors, $key: white);
-            cursor: pointer;
-            padding: 5px;
-            i {
-                font-size: 1.1em;
-            }
-        }
-        .number-bd {
-            background: map-get($map: $colors, $key: primary);
-            color: map-get($map: $colors, $key: white);
-            filter: brightness(120%);
-            font-size: 1.1em;
-            padding: 5px;
-            cursor: pointer;
-        }
+    .arrow-button:active {
+        transform: scale(1.04);
     }
     .slider-container {
         white-space: nowrap;
@@ -225,62 +170,55 @@ fb-home-slider {
         transition: 300ms;
         .slide-box-container {
             width: 33.3333333333%;
-            padding: 10px;
             display: inline-block;
+            padding: 5px;
+            transform: scale(1);
+            transition: 200ms;
+        }
+        .slide-box-container:hover {
+            transform: scale(1.04);
+        }
+        .slide-box-container:active {
+            transform: scale(.96);
         }
     }
-    .box-sm {
-        position: relative;
-        cursor: pointer;
-        img {
-            // height: $img-height-xs;
-        }
-        .icon-bad {
-            padding: 5px !important;
-            i {
-                font-size: 1em !important;
-            }
-        }
-        .number-bd {
-            padding: 5px 7px !important;
-            font-size: 1em !important;
-        }
+    .box-xs-image {
+        padding: 5px 5px !important;
         transform: scale(1);
         transition: 200ms;
     }
-    .box-sm:hover {
-        transform: scale(1.04);
+    .box-xs-image {
+        transform: scale(.96);
     }
-    .slide-box {
-        position: relative;
-        cursor: pointer;
-        img {}
-        transform: scale(1);
-        transition: 200ms;
-    }
-    .slide-box:hover {
-        transform: scale(1.04);
-    }
-    .slide-footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+    .image-top {
+        height: 30vh;
         width: 100%;
-        .name-club {
+        position: relative;
+        transform: scale(1);
+        transition: 200ms;
+    }
+    .image-badges {
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        display: flex;
+        color: map-get($map: $colors, $key: white);
+        font-size: map-get($map: $FBFont, $key: normal);
+        .bd-icon {
+            padding: 5px;
             background: map-get($map: $colors, $key: primary);
-            padding: 10px;
-            text-align: center;
-            color: map-get($map: $colors, $key: white);
-            font-size: map-get($map: $FBFont, $key: big);
+        }
+        .bd-number {
+            padding: 5px 10px;
+            background: map-get($map: $colors, $key: primary);
+            filter: brightness(120%);
         }
     }
-    // .slide {
-    //     position: relative;
-    //     display: inline-block;
-    //     img {
-    //         // max-width: $max-height - 100px;
-    //         // max-width: 80%;
-    //     }
-    //     
-    // }
+    .image-description {
+        padding: 6px 0px;
+        color: map-get($map: $colors, $key: white);
+        background: map-get($map: $colors, $key: primary);
+        white-space: wrap;
+        font-size: map-get($map: $FBFont, $key: normal);
+    }
 }
