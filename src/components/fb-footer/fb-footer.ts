@@ -1,22 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AppControllerProvider } from "../../providers/football/app-controller/app-controller";
 
-/**
- * Generated class for the FbFooterComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'fb-footer',
   templateUrl: 'fb-footer.html'
 })
 export class FbFooterComponent {
 
-  text: string;
+  @Input() newsPostId: string = "";
+  newPost: Observable<any>;
+  isUpdate: boolean = false;
 
-  constructor() {
-    console.log('Hello FbFooterComponent Component');
-    this.text = 'Hello World';
+  listNewPost: any = [];
+
+  constructor(
+    private appController: AppControllerProvider
+  ) { }
+
+  ngAfterViewInit() {
+    this.newPost = this.appController.getNewsId(this.newsPostId);
+    this.newPost.subscribe(data => {
+      let allPost = data.items;
+      this.listNewPost = [];
+      this.listNewPost.push(allPost[0]);
+      this.listNewPost.push(allPost[1]);
+      this.listNewPost.push(allPost[2]);
+    })
   }
-
 }

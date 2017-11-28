@@ -2,8 +2,7 @@ main-news {
     width: 100%;
     height: 10em;
     background-color: red;
-    .box-title-padding {
-        // padding-top: 2em;
+    .box-title-padding{
         background-color: map-get($map: $colors, $key: background);
         .div-title {
             background-color: map-get($map: $colors, $key: white);
