@@ -460,4 +460,23 @@ export class FirebaseServiceProvider {
       })
     }
   }
+
+  getDonorsList(): Observable<any>{
+    if(this.isUseFakeData){
+      return new Observable(observable=>{
+        setTimeout(() => {
+          observable.next({
+            id: 1,
+            list: [
+              { image: "assets/test/logo_1.png", name: "Name Of Club"},
+              { image: "assets/test/logo_2.png", name: "Name Of Club"},
+              { image: "assets/test/logo_3.png", name: "Name Of Club"},
+              { image: "assets/test/logo_4.png", name: "Name Of Club"},
+              { image: "assets/test/logo_5.png", name: "Name Of Club"},
+            ]
+          })
+        }, 1000);
+      })
+    }
+  }
 }

@@ -11,6 +11,7 @@ import { GaleryArr, Galery } from '../interfaces/image';
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
 import { FBSlides } from '../interfaces/fb-slide';
+import { DonorsList } from '../interfaces/fb-donors';
 
 
 @Injectable()
@@ -200,6 +201,15 @@ export class AppControllerProvider {
         id: elm.id,
         title: elm.title,
         images: elm.images
+      }
+    })
+  }
+
+  getDornosList(): Observable<DonorsList>{
+    return this.firebaseService.getDonorsList().map(elm=>{
+      return {
+        id: elm.id,
+        list: elm.list
       }
     })
   }
