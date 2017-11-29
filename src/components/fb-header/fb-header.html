@@ -1,7 +1,7 @@
 <div class="fake-height">
 </div>
 <div class="fb-header" #header>
-    <div class="logo-div pointer" #logo id="logo" (click)="gotoRootPage()" tappale>
+    <div class="logo-div pointer" #logo id="logo" (click)="gotoRootPage()" tappable>
         <img class="normal" src="assets/football/images/home/logo_1.png" alt="Logo">
         <img class="special" src="assets/football/images/home/logo_2.png" alt="Logo">
     </div>
@@ -32,10 +32,10 @@
         </div>
 
         <div class="menu" [class.toggled]="isMenuToggled" #menu>
-            <!-- <div class="home-item pointer" (click)="gotoRootPage()" tappale>
+            <!-- <div class="home-item pointer" (click)="gotoRootPage()" tappable>
                 <i class="fa fa-home"></i>
             </div> -->
-            <div [ngClass]="{'menu-item': item.page != homePage, 'home-item': item.page == homePage, 'active': item.active}" *ngFor="let item of menuItems" (click)="menuItemClick(item)" tappale>
+            <div [ngClass]="{'menu-item': item.page != homePage, 'home-item': item.page == homePage, 'active': item.active}" *ngFor="let item of menuItems" (click)="menuItemClick(item)" tappable>
                 <i *ngIf="item.page == homePage" class="fa fa-home"></i>
                 <span *ngIf="item.page != homePage">{{item.name}}</span>
             </div>
