@@ -1,4 +1,14 @@
 <!-- Generated template for the DonorsListComponent component -->
-<div>
-  {{text}}
+<div class="donors" padding>
+    <div class="donors-container" *ngIf="!isLoadingData">
+        <div class="donor" *ngFor="let item of (listDonors | async)?.list">
+            <!-- [ngStyle]="{'background-image': 'url(' + item.image + ')'}" -->
+            <div class="image-logo">
+                <img [src]="item.image" alt="">
+            </div>
+            <div class="image-description d-none" text-center>
+                <span>{{item.name}}</span>
+            </div>
+        </div>
+    </div>
 </div>
