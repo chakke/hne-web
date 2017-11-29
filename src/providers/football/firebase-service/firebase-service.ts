@@ -270,7 +270,7 @@ export class FirebaseServiceProvider {
               id: from + 1,
               title: "",
               image: {
-                id: from+1,
+                id: from + 1,
                 title: "",
                 url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
               }
@@ -431,7 +431,7 @@ export class FirebaseServiceProvider {
     }
   }
 
-  getGaleryById(id: number): Observable<any>{
+  getGaleryById(id: number): Observable<any> {
     if (this.isUseFakeData) {
       return new Observable(observable => {
         setTimeout(() => {
@@ -461,30 +461,28 @@ export class FirebaseServiceProvider {
     }
   }
 
-  getDonorsList(): Observable<any>{
-    if(this.isUseFakeData){
-      return new Observable(observable=>{
+  getDonorsList(): Observable<any> {
+    if (this.isUseFakeData) {
+      return new Observable(observable => {
         setTimeout(() => {
           observable.next({
             id: 1,
             list: [
-              { image: "assets/test/logo_1.png", name: "Name Of Club"},
-              { image: "assets/test/logo_2.png", name: "Name Of Club"},
-              { image: "assets/test/logo_3.png", name: "Name Of Club"},
-              { image: "assets/test/logo_4.png", name: "Name Of Club"},
-              { image: "assets/test/logo_5.png", name: "Name Of Club"},
+              { image: "assets/test/logo_1.png", name: "Name Of Club" },
+              { image: "assets/test/logo_2.png", name: "Name Of Club" },
+              { image: "assets/test/logo_3.png", name: "Name Of Club" },
+              { image: "assets/test/logo_4.png", name: "Name Of Club" },
+              { image: "assets/test/logo_5.png", name: "Name Of Club" },
             ]
           })
         }, 1000);
       })
     }
-<<<<<<< HEAD
-=======
-    
+
   }
-  
-  getVideoId(videoId: string): Observable<any>{
-    if(this.isUseFakeData) return new Observable(obs => {
+
+  getVideoId(videoId: string): Observable<any> {
+    if (this.isUseFakeData) return new Observable(obs => {
       setTimeout(() => {
         obs.next({
           id: videoId,
@@ -539,6 +537,6 @@ export class FirebaseServiceProvider {
         })
       }, 1000);
     })
->>>>>>> dev-son
+
   }
 }
