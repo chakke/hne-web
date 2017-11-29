@@ -98,6 +98,12 @@ fb-home-slider {
         }
         .image-description {
             font-size: 1.8vw !important;
+            overflow: hidden;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .slide-box-container {
+            width: 50% !important;
         }
     }
     .padding-top {
@@ -218,7 +224,8 @@ fb-home-slider {
         padding: 6px 0px;
         color: map-get($map: $colors, $key: white);
         background: map-get($map: $colors, $key: primary);
-        white-space: wrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         font-size: map-get($map: $FBFont, $key: normal);
     }
 }
