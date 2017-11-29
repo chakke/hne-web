@@ -6,12 +6,16 @@ import { TableDetailComponent } from './table-detail/table-detail';
 import { FbLoaderComponent } from './fb-loader/fb-loader';
 import { FbHeaderComponent } from './fb-header/fb-header';
 import { FbFooterComponent } from './fb-footer/fb-footer';
+<<<<<<< HEAD
 import { MainNewsComponent } from './main-news/main-news';
 import { TableMatchesComponent } from './table-matches/table-matches';
 import { FbSpinnerComponent } from './fb-spinner/fb-spinner';
 import { FbHomeSliderComponent } from './fb-home-slider/fb-home-slider';
 import { DonorsListComponent } from './donors-list/donors-list';
 import { FbBannerComponent } from './fb-banner/fb-banner';
+=======
+import { VideoLastestComponent } from './video-lastest/video-lastest';
+>>>>>>> dev-son
 
 @NgModule({
 	declarations: [
@@ -19,6 +23,7 @@ import { FbBannerComponent } from './fb-banner/fb-banner';
 		FbTitleComponent,
 		TableDetailComponent,
 		FbLoaderComponent,
+<<<<<<< HEAD
     FbHeaderComponent,
     FbFooterComponent,
     TableMatchesComponent,
@@ -28,6 +33,11 @@ import { FbBannerComponent } from './fb-banner/fb-banner';
     FbHomeSliderComponent,
     DonorsListComponent,
     FbBannerComponent
+=======
+		FbHeaderComponent,
+		FbFooterComponent,
+		VideoLastestComponent,
+>>>>>>> dev-son
 	],
 	imports: [IonicPageModule],
 	exports: [
@@ -35,6 +45,7 @@ import { FbBannerComponent } from './fb-banner/fb-banner';
 		FbTitleComponent,
 		TableDetailComponent,
 		FbLoaderComponent,
+<<<<<<< HEAD
     FbHeaderComponent,
     FbFooterComponent,
     TableMatchesComponent,
@@ -44,6 +55,11 @@ import { FbBannerComponent } from './fb-banner/fb-banner';
     FbHomeSliderComponent,
     DonorsListComponent,
     FbBannerComponent
+=======
+		FbHeaderComponent,
+		FbFooterComponent,
+		VideoLastestComponent,
+>>>>>>> dev-son
 	]
 })
 export class ComponentsModule { }

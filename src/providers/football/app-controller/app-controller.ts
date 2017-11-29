@@ -139,9 +139,15 @@ export class AppControllerProvider {
       }
     })
   }
+<<<<<<< HEAD
 
   getNewsId(newsId: string): Observable<any> {
     return this.firebaseService.getNewsId(newsId).map(elm => {
+=======
+  
+  getVideoById(videoId: string): Observable<any>{
+    return this.firebaseService.getVideoId(videoId).map(elm => {
+>>>>>>> dev-son
       return {
         id: elm.id,
         name: elm.name,
@@ -149,6 +155,7 @@ export class AppControllerProvider {
       }
     })
   }
+<<<<<<< HEAD
   getMatchesByTableId(tableId: string): Observable<TableMatches> {
     return this.firebaseService.getTableById(tableId).map(elm => {
       return {
@@ -213,4 +220,6 @@ export class AppControllerProvider {
       }
     })
   }
+=======
+>>>>>>> dev-son
 }
