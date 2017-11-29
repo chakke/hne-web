@@ -1,5 +1,5 @@
 <ion-content>
-    <div>
+    <div style="height: 100%; width: 100%;">
         <div class="col-md-12 section header" id="header">
             <!-- Header + Menu -->
             <fb-header [content]="content"></fb-header>
@@ -32,6 +32,8 @@
             </div>
         </div>
         <fb-spinner id="loading-icon" class="col-md-12 section hidden"></fb-spinner>
+        <div class="col-md-12 section fake" *ngIf="firstLoad">
+        </div>
         <div class="col-md-12 section sponsor">
             <!-- Nha tai tro -->
         </div>

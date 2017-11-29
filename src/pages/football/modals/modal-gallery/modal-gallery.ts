@@ -20,14 +20,13 @@ export class ModalGalleryPage {
   }
 
   galery: Observable<Galery>;
-  tempG: Galery;
+  galeryLength = 0;
   isLoading = false;
 
   // for view
   photosContainer;
   availableScrLeft;
   onScroll = false;
-  imgWidth = 0;
   marginSize = 16;
 
   constructor(public navCtrl: NavController,
@@ -42,18 +41,8 @@ export class ModalGalleryPage {
 
   ionViewDidEnter() {
     this.photosContainer = <HTMLDivElement>document.getElementById("photos-container");
-    let img = document.getElementById("photo-width");
-    this.imgWidth = img.clientWidth;
     this.getGaleryById(this.navParams.data["id"]);
 
-    // this.platform.ready().then(() => {
-    //   this.platform.resize.subscribe(() => {
-    //     console.log("resized");
-        
-    //     let img = document.getElementById("photo-width");
-    //     this.imgWidth = img.clientWidth;
-    //   })
-    // })
   }
 
   onClickClose() {
@@ -64,7 +53,9 @@ export class ModalGalleryPage {
     this.isLoading = true;
     this.galery = this.mAppControllerProvider.getGaleryById(id);
     this.galery.subscribe(data => {
-      this.tempG = data;
+      this.galeryLength = data.images.length;
+      console.log(this.galeryLength);
+      
       console.log("data", data);
       setTimeout(() => {
         this.isLoading = false;
@@ -87,17 +78,22 @@ export class ModalGalleryPage {
     if (this.onScroll) {
       return;
     }
-    if (this.mDatas.currentView < this.tempG.images.length - 1) {
+    if (this.mDatas.currentView < this.galeryLength - 1) {
       this.mDatas.currentView++;
     }
     this.fixScrollLeft();
   }
 
   fixScrollLeft() {
+    let img = document.getElementById("photo-width");
+    let imgWidth = img.clientWidth;
     this.mChangeDetectorRef.detectChanges();
 
-    let fixedScrollLeft = this.mDatas.currentView * (this.imgWidth + this.marginSize) - 1 / 2 * this.content.getContentDimensions().contentWidth + 1 / 2 * this.imgWidth;
+    let fixedScrollLeft = this.mDatas.currentView * (imgWidth + this.marginSize) - 1 / 2 * this.content.getContentDimensions().contentWidth + 1 / 2 * imgWidth;
     let availableScrLeft = this.photosContainer.scrollWidth - this.photosContainer.clientWidth
+
+    console.log(fixedScrollLeft);
+    console.log(availableScrLeft);
 
     if (fixedScrollLeft < 0) {
       this.scrollLeftTo(0);

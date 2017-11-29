@@ -18,10 +18,12 @@ page-modal-gallery {
         top: 0;
         left: 0;
         z-index: 100;
-        // background-color: rgba(white, .4);
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .hidden {
+        display: none;
     }
 }
 
@@ -92,41 +94,38 @@ page-modal-gallery {
                     padding-top: map-get($map: $FBSizes, $key: defaultPadding);
                     display: flex;
                     flex-direction: column;
-                    // justify-content: center;
                     .main-photo {
-                        // max-height: 60vh;
                         height: 100%;
                         padding: 20px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: center;
+                        overflow: hidden;
                         .photo-title {
                             color: white;
                             position: relative;
-                            padding: 4px;
+                            padding: 6px 0;
                             width: 100%;
+                            padding-right: 30px;
+                            .title {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 2;
+                            }
                             .photo-number {
                                 color: #E4BA28;
                                 position: absolute;
                                 right: 0;
-                                bottom: 0;
+                                bottom: 6px;
                             }
                         }
                         .main-photo-container {
-                            height: 100%;
                             width: 100%;
-                            img {
-                                max-height: 100%;
-                            }
+                            overflow: hidden;
                         }
-                        img {
-                            max-height: 100%;
-                        }
-                        // img.resize {
-                        //     width: 200px;
-                        //     height: auto;
-                        // }
                     }
                 }
             }
@@ -134,8 +133,6 @@ page-modal-gallery {
         .photo-preview {
             max-height: 20vh;
             display: flex;
-            // position: absolute;
-            // bottom: 0;
             #photos-container {
                 background: black;
                 height: 100%;
@@ -167,7 +164,6 @@ page-modal-gallery {
                     }
                 }
                 >div {
-                    // padding-right: map-get($map: $FBSizes, $key: defaultPadding);
                     height: 100%;
                     width: $imgWidth;
                     min-width: $imgWidth;

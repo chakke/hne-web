@@ -3,7 +3,7 @@
     <div class="close-button" (click)="onClickClose()">
         <ion-icon name="md-close"></ion-icon>
     </div>
-    <div class="main-content a3-justify-between">
+    <div class="main-content a3-justify-between" [class.hidden]="isLoading">
         <div no-padding class="col-1 a3-container a3-items-center a3-justify-start">
             <div class="button-left" (click)="onClickPrevious()">
                 <ion-icon name="ios-arrow-back"></ion-icon>
@@ -12,14 +12,13 @@
         <div class="col-md-7 col-sm-10 col-xs 10 current-photo a3-container a3-justify-center">
             <div class="photo-detail">
                 <div class="main-photo">
-                    <div class="photo-title">
-                        <span>B-Gate B-Gate FC vs MenU FC (v1)</span>
-                        <span class="photo-number" *ngIf="!isLoading">{{mDatas.currentView+1}}/{{(galery|async)?.images.length}}</span>
+                    <div class="photo-title" [class.hidden]="isLoading">
+                        <span class="title">B-Gate B-Gate FC vs MenU FC (v1)</span>
+                        <span class="photo-number">{{mDatas.currentView+1}}/{{(galery|async)?.images.length}}</span>
                     </div>
-                    <!-- <div class="main-photo-container"> -->
-                    <img src="{{(galery|async)?.images[mDatas.currentView].url}}">
-                    <!-- </div> -->
-                    <!-- <div [ngStyle]="{'background-image': 'url(' + images[mDatas.currentView] + ')'}"></div> -->
+                    <div class="main-photo-container">
+                        <img src="{{(galery|async)?.images[mDatas.currentView].url}}">
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="photo-preview">
+    <div class="photo-preview" [class.hidden]="isLoading">
         <div id="photos-container">
             <div *ngFor="let img of (galery|async)?.images; let i = index" (click)="moveToImg(i)">
                 <div class="photo" [class.photo-onview]="i==mDatas.currentView" [ngStyle]="{'background-image': 'url(' + img.url + ')'}"></div>

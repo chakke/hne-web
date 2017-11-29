@@ -21,6 +21,7 @@ export class FbGalleryPage {
   }
   images: Array<GaleryElement> = [];
   isLoading = false;
+  firstLoad = true;
   constructor(public navCtrl: NavController,
     public mPlatform: Platform,
     public mChangeDetectorRef: ChangeDetectorRef,
@@ -69,6 +70,9 @@ export class FbGalleryPage {
           this.images.push(data.galeries[i]);
         }
         this.isLoading = false;
+        if(this.firstLoad){
+          this.firstLoad = false;
+        }
         this.hideLoading();
         this.mChangeDetectorRef.detectChanges();
         // this.mChangeDetectorRef.markForCheck();
