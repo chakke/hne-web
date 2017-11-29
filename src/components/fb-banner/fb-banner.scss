@@ -1,10 +1,203 @@
-fb-banner {
-    .background {
-        background-image: url("assets/test/fb-footer.jpg");
+    fb-banner {
+        $font-text-hne: 2.2em;
+        $font-text-season: 5.4em;
+        $font-text-club: 2.4vw;
+        $line-height: 1.5em;
+        $size-vs: 5vw;
+        @media (max-width: 575px) {
+            .match-special {
+                background: rgba($color: black, $alpha: .4) !important;
+            }
+            .vs {
+                height: 28px !important;
+                width: 28px !important;
+                margin: auto;
+                font-size: 1em !important;
+                padding: 5px 0px !important;
+            }
+            .name-club {
+                font-size: 1.1em !important;
+            }
+            .season {
+                font-size: 2.6em !important;
+            }
+            .hne-cup {
+                font-size: 1.4em !important;
+            }
+            .time {
+                font-size: 1.4em !important;
+            }
+            .time-address {
+                font-size: 1em !important;
+                line-height: $line-height !important;
+                color: map-get($map: $colors, $key: white);
+            }
+            .logo-club {
+                img {
+                    max-width: 40% !important;
+                }
+            }
+            .col-xs-9 {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
+            .col-xs-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            .col-xs-3 {
+                flex: 0 0 25%;
+                max-width: 25%;
+                text-align: center !important;
+            }
+            .col-xs-12 {
+                padding: 7px 0px;
+            }
+        }
+        @media (min-width: 576px) and (max-width: 767px) {
+            .match-special {
+                background: rgba($color: black, $alpha: .4) !important;
+            }
+            .vs {
+                height: 6vw !important;
+                width: 6vw !important;
+                font-size: 1.4em !important;
+            }
+            .name-club {
+                font-size: 1.4em !important;
+            }
+            .season {
+                font-size: 5.4em !important;
+            }
+            .hne-cup {
+                font-size: 1.6em !important;
+            }
+            .time-address {
+                font-size: 1.2em !important;
+                line-height: $line-height !important;
+                color: map-get($map: $colors, $key: white);
+            }
+            .logo-club {
+                img {
+                    max-width: 80%;
+                }
+            }
+        }
+        @media (min-width: 768) and (max-width: 992px) {
+            .vs {
+                height: 4vw !important;
+                width: 4vw !important;
+                font-size: 2.4vw !important;
+            }
+            .name-club {
+                font-size: 2.4vw !important;
+            }
+            .season {
+                font-size: 5.4em !important;
+            }
+            .hne-cup {
+                font-size: 1.6em !important;
+            }
+            .time-address {
+                font-size: 1.6em !important;
+            }
+            .logo-club {
+                img {
+                    max-width: 80%;
+                }
+            }
+        }
+        .background {
+            background-image: url("../assets/test/fb-footer.jpg");
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .spacer {
+            height: 5vh;
+        }
+        .background-image {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .banner-container {
+            .hne-cup {
+                color: map-get($map: $colors, $key: white);
+                font-size: $font-text-hne;
+                line-height: $line-height;
+            }
+            .season {
+                color: map-get($map: $colors, $key: season);
+                line-height: $line-height;
+                font-size: $font-text-season;
+                font-family: "UTM-FUTURA-EXTRA" !important;
+                span {
+                    letter-spacing: 4px;
+                }
+            }
+            .time {
+                color: map-get($map: $colors, $key: white);
+                font-size: $font-text-hne;
+                line-height: $line-height;
+            }
+        }
+        .match-special {
+            // height: 20vh;
+            position: relative;
+        }
+        .next-match {
+            background-image: url("../assets/image_1/nextmatch_bar.png");
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+        }
+        .time-address {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .time {
+                width: 100%;
+            }
+            .address {
+                width: 100%;
+            }
+        }
+        .club {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: map-get($map: $colors, $key: white);
+            .logo-club {
+                img {
+                    max-width: 80%;
+                }
+            }
+            .name-club {
+                font-size: $font-text-club;
+                text-align: center;
+                line-height: $line-height;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .vs {
+                font-size: $font-text-club;
+                line-height: $line-height;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba($color: white, $alpha: .4);
+                border-radius: 50%;
+                height: $size-vs;
+                width: $size-vs;
+                margin: auto;
+                span {}
+            }
+        }
     }
-    .background-image {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-}

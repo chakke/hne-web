@@ -21,7 +21,7 @@ $app-direction: ltr;
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
-$colors: (primary: #438310, secondary: #3ab2e2, danger: #f53d3d, light: #f4f4f4, dark: #222, black:#141a10, gray: #b4b4b4, background: #eff0f5, white: #FFF, red: #f53d3d);
+$colors: (primary: #438310, secondary: #3ab2e2, danger: #f53d3d, light: #f4f4f4, dark: #222, black:#141a10, gray: #b4b4b4, background: #eff0f5, white: #FFF, red: #f53d3d, season: #f5d797);
 $FBFont: (big: 1.8rem, normal: 1.6rem, small: 1.4rem);
 $FBSizes: (titleHeight: 3.3em, titlePadding: 16px, titleBorderLeft: 5px, defaultPadding: 16px, smallerPadding: 10px, rightPadding: 10px, lineheight: 2.2rem, menuheight: 5rem, defaultMargin: 16px, smallerMargin: 10px);
 // App iOS Variables
@@ -49,3 +49,7 @@ $FBSizes: (titleHeight: 3.3em, titlePadding: 16px, titleBorderLeft: 5px, default
 // --------------------------------------------------
 @import "roboto";
 @import "noto-sans";
+@font-face {
+    font-family: "UTM-FUTURA-EXTRA";
+    src: local("UTM-FUTURA-EXTRA"), local("UTM-FUTURA-EXTRA"), url("../assets/fonts/UTM-FUTURA-EXTRA.woff") format("woff2");
+}

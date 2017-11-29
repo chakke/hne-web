@@ -14,8 +14,13 @@ donors-list {
             width: 10% !important;
         }
     }
-    .donors-container {
+    .backgroundWhite {
         background: map-get($map: $colors, $key: white);
+    }
+    .donors {
+        padding: 16px 0px;
+    }
+    .donors-container {
         white-space: nowrap;
         overflow-x: auto;
         text-align: center;
@@ -26,9 +31,7 @@ donors-list {
         width: 10%;
     }
     .image-logo {
-        // background-position: center;
-        // background-repeat: no-repeat;
-        // background-size: cover;
+        background: map-get($map: $colors, $key: white);
         text-align: center;
         position: relative;
         img {
