@@ -15,6 +15,7 @@ donors-list {
         }
     }
     .donors-container {
+        background: map-get($map: $colors, $key: white);
         white-space: nowrap;
         overflow-x: auto;
         text-align: center;
