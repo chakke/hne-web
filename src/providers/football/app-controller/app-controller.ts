@@ -78,5 +78,15 @@ export class AppControllerProvider {
         items: elm.items
       }
     })
-  } 
+  }
+  
+  getVideoById(videoId: string): Observable<any>{
+    return this.firebaseService.getVideoId(videoId).map(elm => {
+      return {
+        id: elm.id,
+        name: elm.name,
+        items: elm.items
+      }
+    })
+  }
 }
