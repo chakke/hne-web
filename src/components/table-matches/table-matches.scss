@@ -19,6 +19,7 @@ table-matches {
                     .home {
                         padding: 0;
                         width: 45%;
+                        font-size: .9em;
                         .home-name {
                             text-align: right;
                         }
@@ -26,6 +27,7 @@ table-matches {
                     .guest {
                         padding: 0;
                         width: 45%;
+                        font-size: .9em;
                         text-align: center;
                         .guest-name {
                             text-align: left;
@@ -34,10 +36,15 @@ table-matches {
                     .result {
                         padding: 0;
                         width: 10%;
-                        background-color: map-get($map: $colors, $key: primary);
                         color: white;
                         white-space: nowrap;
                         min-width: 3em;
+                        >div {
+                            background-color: map-get($map: $colors, $key: primary);
+                            width: 100%;
+                            text-align: center;
+                            font-size: .9em;
+                        }
                     }
                     .logo {
                         width: 2em;
