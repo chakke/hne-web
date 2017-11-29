@@ -8,7 +8,6 @@ page-fb-gallery {
             min-height: 10vh;
         }
         .title {
-            font-size: 1.5em;
             color: white;
             position: absolute;
             top: 0;
@@ -24,15 +23,32 @@ page-fb-gallery {
     .main-content {
         padding-top: map-get($map: $FBSizes, $key: defaultPadding);
         margin-bottom: map-get($map: $FBSizes, $key: defaultMargin);
-        padding-left: 32px;
-        padding-right: 32px;
         position: relative;
+        @media (min-width: 0px) {
+            .image {
+                min-height: 50vw !important;
+            }
+        }
+        @media (min-width: 576px) {
+            padding-left: 16px;
+            padding-right: 16px;
+            .image {
+                min-height: 25vw !important;
+            }
+        }
+        @media (min-width: 768px) {
+            padding-left: 32px;
+            padding-right: 32px;
+            .image {
+                min-height: 12vw !important;
+            }
+        }
         .image-container {
             margin-bottom: map-get($map: $FBSizes, $key: defaultPadding);
             .image {
                 opacity: .8;
                 width: 100%;
-                height: 30vh;
+                min-height: 12vw;
                 // background-image: url("http://vietfootball.vn/data/uploads/2017/11/TU1A4905-400x300.jpg");
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -61,6 +77,7 @@ page-fb-gallery {
             .img-description {
                 height: 12vh;
                 background-color: white;
+                overflow: auto;
             }
         }
     }

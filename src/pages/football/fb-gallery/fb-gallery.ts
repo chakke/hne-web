@@ -1,5 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, ModalController, Platform } from 'ionic-angular';
 import { Subject } from 'rxjs/Subject';
 
 import { AppControllerProvider } from '../../../providers/football/app-controller/app-controller';
@@ -22,6 +22,7 @@ export class FbGalleryPage {
   images: Array<GaleryElement> = [];
   isLoading = false;
   constructor(public navCtrl: NavController,
+    public mPlatform: Platform,
     public mChangeDetectorRef: ChangeDetectorRef,
     public mModalController: ModalController,
     public mAppControllerProvider: AppControllerProvider,
@@ -84,10 +85,12 @@ export class FbGalleryPage {
   }
 
   hideLoading() {
+    if(!this.loading.classList.contains("hidden"))
     this.loading.classList.add("hidden");
   }
 
   showLoading() {
+    if(this.loading.classList.contains("hidden"))
     this.loading.classList.remove("hidden");
   }
 

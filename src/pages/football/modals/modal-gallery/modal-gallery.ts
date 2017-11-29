@@ -1,5 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, Platform } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 
 import { AppControllerProvider } from '../../../../providers/football/app-controller/app-controller';
@@ -31,6 +31,7 @@ export class ModalGalleryPage {
   marginSize = 16;
 
   constructor(public navCtrl: NavController,
+    public platform: Platform,
     public mAppControllerProvider: AppControllerProvider,
     public mChangeDetectorRef: ChangeDetectorRef,
     public navParams: NavParams) {
@@ -45,6 +46,14 @@ export class ModalGalleryPage {
     this.imgWidth = img.clientWidth;
     this.getGaleryById(this.navParams.data["id"]);
 
+    // this.platform.ready().then(() => {
+    //   this.platform.resize.subscribe(() => {
+    //     console.log("resized");
+        
+    //     let img = document.getElementById("photo-width");
+    //     this.imgWidth = img.clientWidth;
+    //   })
+    // })
   }
 
   onClickClose() {

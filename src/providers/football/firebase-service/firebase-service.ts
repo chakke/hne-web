@@ -261,7 +261,7 @@ export class FirebaseServiceProvider {
               id: from,
               title: "",
               image: {
-                id: 1,
+                id: from,
                 title: "",
                 url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
               }
@@ -270,7 +270,7 @@ export class FirebaseServiceProvider {
               id: from + 1,
               title: "",
               image: {
-                id: 1,
+                id: from+1,
                 title: "",
                 url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
               }
@@ -279,7 +279,7 @@ export class FirebaseServiceProvider {
               id: from + 2,
               title: "",
               image: {
-                id: 1,
+                id: from + 2,
                 title: "",
                 url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
               }
@@ -288,7 +288,7 @@ export class FirebaseServiceProvider {
               id: from + 3,
               title: "",
               image: {
-                id: 1,
+                id: from + 3,
                 title: "",
                 url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg"
               }
@@ -296,58 +296,58 @@ export class FirebaseServiceProvider {
             {
               id: from + 4,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
+              image: { id: from + 4, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             {
               id: from + 5,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
+              image: { id: from + 5, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
             },
             {
               id: from + 6,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
+              image: { id: from + 6, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             {
               id: from + 7,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
+              image: { id: from + 7, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
             },
             {
               id: from + 8,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" }
+              image: { id: from + 8, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" }
             },
             {
               id: from + 9,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
+              image: { id: from + 9, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
             },
             {
               id: from + 10,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
+              image: { id: from + 10, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
             },
             {
               id: from + 11,
               title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" }
+              image: { id: from + 11, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" }
             },
-            {
-              id: from + 12,
-              title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
-            },
-            {
-              id: from + 13,
-              title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
-            },
-            {
-              id: from + 14,
-              title: "",
-              image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
-            },
+            // {
+            //   id: from + 12,
+            //   title: "",
+            //   image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
+            // },
+            // {
+            //   id: from + 13,
+            //   title: "",
+            //   image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
+            // },
+            // {
+            //   id: from + 14,
+            //   title: "",
+            //   image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
+            // },
             // {
             //   id: from + 15,
             //   title: "",

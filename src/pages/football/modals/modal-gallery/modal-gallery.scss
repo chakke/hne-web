@@ -1,4 +1,5 @@
 $imgWidth: 20vh;
+$imgHeight: 10vh;
 page-modal-gallery {
     ion-content .scroll-content {
         background: transparent !important;
@@ -17,7 +18,7 @@ page-modal-gallery {
         top: 0;
         left: 0;
         z-index: 100;
-        background-color: rgba(white, .4);
+        // background-color: rgba(white, .4);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -53,8 +54,8 @@ page-modal-gallery {
             display: flex;
             height: 80vh;
             .button-left {
-                width: 6vw;
-                height: 14vh;
+                width: 6vh;
+                height: 20vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -69,8 +70,8 @@ page-modal-gallery {
                 background-color: #434348;
             }
             .button-right {
-                width: 6vw;
-                height: 14vh;
+                width: 6vh;
+                height: 20vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -91,51 +92,87 @@ page-modal-gallery {
                     padding-top: map-get($map: $FBSizes, $key: defaultPadding);
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
-                    .photo-title {
-                        color: white;
-                        position: relative;
-                        padding: 4px;
-                        .photo-number {
-                            color: #E4BA28;
-                            position: absolute;
-                            right: 0;
-                            bottom: 0;
-                        }
-                    }
+                    // justify-content: center;
                     .main-photo {
-                        max-height: 60vh;
+                        // max-height: 60vh;
+                        height: 100%;
+                        padding: 20px;
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
                         justify-content: center;
-                        img {
-                            max-height: 60vh;
+                        .photo-title {
+                            color: white;
+                            position: relative;
+                            padding: 4px;
+                            width: 100%;
+                            .photo-number {
+                                color: #E4BA28;
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                            }
                         }
+                        .main-photo-container {
+                            height: 100%;
+                            width: 100%;
+                            img {
+                                max-height: 100%;
+                            }
+                        }
+                        img {
+                            max-height: 100%;
+                        }
+                        // img.resize {
+                        //     width: 200px;
+                        //     height: auto;
+                        // }
                     }
                 }
             }
         }
         .photo-preview {
-            height: 20vh;
+            max-height: 20vh;
             display: flex;
-            padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
             // position: absolute;
             // bottom: 0;
             #photos-container {
                 background: black;
                 height: 100%;
                 width: 100%;
-                padding-top: map-get($map: $FBSizes, $key: defaultPadding);
-                padding-left: map-get($map: $FBSizes, $key: defaultPadding);
-                padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
                 overflow-x: auto;
                 display: flex;
+                @media (min-width: 0px) {
+                    padding-top: map-get($map: $FBSizes, $key: smallerPadding);
+                    padding-left: map-get($map: $FBSizes, $key: smallerPadding);
+                    padding-bottom: map-get($map: $FBSizes, $key: smallerPadding);
+                    >div {
+                        margin-right: map-get($map: $FBSizes, $key: smallerPadding);
+                    }
+                }
+                @media (min-width: 576px) {
+                    padding-top: map-get($map: $FBSizes, $key: smallerPadding);
+                    padding-left: map-get($map: $FBSizes, $key: smallerPadding);
+                    padding-bottom: map-get($map: $FBSizes, $key: smallerPadding);
+                    >div {
+                        margin-right: map-get($map: $FBSizes, $key: smallerPadding);
+                    }
+                }
+                @media (min-width: 768px) {
+                    padding-top: map-get($map: $FBSizes, $key: defaultPadding);
+                    padding-left: map-get($map: $FBSizes, $key: defaultPadding);
+                    padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
+                    >div {
+                        margin-right: map-get($map: $FBSizes, $key: defaultPadding);
+                    }
+                }
                 >div {
                     // padding-right: map-get($map: $FBSizes, $key: defaultPadding);
                     height: 100%;
                     width: $imgWidth;
                     min-width: $imgWidth;
-                    margin-right: map-get($map: $FBSizes, $key: defaultPadding);
+                    height: $imgHeight;
+                    min-height: $imgHeight;
                     position: relative;
                     .photo {
                         background-size: cover;

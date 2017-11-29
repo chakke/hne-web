@@ -14,8 +14,8 @@
             </div>
             <!-- noi dung chinh -->
             <div class="main-content">
-                <div class="col-md-3 image-container" *ngFor="let i of images" (click)="onClickPhotosGroup(i.id)">
-                    <div class="image" [ngStyle]="{'background-image': 'url(' + i.image.url + ')'}">
+                <div class="col-md-3 col-sm-6 col-xs-12 image-container" *ngFor="let album of images">
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + album.image.url + ')'}" (click)="onClickPhotosGroup(album.id)">
                         <div class="image-info">
                             <div class="icon">
                                 <ion-icon name="camera"></ion-icon>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div padding class="img-description">
-                        <div>{{i.id}} - B-Gate B-Gate FC vs MenU FC (v1)</div>
+                        <div>{{album.id}} - B-Gate FC vs MenU FC (v1)</div>
                     </div>
                 </div>
             </div>

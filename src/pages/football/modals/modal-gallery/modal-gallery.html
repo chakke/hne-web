@@ -3,25 +3,27 @@
     <div class="close-button" (click)="onClickClose()">
         <ion-icon name="md-close"></ion-icon>
     </div>
-    <div class="main-content">
-        <div no-padding class="col-2 a3-container a3-items-center a3-justify-start">
+    <div class="main-content a3-justify-between">
+        <div no-padding class="col-1 a3-container a3-items-center a3-justify-start">
             <div class="button-left" (click)="onClickPrevious()">
                 <ion-icon name="ios-arrow-back"></ion-icon>
             </div>
         </div>
-        <div class="col-8 current-photo a3-container a3-justify-center">
+        <div class="col-md-7 col-sm-10 col-xs 10 current-photo a3-container a3-justify-center">
             <div class="photo-detail">
-                <div class="photo-title">
-                    <span>B-Gate B-Gate FC vs MenU FC (v1)</span>
-                    <span class="photo-number" *ngIf="!isLoading">{{mDatas.currentView+1}}/{{(galery|async)?.images.length}}</span>
-                </div>
                 <div class="main-photo">
+                    <div class="photo-title">
+                        <span>B-Gate B-Gate FC vs MenU FC (v1)</span>
+                        <span class="photo-number" *ngIf="!isLoading">{{mDatas.currentView+1}}/{{(galery|async)?.images.length}}</span>
+                    </div>
+                    <!-- <div class="main-photo-container"> -->
                     <img src="{{(galery|async)?.images[mDatas.currentView].url}}">
+                    <!-- </div> -->
                     <!-- <div [ngStyle]="{'background-image': 'url(' + images[mDatas.currentView] + ')'}"></div> -->
                 </div>
             </div>
         </div>
-        <div no-padding class="col-2 a3-container a3-items-center a3-justify-end">
+        <div no-padding class="col-1 a3-container a3-items-center a3-justify-end">
             <div class="button-right" (click)="onClickNext()">
                 <ion-icon name="ios-arrow-forward"></ion-icon>
             </div>
