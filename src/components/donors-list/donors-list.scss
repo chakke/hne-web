@@ -1,4 +1,19 @@
 donors-list {
+    @media (max-width: 575px) {
+        .donor {
+            width: 20% !important;
+        }
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+        .donor {
+            width: 18% !important;
+        }
+    }
+    @media (min-width: 768) and (max-width: 992px) {
+        .donor {
+            width: 10% !important;
+        }
+    }
     .donors-container {
         white-space: nowrap;
         overflow-x: auto;
