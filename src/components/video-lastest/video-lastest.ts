@@ -17,11 +17,11 @@ export class VideoLastestComponent {
   videos: Observable<any>;
   video: Array<any> = [];
 
-  item1: any = [];
-  item2: any = [];
-  item3: any = [];
-  item4: any = [];
-  item5: any = [];
+  // item1: any = [];
+  // item2: any = [];
+  // item3: any = [];
+  // item4: any = [];
+  // item5: any = [];
 
   constructor(
     private appController: AppControllerProvider
@@ -29,18 +29,18 @@ export class VideoLastestComponent {
 
   ngAfterViewInit() {
     this.videos = this.appController.getVideoById(this.videosId);
-    this.videos.subscribe(data => {
-      let allPost = data.items;
-      this.video.push(allPost)
-      this.item1 = allPost[0];
-      this.item2 = allPost[1];
-      this.item3 = allPost[2];
-      this.item4 = allPost[3];
-      this.item5 = allPost[4];
-    })
+    // this.videos.subscribe(data => {
+    //   let allPost = data.items;
+    //   this.video.push(allPost)
+    //   this.item1 = allPost[0];
+    //   this.item2 = allPost[1];
+    //   this.item3 = allPost[2];
+    //   this.item4 = allPost[3];
+    //   this.item5 = allPost[4];
+    // })
   }
 
-  allVideo(){
-    console.log(this.video);
-  }
+  // allVideo(){
+  //   console.log(this.video);
+  // }
 }
