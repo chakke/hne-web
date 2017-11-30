@@ -6,6 +6,7 @@ import { TableDetailComponent } from './table-detail/table-detail';
 import { FbLoaderComponent } from './fb-loader/fb-loader';
 import { FbHeaderComponent } from './fb-header/fb-header';
 import { FbFooterComponent } from './fb-footer/fb-footer';
+
 import { MainNewsComponent } from './main-news/main-news';
 import { TableMatchesComponent } from './table-matches/table-matches';
 import { FbSpinnerComponent } from './fb-spinner/fb-spinner';
@@ -14,39 +15,50 @@ import { DonorsListComponent } from './donors-list/donors-list';
 import { FbBannerComponent } from './fb-banner/fb-banner';
 import { FbScheduleComponent } from './fb-schedule/fb-schedule';
 
+import { VideoLastestComponent } from './video-lastest/video-lastest';
+import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
+
 @NgModule({
-	declarations: [
-		FbProgressComponent,
-		FbTitleComponent,
-		TableDetailComponent,
-		FbLoaderComponent,
-    FbHeaderComponent,
-    FbFooterComponent,
-    TableMatchesComponent,
-    FbSpinnerComponent,
-    MainNewsComponent,
-    TableMatchesComponent,
-    FbHomeSliderComponent,
-    DonorsListComponent,
-    FbBannerComponent,
-    FbScheduleComponent,
-	],
-	imports: [IonicPageModule],
-	exports: [
-		FbProgressComponent,
-		FbTitleComponent,
-		TableDetailComponent,
-		FbLoaderComponent,
-    FbHeaderComponent,
-    FbFooterComponent,
-    TableMatchesComponent,
-    FbSpinnerComponent,
-    MainNewsComponent,
-    TableMatchesComponent,
-    FbHomeSliderComponent,
-    DonorsListComponent,
-    FbBannerComponent,
-    FbScheduleComponent,
-	]
+    declarations: [
+        FbProgressComponent,
+        FbTitleComponent,
+        TableDetailComponent,
+        FbLoaderComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        TableMatchesComponent,
+        FbSpinnerComponent,
+        MainNewsComponent,
+        TableMatchesComponent,
+        FbHomeSliderComponent,
+        DonorsListComponent,
+        FbBannerComponent,
+        FbScheduleComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        VideoLastestComponent,
+    FbDropdownComponent,
+    ],
+    imports: [IonicPageModule],
+    exports: [
+        FbProgressComponent,
+        FbTitleComponent,
+        TableDetailComponent,
+        FbLoaderComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        TableMatchesComponent,
+        FbSpinnerComponent,
+        MainNewsComponent,
+        TableMatchesComponent,
+        FbHomeSliderComponent,
+        DonorsListComponent,
+        FbBannerComponent,
+        FbScheduleComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        VideoLastestComponent,
+    FbDropdownComponent,
+    ]
 })
 export class ComponentsModule { }

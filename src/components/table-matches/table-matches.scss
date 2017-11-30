@@ -36,11 +36,12 @@ table-matches {
                     .result {
                         padding: 0;
                         width: 10%;
-                        color: white;
+                        // color: white;
                         white-space: nowrap;
                         min-width: 3em;
+                        font-weight: bold;
                         >div {
-                            background-color: map-get($map: $colors, $key: primary);
+                            // background-color: map-get($map: $colors, $key: primary);
                             width: 100%;
                             text-align: center;
                             font-size: .9em;

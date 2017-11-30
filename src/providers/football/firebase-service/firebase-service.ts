@@ -270,7 +270,7 @@ export class FirebaseServiceProvider {
               id: from + 1,
               title: "",
               image: {
-                id: from+1,
+                id: from + 1,
                 title: "",
                 url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg"
               }
@@ -431,7 +431,7 @@ export class FirebaseServiceProvider {
     }
   }
 
-  getGaleryById(id: number): Observable<any>{
+  getGaleryById(id: number): Observable<any> {
     if (this.isUseFakeData) {
       return new Observable(observable => {
         setTimeout(() => {
@@ -461,22 +461,82 @@ export class FirebaseServiceProvider {
     }
   }
 
-  getDonorsList(): Observable<any>{
-    if(this.isUseFakeData){
-      return new Observable(observable=>{
+  getDonorsList(): Observable<any> {
+    if (this.isUseFakeData) {
+      return new Observable(observable => {
         setTimeout(() => {
           observable.next({
             id: 1,
             list: [
-              { image: "assets/test/logo_1.png", name: "Name Of Club"},
-              { image: "assets/test/logo_2.png", name: "Name Of Club"},
-              { image: "assets/test/logo_3.png", name: "Name Of Club"},
-              { image: "assets/test/logo_4.png", name: "Name Of Club"},
-              { image: "assets/test/logo_5.png", name: "Name Of Club"},
+              { image: "assets/test/logo_1.png", name: "Name Of Club" },
+              { image: "assets/test/logo_2.png", name: "Name Of Club" },
+              { image: "assets/test/logo_3.png", name: "Name Of Club" },
+              { image: "assets/test/logo_4.png", name: "Name Of Club" },
+              { image: "assets/test/logo_5.png", name: "Name Of Club" },
             ]
           })
         }, 1000);
       })
     }
+
+  }
+
+  getVideoId(videoId: string): Observable<any> {
+    if (this.isUseFakeData) return new Observable(obs => {
+      setTimeout(() => {
+        obs.next({
+          id: videoId,
+          name: "All video",
+          items: [
+            {
+              id: "1",
+              videoURL: "https://www.youtube.com/watch?v=pk1XQtfVH4Y",
+              imgURL: "assets/imgs/1.jpg",
+              title: "2017-18 NBA Season - Cleveland Cavaliers vs Philadelphia Sixers Full Highlights",
+              description: " Đối đầu với “ngựa ô” Philadelphia 76ers, LeBron cùng với D-Wade đã dội một gáo nước lạnh và đưa những đôi chân đang bay cao như Simmons hay Embiid trở lại mặt đất. Với chiến thắng này, Cleveland Cavaliers đang dần tiến sát tốp đầu và hiện đang đứng thứ 3 miền Đông với thành tích 13-7",
+              date: "27 tháng 11, 2017",
+              duration: "09:38",
+            },
+            {
+              id: "2",
+              videoURL: "https://www.youtube.com/watch?v=ZtSraTslvPE",
+              imgURL: "assets/imgs/3.jpg",
+              title: "Detroit Pistons 118 - 108 Boston Celtics",
+              description: "",
+              date: "27 tháng 11, 2017",
+              duration: "09:32",
+            },
+            {
+              id: "3",
+              videoURL: "https://www.youtube.com/watch?v=0DRayWcXi9c",
+              imgURL: "assets/imgs/4.jpg",
+              title: "Sacramento Kings 110 - 106 Golden State Warriors",
+              description: "",
+              date: "27 tháng 11, 2017",
+              duration: "09:19",
+            },
+            {
+              id: "4",
+              videoURL: "https://www.youtube.com/watch?v=b3-6_W7UtXM",
+              imgURL: "assets/imgs/5.jpg",
+              title: "LA Lakers 115 - 120 LA Clippers",
+              description: "",
+              date: "27 tháng 11, 2017",
+              duration: "09:30",
+            },
+            {
+              id: "5",
+              videoURL: "https://www.youtube.com/watch?v=NF8E4Mb6TGI",
+              imgURL: "assets/imgs/6.jpg",
+              title: "Dallas Maveicks 108 - 115 San Antonio Spurs",
+              description: "",
+              date: "27 tháng 11, 2017",
+              duration: "09:27",
+            }
+          ]
+        })
+      }, 1000);
+    })
+
   }
 }

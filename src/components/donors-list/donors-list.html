@@ -1,5 +1,5 @@
 <!-- Generated template for the DonorsListComponent component -->
-<div class="donors" padding>
+<div class="donors" [class.backgroundWhite]="isHaveBackround">
     <div class="donors-container" *ngIf="!isLoadingData">
         <div class="donor" *ngFor="let item of (listDonors | async)?.list">
             <!-- [ngStyle]="{'background-image': 'url(' + item.image + ')'}" -->
