@@ -24,7 +24,7 @@
             </div>
             <div class="div-two-new">
                 <div class="div-size div-content col-md-6 col-sm-6 col-xs-12">
-                    <div class="div-padding-right">
+                    <div class="div-padding-right" (click)="clickGoNewsDetail()" tappable>
                         <div class="div-background">
                             <div class="div-img background-image" [ngStyle]="{'background-image': 'url(' + post2.pictureUrl + ')'}">
                             </div>
@@ -43,7 +43,7 @@
 
                 </div>
                 <div class="div-size div-content col-md-6 col-sm-6 col-xs-12">
-                    <div class="div-padding-left">
+                    <div class="div-padding-left" (click)="clickGoNewsDetail()" tappable>
                         <div class="div-background">
                             <div class="div-img background-image" [ngStyle]="{'background-image': 'url(' + post3.pictureUrl + ')'}">
                             </div>

@@ -98,7 +98,5 @@ export class FbHeaderComponent {
 
   menuItemClick(menu: Menu) {
     this.appController.setRootPage(menu.page);
-    console.log(menu.page);
-    
   }
 }

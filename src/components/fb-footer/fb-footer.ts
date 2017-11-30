@@ -30,6 +30,15 @@ export class FbFooterComponent {
   }
 
   clickGoNews(){
-    
+    this.appController.pushPage("FbNewsPage");
+  }
+  clickGoSchedule(){
+    this.appController.pushPage("FbScheducePage");
+  }
+  clickGoTop(){
+    this.appController.pushPage("FbTablesPage");
+  }
+  clickGoLibraly(){
+    this.appController.pushPage("FbGalleryPage");
   }
 }
