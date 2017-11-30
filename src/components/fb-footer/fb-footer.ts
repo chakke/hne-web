@@ -28,4 +28,8 @@ export class FbFooterComponent {
       this.listNewPost.push(allPost[2]);
     })
   }
+
+  clickGoNews(){
+    
+  }
 }

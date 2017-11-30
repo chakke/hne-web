@@ -30,10 +30,14 @@ export class MainNewsComponent {
     })
   }
 
-  openAllPage(){
-    this.news = this.appController.getNewsId(this.newsId);
-    this.news.subscribe(data => {
-      console.log("news", data.items);
-    })
+  clickGoViewAllNews(){
+    this.appController.setRootPage("FbNewsPage");
   }
+
+  clickGoNewsDetail(){
+    // this.appController.setRootPage("FbNewsDetalPage");
+    this.appController.pushPage("FbNewsDetalPage");
+    
+  }
+
 }

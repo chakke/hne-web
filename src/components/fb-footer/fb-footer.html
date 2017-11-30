@@ -6,19 +6,19 @@
     <div class="div-list-item">
       <div class="div-item">
         <img class="img-item" src="assets/test/item.png" alt="">
-        <span class="small-font">Tin tức</span>
+        <span class="small-font span-item">Tin tức</span>
       </div>
       <div class="div-item">
         <img class="img-item" src="assets/test/item.png" alt="">
-        <span class="small-font">Lịch thi đấu - kết quả</span>
+        <span class="small-font span-item">Lịch thi đấu - kết quả</span>
       </div>
       <div class="div-item">
         <img class="img-item" src="assets/test/item.png" alt="">
-        <span class="small-font">Bảng xếp hạng</span>
+        <span class="small-font span-item">Bảng xếp hạng</span>
       </div>
       <div class="div-item">
         <img class="img-item" src="assets/test/item.png" alt="">
-        <span class="small-font">Thư viện</span>
+        <span class="small-font span-item">Thư viện</span>
       </div>
     </div>
   </div>
@@ -27,11 +27,11 @@
       <span class="span-bvm big-font">BÀI VIẾT MỚI</span>
     </div>
     <div class="div-list-bvm" *ngFor="let item of listNewPost">
-      <div class="col-md-3 col-sm-3 col-xs-12 div-img">
-        <img class="img-item" src="{{item.pictureUrl}}" alt="">
+      <div class="col-md-3 col-sm-3 div-img">
+        <div class="background-image" [ngStyle]="{'background-image': 'url(' + item.pictureUrl + ')'}"></div>
       </div>
-      <div class="col-md-9 col-sm-9 col-lg-9 col-xs-12 div-title">
-        <span class="small-font ">{{item.title}}</span>
+      <div class="col-md-9 col-sm-9 div-title">
+        <span class="small-font span-item">{{item.title}}</span>
       </div>
     </div>
   </div>
@@ -42,15 +42,15 @@
     <div class="div-list-item">
       <div class="div-item">
         <img class="img-item" src="assets/test/item.png" alt="">
-        <span class="small-font">Facebook</span>
+        <span class="small-font span-item">Facebook</span>
       </div>
       <div class="div-item">
         <img class="img-item" src="assets/test/item.png" alt="">
-        <span class="small-font">Google</span>
+        <span class="small-font span-item">Google</span>
       </div>
       <div class="div-item">
         <img class="img-item" src="assets/test/item.png" alt="">
-        <span class="small-font">Youtube</span>
+        <span class="small-font span-item">Youtube</span>
       </div>
     </div>
   </div>
