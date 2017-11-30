@@ -36,8 +36,8 @@ export class AppControllerProvider {
       id: 3,
       name: "Lịch thi đấu",
       active: false,
-      page: "FbScheducePage",
-      link: "fb-scheduce"
+      page: "FbSchedulePage",
+      link: "fb-schedule"
     },
     {
       id: 4,

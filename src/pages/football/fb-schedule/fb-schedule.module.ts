@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { FbScheducePage } from './fb-scheduce';
+import { FbSchedulePage } from './fb-schedule';
 import { ComponentsModule } from '../../../components/components.module';
 
 @NgModule({
   declarations: [
-    FbScheducePage,
+    FbSchedulePage,
   ],
   imports: [
-    IonicPageModule.forChild(FbScheducePage),
+    IonicPageModule.forChild(FbSchedulePage),
     ComponentsModule
   ],
 })
-export class FbScheducePageModule {}
+export class FbSchedulePageModule {}

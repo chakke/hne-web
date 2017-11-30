@@ -12,6 +12,7 @@ import { FbSpinnerComponent } from './fb-spinner/fb-spinner';
 import { FbHomeSliderComponent } from './fb-home-slider/fb-home-slider';
 import { DonorsListComponent } from './donors-list/donors-list';
 import { FbBannerComponent } from './fb-banner/fb-banner';
+import { FbScheduleComponent } from './fb-schedule/fb-schedule';
 
 @NgModule({
 	declarations: [
@@ -27,7 +28,8 @@ import { FbBannerComponent } from './fb-banner/fb-banner';
     TableMatchesComponent,
     FbHomeSliderComponent,
     DonorsListComponent,
-    FbBannerComponent
+    FbBannerComponent,
+    FbScheduleComponent,
 	],
 	imports: [IonicPageModule],
 	exports: [
@@ -43,7 +45,8 @@ import { FbBannerComponent } from './fb-banner/fb-banner';
     TableMatchesComponent,
     FbHomeSliderComponent,
     DonorsListComponent,
-    FbBannerComponent
+    FbBannerComponent,
+    FbScheduleComponent,
 	]
 })
 export class ComponentsModule { }

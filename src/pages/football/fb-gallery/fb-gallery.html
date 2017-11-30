@@ -15,7 +15,7 @@
             <!-- noi dung chinh -->
             <div class="main-content">
                 <div class="col-md-3 col-sm-6 col-xs-12 image-container" *ngFor="let album of images">
-                    <div class="image" [ngStyle]="{'background-image': 'url(' + album.image.url + ')'}" (click)="onClickPhotosGroup(album.id)">
+                    <div class="image" [ngStyle]="{'background-image': 'url(' + album.image.url + ')'}" (click)="onClickPhotosGroup(album.id)" tappable>
                         <div class="image-info">
                             <div class="icon">
                                 <ion-icon name="camera"></ion-icon>
