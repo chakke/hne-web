@@ -11,7 +11,9 @@ export class FbTablesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  mDatas = {
+    title: "Bảng xếp hạng"
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FbTablesPage');
   }
