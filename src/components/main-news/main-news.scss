@@ -16,7 +16,7 @@ main-news {
                 background-color: map-get($map: $colors, $key: white);
                 .div-img {
                     position: relative;
-                    height: 30em;
+                    height: 20em;
                     width: 100%;
                     .div-date-title {
                         position: absolute;
@@ -25,6 +25,20 @@ main-news {
                         background-color: orange;
                         padding: 0.2em;
                     }
+                }
+                @media (max-width: 576px){
+                    .div-img {
+                        position: relative;
+                        height: 12em;
+                        width: 100%;
+                        .div-date-title {
+                            position: absolute;
+                            top: 2em;
+                            left: 2em;
+                            background-color: orange;
+                            padding: 0.2em;
+                        }
+                    }   
                 }
                 .background-image{
                     background-position: center;
@@ -56,15 +70,81 @@ main-news {
                 }
             }
             .div-two-new {
-                .div-nd-new {
+                .div-size{
                     width: 100%;
-                    padding-left: 0;
+                    padding: 0;
+                }
+                
+                .div-padding-right{
                     padding-top: 1em;
-                    padding-right: 0.5em;
+                    padding-right: 0;
+                }
+                .div-padding-left{
+                    padding-top: 1em;
+                    padding-left: 0;
+                }
+                @media (min-width: 576px){
+                    .div-padding-right{
+                        padding-top: 1em;
+                        padding-right: 0.5em;
+                    }
+                    .div-padding-left{
+                        padding-top: 1em;
+                        padding-left: 0.5em;
+                    }
+                }
+                .div-background {
+                    background-color: map-get($map: $colors, $key: white);
+                    .div-img {
+                        height: 12em;
+                        width: 100%;
+                    }
+                    .background-image{
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    .div-title {
+                        padding-right: 1.5em;
+                        padding-left: 1.5em;
+                        padding-top: 0.7em;
+                        padding-bottom: 0.7em;
+                        .span-title {
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                    .div-date-title {
+                        padding-left: 1.5em;
+                        padding-right: 1.5em;
+                        padding-bottom: 0.5em;
+                    }
+                }
+                .div-tag {
+                    border-top: 1px solid rgba(128, 128, 128, 0.7);
+                    width: 100%;
+                    height: 4em;
+                    padding: 1em;
+                    .img-tag {
+                        height: 50%;
+                    }
+                }
+                
+
+
+                .div-nd-new {
+                    width: 50%;
+                    float: left;
+                    // padding-left: 0;
+                    // padding-top: 1em;
+                    // padding-right: 0.5em;
                     .div-background {
                         background-color: map-get($map: $colors, $key: white);
                         .div-img {
-                            height: 20em;
+                            height: 12em;
                             width: 100%;
                         }
                         .background-image{
@@ -72,24 +152,24 @@ main-news {
                             background-size: cover;
                             background-repeat: no-repeat;
                         }
-                        .div-date-title {
-                            padding-left: 1.5em;
-                            padding-top: 1em;
-                            padding-right: 1.5em;
-                        }
                         .div-title {
                             padding-right: 1.5em;
                             padding-left: 1.5em;
                             padding-top: 0.7em;
                             padding-bottom: 0.7em;
-                            height: 6em;
+                            // height: 4em;
                             .span-title {
                                 display: -webkit-box;
-                                -webkit-line-clamp: 3;
+                                -webkit-line-clamp: 2;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
                             }
+                        }
+                        .div-date-title {
+                            padding-left: 1.5em;
+                            padding-right: 1.5em;
+                            padding-bottom: 0.5em;
                         }
                     }
                     .div-tag {
@@ -103,14 +183,15 @@ main-news {
                     }
                 }
                 .div-rd-new {
-                    width: 100%;
-                    padding-top: 1em;
-                    padding-left: 0.5em;
-                    padding-right: 0;
+                    width: 50%;
+                    float: left;
+                    // padding-top: 1em;
+                    // padding-left: 0.5em;
+                    // padding-right: 0;
                     .div-background {
                         background-color: map-get($map: $colors, $key: white);
                         .div-img {
-                            height: 20em;
+                            height: 12em;
                             width: 100%;
                         }
                         .background-image{
@@ -118,24 +199,23 @@ main-news {
                             background-size: cover;
                             background-repeat: no-repeat;
                         }
-                        .div-date-title {
-                            padding-left: 1.5em;
-                            padding-top: 1em;
-                            padding-right: 1.5em;
-                        }
                         .div-title {
                             padding-right: 1.5em;
                             padding-left: 1.5em;
                             padding-top: 0.7em;
                             padding-bottom: 0.7em;
-                            height: 6em;
                             .span-title {
                                 display: -webkit-box;
-                                -webkit-line-clamp: 3;
+                                -webkit-line-clamp: 2;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
                             }
+                        }
+                        .div-date-title {
+                            padding-left: 1.5em;
+                            padding-right: 1.5em;
+                            padding-bottom: 0.5em;
                         }
                     }
                     .div-tag {

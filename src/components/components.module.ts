@@ -13,46 +13,52 @@ import { FbSpinnerComponent } from './fb-spinner/fb-spinner';
 import { FbHomeSliderComponent } from './fb-home-slider/fb-home-slider';
 import { DonorsListComponent } from './donors-list/donors-list';
 import { FbBannerComponent } from './fb-banner/fb-banner';
+import { FbScheduleComponent } from './fb-schedule/fb-schedule';
 
 import { VideoLastestComponent } from './video-lastest/video-lastest';
+import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
 
 @NgModule({
-	declarations: [
-		FbProgressComponent,
-		FbTitleComponent,
-		TableDetailComponent,
-		FbLoaderComponent,
-		FbHeaderComponent,
-		FbFooterComponent,
-		TableMatchesComponent,
-		FbSpinnerComponent,
-		MainNewsComponent,
-		TableMatchesComponent,
-		FbHomeSliderComponent,
-		DonorsListComponent,
-		FbBannerComponent,
-		FbHeaderComponent,
-		FbFooterComponent,
-		VideoLastestComponent,
-	],
-	imports: [IonicPageModule],
-	exports: [
-		FbProgressComponent,
-		FbTitleComponent,
-		TableDetailComponent,
-		FbLoaderComponent,
-		FbHeaderComponent,
-		FbFooterComponent,
-		TableMatchesComponent,
-		FbSpinnerComponent,
-		MainNewsComponent,
-		TableMatchesComponent,
-		FbHomeSliderComponent,
-		DonorsListComponent,
-		FbBannerComponent,
-		FbHeaderComponent,
-		FbFooterComponent,
-		VideoLastestComponent,
-	]
+    declarations: [
+        FbProgressComponent,
+        FbTitleComponent,
+        TableDetailComponent,
+        FbLoaderComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        TableMatchesComponent,
+        FbSpinnerComponent,
+        MainNewsComponent,
+        TableMatchesComponent,
+        FbHomeSliderComponent,
+        DonorsListComponent,
+        FbBannerComponent,
+        FbScheduleComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        VideoLastestComponent,
+    FbDropdownComponent,
+    ],
+    imports: [IonicPageModule],
+    exports: [
+        FbProgressComponent,
+        FbTitleComponent,
+        TableDetailComponent,
+        FbLoaderComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        TableMatchesComponent,
+        FbSpinnerComponent,
+        MainNewsComponent,
+        TableMatchesComponent,
+        FbHomeSliderComponent,
+        DonorsListComponent,
+        FbBannerComponent,
+        FbScheduleComponent,
+        FbHeaderComponent,
+        FbFooterComponent,
+        VideoLastestComponent,
+    FbDropdownComponent,
+    ]
 })
 export class ComponentsModule { }

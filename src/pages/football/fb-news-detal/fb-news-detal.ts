@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
- 
 
 @IonicPage()
 @Component({
-  selector: 'page-fb-scheduce',
-  templateUrl: 'fb-scheduce.html',
+  selector: 'page-fb-news-detal',
+  templateUrl: 'fb-news-detal.html',
 })
-export class FbScheducePage {
+export class FbNewsDetalPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FbScheducePage');
+    console.log('ionViewDidLoad FbNewsDetalPage');
   }
 
 }

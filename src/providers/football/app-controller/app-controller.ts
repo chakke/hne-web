@@ -12,6 +12,7 @@ import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
 import { FBSlides } from '../interfaces/fb-slide';
 import { DonorsList } from '../interfaces/fb-donors';
+import { Videos } from '../interfaces/fb-videos';
 
 
 @Injectable()
@@ -36,8 +37,8 @@ export class AppControllerProvider {
       id: 3,
       name: "Lịch thi đấu",
       active: false,
-      page: "FbScheducePage",
-      link: "fb-scheduce"
+      page: "FbSchedulePage",
+      link: "fb-schedule"
     },
     {
       id: 4,
@@ -152,7 +153,7 @@ export class AppControllerProvider {
   }
 
   
-  getVideoById(videoId: string): Observable<any>{
+  getVideoById(videoId: string): Observable<Videos>{
     return this.firebaseService.getVideoId(videoId).map(elm => {
       return {
         id: elm.id,

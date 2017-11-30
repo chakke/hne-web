@@ -2,7 +2,7 @@
     <div class="box-title-padding">
         <div class="box-title div-title">
             <span class="big-title">Tin tức - Sự kiện</span>
-            <span class="right-button" (tap)="openAllPage()">
+            <span class="right-button" (click)="clickGoViewAllNews()" tappable>
                 Xem tất cả &nbsp;
                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
             </span>
@@ -10,7 +10,7 @@
     </div>
     <div class="box-content-padding">
         <div class="box-content div-content">
-            <div class="div-main-new">
+            <div class="div-main-new" (click)="clickGoNewsDetail()" tappable>
                 <div class="div-img background-image" [ngStyle]="{'background-image': 'url(' + post1.pictureUrl + ')'}">
                     <div class="div-date-title">{{post1.date}}</div>
                 </div>
@@ -23,38 +23,44 @@
                 </div>
             </div>
             <div class="div-two-new">
-                <div class="div-nd-new col-md-6 ">
-                    <div class="div-background">
-                        <div class="div-img background-image" [ngStyle]="{'background-image': 'url(' + post2.pictureUrl + ')'}">
+                <div class="div-size div-content col-md-6 col-sm-6 col-xs-12">
+                    <div class="div-padding-right" (click)="clickGoNewsDetail()" tappable>
+                        <div class="div-background">
+                            <div class="div-img background-image" [ngStyle]="{'background-image': 'url(' + post2.pictureUrl + ')'}">
+                            </div>
+                            <div class="div-title">
+                                <span class="span-title">{{post2.title}}</span>
+                            </div>
+                            <div class="div-date-title">
+                                <span class="small-font color-gray">{{post2.date}}</span>
+                            </div>
+                            <div class="div-tag small-font color-gray">
+                                <img class="img-tag" src="assets/test/tag.png" alt="">
+                                <span>&nbsp; {{post2.tag}}</span>
+                            </div>
                         </div>
-                        <div class="div-date-title">
-                            <span class="normal-font color-gray">{{post2.date}}</span>
-                        </div>
-                        <div class="div-title">
-                            <span class="span-title">{{post2.title}}</span>
-                        </div>
-                        <div class="div-tag small-font color-gray">
-                            <img class="img-tag" src="assets/test/tag.png" alt="">
-                            <span>&nbsp; {{post2.tag}}</span>
+                    </div>
+
+                </div>
+                <div class="div-size div-content col-md-6 col-sm-6 col-xs-12">
+                    <div class="div-padding-left" (click)="clickGoNewsDetail()" tappable>
+                        <div class="div-background">
+                            <div class="div-img background-image" [ngStyle]="{'background-image': 'url(' + post3.pictureUrl + ')'}">
+                            </div>
+                            <div class="div-title">
+                                <span class="span-title">{{post3.title}}</span>
+                            </div>
+                            <div class="div-date-title">
+                                <span class="small-font color-gray">{{post3.date}}</span>
+                            </div>
+                            <div class="div-tag small-font color-gray">
+                                <img class="img-tag" src="assets/test/tag.png" alt="">
+                                <span>&nbsp; {{post3.tag}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="div-rd-new col-md-6">
-                    <div class="div-background">
-                        <div class="div-img background-image" [ngStyle]="{'background-image': 'url(' + post3.pictureUrl + ')'}">
-                        </div>
-                        <div class="div-date-title">
-                            <span class="normal-font color-gray">{{post3.date}}</span>
-                        </div>
-                        <div class="div-title">
-                            <span class="span-title">{{post3.title}}</span>
-                        </div>
-                        <div class="div-tag small-font color-gray">
-                            <img class="img-tag" src="assets/test/tag.png" alt="">
-                            <span>&nbsp; {{post3.tag}}</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
