@@ -1,3 +1,53 @@
 page-fb-news-detal {
-
+    img {
+        max-height: 70vh;
+    }
+    .new-header {
+        margin-top: map-get($map: $FBSizes, $key: defaultMargin);
+        .div-tag {
+            ion-icon {
+                color: #e8cb60;
+            }
+            span {
+                font-size: 1.2em;
+            }
+        }
+        .btn {
+            font-size: .8em;
+            cursor: pointer;
+            transition: 200ms;
+            filter: brightness(100%);
+        }
+        .btn:hover {
+            filter: brightness(130%);
+        }
+        .f-background {
+            background: map-get($map: $colors, $key: facebook);
+            color: white;
+            margin-right: 3px;
+        }
+        .google {
+            color: #d62d20;
+            border: 1px solid gray;
+        }
+    }
+    .new-title {
+        margin-top: map-get($map: $FBSizes, $key: defaultMargin);
+    }
+    .time-post {
+        margin-top: map-get($map: $FBSizes, $key: defaultMargin);
+        color: map-get($map: $colors, $key: secondary);
+    }
+    .img-1 {
+        margin-top: map-get($map: $FBSizes, $key: defaultMargin);
+        text-align: center;
+    }
+    .description-first {
+        margin-top: map-get($map: $FBSizes, $key: defaultMargin);
+    }
+    .author {
+        margin-top: map-get($map: $FBSizes, $key: defaultMargin);
+        margin-bottom: map-get($map: $FBSizes, $key: defaultMargin);
+        text-align: right;
+    }
 }

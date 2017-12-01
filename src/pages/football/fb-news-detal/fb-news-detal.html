@@ -5,31 +5,51 @@
     </div>
     <div class="container section main body-padding">
         <div class="row">
-            <div class="col-md-7 col-lg-8">
+            <div class="col-md-7 col-lg-8 box position-relative" *ngIf="!isLoadingData">
                 <!-- Tin tuc-->
-                <div class="container-fluid">
+                <div class="container-fluid ">
                     <div class="new-header">
                         <!-- header -->
-
+                        <div class="container-fluid">
+                            <div class="row align-items-centers">
+                                <div class="col-md-4 div-tag small-font color-gray" no-padding>
+                                    <ion-icon name="pricetag"></ion-icon>
+                                    <span>&nbsp; {{newDetail.tag}}</span>
+                                </div>
+                                <div class="offset-md-4 col-md-4 a3-container a3-items-center a3-justify-end" no-padding>
+                                    <div class="btn f-background" tappable>
+                                        <ion-icon name="thumbs-up"></ion-icon>
+                                        <span>Thích</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div class="btn f-background" tappable>
+                                        <span>Chia sẻ</span>
+                                    </div>
+                                    <div class="btn google" tappable>
+                                        <ion-icon name="logo-googleplus"></ion-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="new-title">
+                    <div class="new-title big-font bold">
                         <!-- title -->
-
+                        <span>{{newDetail.title}}</span>
                     </div>
-                    <div class="time-post">
+                    <div class="time-post normal-font">
                         <!-- time post -->
-
+                        <span>{{newDetail.date}}</span>
                     </div>
                     <div class="img-1">
                         <!-- first image -->
+                        <img [src]="newDetail.newDetail.pictureUrl" alt="img">
                     </div>
                     <div class="description-first">
                         <!-- first description -->
+                        {{newDetail.newDetail.description}}
                     </div>
-                    <div class="container-fluid">
-                        <div class="img-2">
-                            <!-- more description -->
-                        </div>
+                    <div class="author position-relative bold normal-font">
+                        <span>Phương Nga</span>
                     </div>
                 </div>
             </div>

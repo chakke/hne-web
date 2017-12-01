@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
  
-@IonicPage()
+@IonicPage(
+  {
+    segment:'news'
+  }
+)
 @Component({
   selector: 'page-fb-news',
   templateUrl: 'fb-news.html',
