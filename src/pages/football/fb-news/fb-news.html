@@ -1,13 +1,32 @@
 <ion-content #content4>
     <div class="container-fluid section header">
-        <!-- Header + Menu -->
-        <fb-header [content]="content4"></fb-header>
-    </div>
-    <div class="container-fluid section main body-padding">
+            <!-- Header + Menu -->
+            <fb-header [content]="content1"></fb-header>
+        </div>
+        <div class="container-fluid section banner">
+            <!-- Tin tuc su kien -->
+            <fb-news-bar></fb-news-bar>
+        </div>
+        <div class="container section main body-padding">
+            <div class="row">
+                <div class="col-md-7 col-lg-8">
+                    <!-- Tin tuc su kien -->
+                    <fb-list-news></fb-list-news>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <!-- Lich thi dau, ket qua + Bang xep hang -->
+                    <table-matches [tableId]="2" (clickMatch)="onViewMatchDetail($event)"></table-matches>
+                    <table-detail [tableId]="1"></table-detail>
+                </div>
+            </div>
+        </div>
 
-    </div>
-    <div class="container-fluid section sponsor">
-        <!-- Nha tai tro -->
-    </div>
-    <div class="container-fluid section footer"></div>
+        <div class="container-fluid section sponsor">
+            <!-- Nha tai tro -->
+            <donors-list background="1"></donors-list>
+        </div>
+        <div class="col-md-12 section footer">
+            <!-- Footer -->
+            <fb-footer></fb-footer>
+        </div>
 </ion-content>

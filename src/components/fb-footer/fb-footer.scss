@@ -1,15 +1,16 @@
 fb-footer {
     .background-footer{
-        height: 25em;
+        height: 38rem;
         width: 100%;
-        background-image: url("/assets/football/images/home/header_bar.png");
-        // background-position: bottom;
+        background-image: url("/assets/image_1/footer_bar.png");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .div-col-cm{
         padding-left: 10%;
         .div-cm{
-            padding-top: 3em;
-            padding-bottom: 0.5em;
+            padding-top: 5rem;
+            padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(128, 128, 128, 0.7);
             .span-cm{
                 color: white;
@@ -17,9 +18,9 @@ fb-footer {
         }
         .div-list-item{
             .div-item{
-                height: 2em;
-                padding-top: 0.5em;
-                padding-bottom: 0.5em;
+                height: 3rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
                 color: map-get($map: $colors, $key: white);
                 .img-item{
                     height: 75%;
@@ -31,8 +32,8 @@ fb-footer {
         padding-left: 10%;
         padding-right: 10%;
         .div-bvm{
-            padding-top: 3em;
-            padding-bottom: 0.5em;
+            padding-top: 5rem;
+            padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(128, 128, 128, 0.7);    
             .span-bvm{
                 color: white;
@@ -72,8 +73,8 @@ fb-footer {
     .div-col-mxh{
         padding-right: 10%;
         .div-mxh{
-            padding-top: 3em;
-            padding-bottom: 0.5em;
+            padding-top: 5rem;
+            padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(128, 128, 128, 0.7);        
             .span-mxh{
                 color: white;
@@ -81,9 +82,9 @@ fb-footer {
         }
         .div-list-item{
             .div-item{
-                height: 2em;
-                padding-top: 0.5em;
-                padding-bottom: 0.5em;
+                height: 3rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
                 color: map-get($map: $colors, $key: white);
                 .img-item{
                     height: 75%;

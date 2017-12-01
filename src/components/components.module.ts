@@ -15,6 +15,8 @@ import { DonorsListComponent } from './donors-list/donors-list';
 import { FbBannerComponent } from './fb-banner/fb-banner';
 
 import { VideoLastestComponent } from './video-lastest/video-lastest';
+import { FbNewsBarComponent } from './fb-news-bar/fb-news-bar';
+import { FbListNewsComponent } from './fb-list-news/fb-list-news';
 
 @NgModule({
 	declarations: [
@@ -34,6 +36,8 @@ import { VideoLastestComponent } from './video-lastest/video-lastest';
 		FbHeaderComponent,
 		FbFooterComponent,
 		VideoLastestComponent,
+    FbNewsBarComponent,
+    FbListNewsComponent,
 	],
 	imports: [IonicPageModule],
 	exports: [
@@ -53,6 +57,8 @@ import { VideoLastestComponent } from './video-lastest/video-lastest';
 		FbHeaderComponent,
 		FbFooterComponent,
 		VideoLastestComponent,
+    FbNewsBarComponent,
+    FbListNewsComponent,
 	]
 })
 export class ComponentsModule { }

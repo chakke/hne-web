@@ -34,9 +34,9 @@ export class MainNewsComponent {
     this.appController.setRootPage("FbNewsPage");
   }
 
-  clickGoNewsDetail(){
+  clickGoNewsDetail(news_content : any){
     // this.appController.setRootPage("FbNewsDetalPage");
-    this.appController.pushPage("FbNewsDetalPage");
+    this.appController.pushPage("FbNewsDetalPage", {newsId: news_content});
     
   }
 
