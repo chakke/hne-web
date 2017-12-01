@@ -164,12 +164,13 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            font-size: 1.4em;
+            font-size: 1.2em;
             .time {
                 width: 100%;
             }
             .address {
                 width: 100%;
+                padding-bottom: 4px;
             }
         }
         .club {

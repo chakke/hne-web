@@ -210,13 +210,26 @@ video-lastest {
         background-color: white;
         overflow: hidden;
         text-overflow: ellipsis;
+        
         .time {
             padding-bottom: 5px;
         }
         .img-title {
             padding-bottom: 5px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .description {}
+        .description {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        
+        }
     }
     // ==================End=================
     // ==============Son=====================
