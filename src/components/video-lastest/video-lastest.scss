@@ -1,150 +1,70 @@
 video-lastest {
-    padding-top: 15px;
-    .content{
-        background-color:  map-get($map: $colors, $key: background );
+    $img-height: 50vh;
+    $img-description: 20vh;
+    .video-container {
+        margin-bottom: 4vh;
     }
-    .allvideo{
-        padding: 0;
-        font-size: 20px;
-        margin-top: 15px;
-        margin-right: 15px;
-        display: inline-block;
+    .padding-bottom {
+        padding-bottom: 15px;
+    }
+    .padding-top {
+        padding-top: 15px;
+    }
+    .image {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        .image-info {
+            position: absolute;
+            bottom: map-get($map: $FBSizes, $key: defaultPadding);
+            left: map-get($map: $FBSizes, $key: defaultPadding);
+            color: white;
+            display: flex;
+            .icon {
+                background-color: #468010;
+                padding: 4px;
+            }
+            .number {
+                background-color: #66AB1A;
+                padding: 4px;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .img-height-1 {
+        height: $img-height + 2;
+    }
+    .img-height-2 {
+        height: $img-height / 2;
+    }
+    .img-description-1 {
+        height: $img-description +2;
+    }
+    .img-description-2 {
+        height: $img-description / 2;
+    }
+    .img-description {
         background-color: white;
-        border-left: 5px solid green;
-        .text{
-            padding: 20px;
-            float: left;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        .time {
+            padding-bottom: 5px;
         }
-        .text1{
-            padding: 20px;
-            float: right;
-            color: map-get($map: $colors, $key: secondary);
+        .img-title {
+            padding-bottom: 5px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; 
         }
-    }
-    .video{
-        padding: 0;
-        margin-top: 15px;
-        display: flex;
-        .videoitem1{
-            background-color:  map-get($map: $colors, $key: white );
-            padding: 0;
-            .img-item{
-                position: relative;
-                height: 300px;
-                .img-video{
-                    width: 100%;
-                    height: 100%;
-                }
-                .btnplay{
-                    position: absolute;
-                    bottom: 1em;
-                    left: 15px;
-                    width: 8em;
-                    height: 2em;
-                    background-color: rgb(24, 190, 24);
-                    padding: 0.2em;
-                    .imgplay{
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        height: 100%;
-                    }
-                    .time{
-                        color: white;
-                        padding-left: 50px;
-                        padding-top: 3px;
-                    }
-                }
-            }
-            .info-item{
-                background-color: map-get($map: $colors, $key: white );
-                .date{
-                    padding-top: 15px;
-                    margin-left: 2%;
-                    font-size: map-get($map: $FBFont, $key: big);
-                    color: map-get($map: $colors, $key: gray)
-                }
-                .title{
-                    margin: 2%;
-                    display: block;
-                }
-                .description{
-                    margin: 2%;
-                    font-size: map-get($map: $FBFont, $key: big);
-                    display: block;
-                    padding-bottom: 5px;
-                }
-            }
-        }
-        .videoitem2345{
-            background-color:  map-get($map: $colors, $key: background );
-            padding-right: 0;
-            .img-item{
-                position: relative;
-                height: 150px;
-                .img-video{
-                    width: 100%;
-                    height: 100%;
-                }
-                .btnplay{
-                    position: absolute;
-                    bottom: 1em;
-                    left: 15px;
-                    width: 8em;
-                    height: 2em;
-                    background-color: rgb(24, 190, 24);
-                    padding: 0.2em;
-                    .imgplay{
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        height: 100%;
-                    }
-                    .time{
-                        color: white;
-                        padding-left: 50px;
-                        padding-top: 3px;
-                    }
-                }
-            }
-            .info-item{
-                font-weight: bold;
-                margin: 15px;
-                font-size: 15px;
-            }
-            .videoitem2{
-                background-color:  map-get($map: $colors, $key: white );
-                width: 50%;
-                height: 50%;
-                padding: 0;
-                border-right: 7.5px solid map-get($map: $colors, $key: background );
-                border-bottom: 7.5px solid map-get($map: $colors, $key: background );
-            }
-            .videoitem3{
-                background-color:  map-get($map: $colors, $key: white );
-                width: 50%;
-                height: 50%;
-                padding: 0;
-                border-left: 7.5px solid map-get($map: $colors, $key: background );
-                border-bottom: 7.5px solid map-get($map: $colors, $key: background );
-            }
-            .videoitem4{
-                background-color:  map-get($map: $colors, $key: white );
-                width: 50%;
-                height: 50%;
-                padding: 0;
-                border-right: 7.5px solid map-get($map: $colors, $key: background );
-                border-top: 7.5px solid map-get($map: $colors, $key: background );
-            }
-            .videoitem5{
-                background-color:  map-get($map: $colors, $key: white );
-                width: 50%;
-                height: 50%;
-                padding: 0;
-                border-left: 7.5px solid map-get($map: $colors, $key: background );
-                border-top: 7.5px solid map-get($map: $colors, $key: background );
-            }
+        .description{
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; 
         }
     }
-
 }

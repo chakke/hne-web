@@ -12,6 +12,8 @@ import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
 import { Observable } from 'rxjs/Observable';
 import { FBSlides } from '../interfaces/fb-slide';
 import { DonorsList } from '../interfaces/fb-donors';
+import { Videos } from '../interfaces/fb-videos';
+import { News, NewsInterface } from '../interfaces/news';
 
 
 @Injectable()
@@ -141,7 +143,7 @@ export class AppControllerProvider {
   }
 
 
-  getNewsId(newsId: string): Observable<any> {
+  getNewsId(newsId: string): Observable<NewsInterface> {
     return this.firebaseService.getNewsId(newsId).map(elm => {
       return {
         id: elm.id,
@@ -151,8 +153,12 @@ export class AppControllerProvider {
     })
   }
 
+  getNewsDetailByID(newID: string): Promise<News>{
+      return this.firebaseService.getNewDetailByID(newID);
+  }
+
   
-  getVideoById(videoId: string): Observable<any>{
+  getVideoById(videoId: string): Observable<Videos>{
     return this.firebaseService.getVideoId(videoId).map(elm => {
       return {
         id: elm.id,

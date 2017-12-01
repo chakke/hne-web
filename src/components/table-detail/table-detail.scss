@@ -1,6 +1,15 @@
 table-detail {
     width: 100%;
     .box-table {
+        .box-title {
+            .right-button {
+                filter: brightness(100%);
+                transition: 200ms;
+            }
+            .right-button:hover {
+                filter: brightness(120%);
+            }
+        }
         .box-content {
             .club-logo {
                 height: map-get($map: $FBSizes, $key: lineheight);
@@ -10,13 +19,20 @@ table-detail {
             }
             .table {
                 tr {
+                    font-weight: normal;
                     &.first {
                         background-color: #e3ffc3;
+                    }
+                    &.table-page {
+                        color: map-get($map: $colors, $key: gray);
                     }
                 }
                 th {
                     border-top: none;
                 }
+                // th:hover {
+                //     background: map-get($map: $colors, $key: background);
+                // }
             }
             $arrowSize: 7px;
             .arrow {

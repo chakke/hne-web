@@ -1,7 +1,7 @@
 main-news {
-    width: 100%;
-    height: 10em;
-    background-color: red;
+    // width: 100%;
+    // height: 10em;
+    // background-color: red;
     .box-title-padding{
         background-color: map-get($map: $colors, $key: background);
         .div-title {
@@ -9,34 +9,35 @@ main-news {
         }
     }
     .box-content-padding {
-        padding-top: 1em;
+        padding-top: 1rem;
         background-color: map-get($map: $colors, $key: background);
         .div-content {
             .div-main-new {
                 background-color: map-get($map: $colors, $key: white);
                 .div-img {
                     position: relative;
-                    height: 20em;
+                    height: 30rem;
                     width: 100%;
                     .div-date-title {
                         position: absolute;
-                        top: 2em;
-                        left: 2em;
+                        top: 2rem;
+                        left: 2rem;
                         background-color: orange;
-                        padding: 0.2em;
+                        padding: 0.2rem;
                     }
                 }
                 @media (max-width: 576px){
                     .div-img {
                         position: relative;
-                        height: 12em;
+                        height: 20rem;
                         width: 100%;
                         .div-date-title {
                             position: absolute;
-                            top: 2em;
-                            left: 2em;
+                            top: 2rem;
+                            left: 2rem;
                             background-color: orange;
-                            padding: 0.2em;
+                            font-size: 1rem;
+                            padding: 0.2rem;
                         }
                     }   
                 }
@@ -46,11 +47,11 @@ main-news {
                     background-repeat: no-repeat;
                 }
                 .div-title {
-                    padding-right: 1.5em;
-                    padding-left: 1.5em;
-                    padding-top: 0.7em;
-                    padding-bottom: 0.7em;
-                    height: 5em;
+                    padding-right: 1.5rem;
+                    padding-left: 1.5rem;
+                    padding-top: 0.7rem;
+                    padding-bottom: 0.7rem;
+                    height: 7rem;
                     .span-title-main {
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
@@ -62,10 +63,10 @@ main-news {
                 .div-tag {
                     border-top: 1px solid rgba(128, 128, 128, 0.7);
                     width: 100%;
-                    height: 4em;
-                    padding: 1em;
+                    height: 4rem;
+                    padding: 1rem;
                     .img-tag {
-                        height: 50%;
+                        height: 60%;
                     }
                 }
             }
@@ -76,27 +77,27 @@ main-news {
                 }
                 
                 .div-padding-right{
-                    padding-top: 1em;
+                    padding-top: 1rem;
                     padding-right: 0;
                 }
                 .div-padding-left{
-                    padding-top: 1em;
+                    padding-top: 1rem;
                     padding-left: 0;
                 }
                 @media (min-width: 576px){
                     .div-padding-right{
-                        padding-top: 1em;
-                        padding-right: 0.5em;
+                        padding-top: 1rem;
+                        padding-right: 0.5rem;
                     }
                     .div-padding-left{
-                        padding-top: 1em;
-                        padding-left: 0.5em;
+                        padding-top: 1rem;
+                        padding-left: 0.5rem;
                     }
                 }
                 .div-background {
                     background-color: map-get($map: $colors, $key: white);
                     .div-img {
-                        height: 12em;
+                        height: 20rem;
                         width: 100%;
                     }
                     .background-image{
@@ -105,10 +106,10 @@ main-news {
                         background-repeat: no-repeat;
                     }
                     .div-title {
-                        padding-right: 1.5em;
-                        padding-left: 1.5em;
-                        padding-top: 0.7em;
-                        padding-bottom: 0.7em;
+                        padding-right: 1.5rem;
+                        padding-left: 1.5rem;
+                        padding-top: 0.7rem;
+                        padding-bottom: 0.7rem;
                         .span-title {
                             display: -webkit-box;
                             -webkit-line-clamp: 2;
@@ -118,16 +119,16 @@ main-news {
                         }
                     }
                     .div-date-title {
-                        padding-left: 1.5em;
-                        padding-right: 1.5em;
-                        padding-bottom: 0.5em;
+                        padding-left: 1.5rem;
+                        padding-right: 1.5rem;
+                        padding-bottom: 0.5rem;
                     }
                 }
                 .div-tag {
                     border-top: 1px solid rgba(128, 128, 128, 0.7);
                     width: 100%;
-                    height: 4em;
-                    padding: 1em;
+                    height: 4rem;
+                    padding: 1rem;
                     .img-tag {
                         height: 50%;
                     }

@@ -15,6 +15,9 @@ import { DonorsListComponent } from './donors-list/donors-list';
 import { FbBannerComponent } from './fb-banner/fb-banner';
 import { FbScheduleComponent } from './fb-schedule/fb-schedule';
 
+import { FbNewsBarComponent } from "./fb-news-bar/fb-news-bar";
+import { FbListNewsComponent } from "./fb-list-news/fb-list-news";
+
 import { VideoLastestComponent } from './video-lastest/video-lastest';
 import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
 
@@ -37,7 +40,9 @@ import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
         FbHeaderComponent,
         FbFooterComponent,
         VideoLastestComponent,
-    FbDropdownComponent,
+        FbDropdownComponent,
+        FbNewsBarComponent,
+        FbListNewsComponent
     ],
     imports: [IonicPageModule],
     exports: [
@@ -58,7 +63,9 @@ import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
         FbHeaderComponent,
         FbFooterComponent,
         VideoLastestComponent,
-    FbDropdownComponent,
+        FbDropdownComponent,
+        FbNewsBarComponent,
+        FbListNewsComponent
     ]
 })
 export class ComponentsModule { }

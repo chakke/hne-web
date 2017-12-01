@@ -1,0 +1,14 @@
+fb-news-bar {
+    .title-bar{
+        width: 100%;
+        height: 7rem;
+        background-image: url("/assets/image_2/title_bar.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 2.5rem;
+        padding-left: 10rem;
+        .title-name{
+            color: map-get($map: $colors, $key: white);
+        }
+    }
+}

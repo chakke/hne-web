@@ -1,0 +1,57 @@
+<!-- Generated template for the FbListNewsComponent component -->
+<div class="box div-list-news">
+  <div class="div-filter">
+    <div class="col-md-5 small-font">
+      <div>
+        <span>Theo mùa giải</span>
+      </div>
+      <div>
+        <select class="small-font select-item">
+          <option value="volvo">Hanoi Elevent - Seasion 1</option>
+          <option value="saab">Saigon Special - Seasion 1</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3 small-font">
+      <div>
+        <span>Theo đội</span>
+      </div>
+      <div>
+        <select class="small-font select-item">
+          <option value="volvo">Tất cả các đội</option>
+          <option value="saab">B-Gate</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4 small-font">
+      <div>
+        <span>Theo cầu thủ</span>
+      </div>
+      <div>
+        <select class="small-font select-item">
+          <option value="volvo">Tất cả các cầu thủ</option>
+          <option value="saab">Duẩn Xấu Trai</option>
+          <option value="opel">Nam Béo</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="div-item" *ngFor="let item of (news|async)?.items" (click)="clickGoNewsDetail(item)" tappable>
+    <div class="col-md-5 div-item-img background-image" [ngStyle]="{'background-image': 'url(' + item.pictureUrl + ')'}">
+      <!-- <img class="img" src="{{item.pictureUrl}}" alt=""> -->
+    </div>
+    <div class="col-md-7 div-item-info">
+      <div class="small-font color-gray div-item-tag">
+        <img class="img-tag" src="assets/test/tag.png" alt="">
+        <span>&nbsp;{{item.tag}} </span>
+      </div>
+      <div class="big-font div-item-title">
+        <span class="span-title">{{item.title}}</span>
+      </div>
+      <div class="small-font color-gray div-item-date">{{item.date}}</div>
+      <div class="small-font div-item-desciption">
+        <span class="span-des">{{item.description}}</span>
+      </div>
+    </div>
+  </div>
+</div>
