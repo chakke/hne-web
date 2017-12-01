@@ -27,7 +27,7 @@ export class FbListNewsComponent {
   }
 
   clickGoNewsDetail(item: any){
-    this.appController.pushPage("FbNewsDetalPage",{item: item});
+    this.appController.pushPage("FbNewsDetalPage",{id: item.id,item: item});
   }
 
 }

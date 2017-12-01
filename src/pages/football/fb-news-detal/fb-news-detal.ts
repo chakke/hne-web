@@ -26,8 +26,8 @@ export class FbNewsDetalPage {
   }
   ionViewDidEnter() {
     // console.log('ionViewDidLoad FbNewsDetalPage');
-    if (this.navParams.get("data")) {
-      this.newDetail = this.navParams.get("data");
+    if (this.navParams.get("item")) {
+      this.newDetail = this.navParams.get("item");
       this.isLoadingData = false;
       return;
     } else if (this.navParams.data['id']) {
