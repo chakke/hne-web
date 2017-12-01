@@ -24,7 +24,9 @@ page-fb-tables {
     .main-content {
         position: relative;
         margin: auto;
-        padding: map-get($map: $FBSizes, $key: defaultPadding);
+        padding: map-get($map: $FBSizes, $key: defaultPadding) 0px;
+        padding-left: map-get($map: $FBSizes, $key: defaultPadding) * 2 !important;
+        padding-right: map-get($map: $FBSizes, $key: defaultPadding) * 2 !important;
         width: 90%;
         background: map-get($map: $colors, $key: white);
         .main-option {

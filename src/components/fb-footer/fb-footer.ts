@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AppControllerProvider } from "../../providers/football/app-controller/app-controller";
+import { News, NewsInterface } from '../../providers/football/interfaces/news';
 
 @Component({
   selector: 'fb-footer',
@@ -9,7 +10,7 @@ import { AppControllerProvider } from "../../providers/football/app-controller/a
 export class FbFooterComponent {
 
   @Input() newsPostId: string = "";
-  newPost: Observable<any>;
+  newPost: Observable<NewsInterface>;
   isUpdate: boolean = false;
 
   listNewPost: any = [];

@@ -3,11 +3,50 @@
         <!-- Header + Menu -->
         <fb-header></fb-header>
     </div>
-    <div class="container-fluid section main body-padding">
+    <div class="container section main body-padding">
+        <div class="row">
+            <div class="col-md-7 col-lg-8">
+                <!-- Tin tuc-->
+                <div class="container-fluid">
+                    <div class="new-header">
+                        <!-- header -->
 
+                    </div>
+                    <div class="new-title">
+                        <!-- title -->
+
+                    </div>
+                    <div class="time-post">
+                        <!-- time post -->
+
+                    </div>
+                    <div class="img-1">
+                        <!-- first image -->
+                    </div>
+                    <div class="description-first">
+                        <!-- first description -->
+                    </div>
+                    <div class="container-fluid">
+                        <div class="img-2">
+                            <!-- more description -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <!-- Lich thi dau, ket qua + Bang xep hang -->
+                <table-matches [tableId]="2" (clickMatch)="onViewMatchDetail($event)"></table-matches>
+                <table-detail [tableId]="1" [isHomePage]="true"></table-detail>
+            </div>
+        </div>
     </div>
-    <div class="container-fluid section sponsor">
+    <div class="container-fluid section sponsor" margin-top>
         <!-- Nha tai tro -->
+        <donors-list background="1"></donors-list>
+    </div>
+    <div class="col-md-12 section footer">
+        <!-- Footer -->
+        <fb-footer></fb-footer>
     </div>
     <div class="container-fluid section footer"></div>
 </ion-content>
