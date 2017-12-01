@@ -16,7 +16,6 @@ import { Videos, Video } from '../../providers/football/interfaces/fb-videos';
 export class VideoLastestComponent {
   @Input() videosId: string = "";
   // videos: Observable<any>;
-  video: Array<any> = [];
 
   // item1: any = [];
   // item2: any = [];
