@@ -3,9 +3,18 @@ fb-schedule {
         background: white;
         padding-top: map-get($map: $FBSizes, $key: defaultPadding);
         padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
-        padding-left: map-get($map: $FBSizes, $key: defaultPadding) * 2;
-        padding-right: map-get($map: $FBSizes, $key: defaultPadding) * 2;
         display: inline-block;
         width: 100%;
+        @media (min-width: 576px) {
+            padding-left: map-get($map: $FBSizes, $key: defaultPadding);
+            padding-right: map-get($map: $FBSizes, $key: defaultPadding);
+        }
+        @media (min-width: 768px) {
+            padding-left: map-get($map: $FBSizes, $key: defaultPadding) * 2;
+            padding-right: map-get($map: $FBSizes, $key: defaultPadding) * 2;
+            .image {
+                min-height: 12vw !important;
+            }
+        }
     }
 }

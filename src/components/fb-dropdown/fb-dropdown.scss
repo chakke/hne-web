@@ -1,11 +1,12 @@
 fb-dropdown {
     .schedule-dropdown {
         width: 100%;
+        font-size: .9em;
         .dropdown-button {
             background: transparent;
             display: flex;
             font-size: .9em;
-            border-bottom: 1px solid;
+            border-bottom: 2px solid;
             border-bottom-color: grey;
             padding-left: 0;
             width: 100%;
