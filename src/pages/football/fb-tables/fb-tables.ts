@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Dropdown, DropDownElement } from '../../../components/fb-dropdown/fb-dropdown';
 
  
-@IonicPage()
+@IonicPage({
+  segment: 'bxh'
+})
 @Component({
   selector: 'page-fb-tables',
   templateUrl: 'fb-tables.html',
