@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AppControllerProvider } from "../../providers/football/app-controller/app-controller";
+import { News, NewsInterface } from '../../providers/football/interfaces/news';
 
 @Component({
   selector: 'main-news',
@@ -9,7 +10,7 @@ import { AppControllerProvider } from "../../providers/football/app-controller/a
 export class MainNewsComponent {
 
   @Input() newsId: string = "";
-  news: Observable<any>;
+  news: Observable<NewsInterface>;
   isDataUpdated = false;
 
   post1 : any = [];
@@ -34,9 +35,16 @@ export class MainNewsComponent {
     this.appController.setRootPage("FbNewsPage");
   }
 
-  clickGoNewsDetail(news_content : any){
+  clickGoNewsDetail(id: string){
+    // if(id==1){
+
+    // }else if(id ==2){
+
+    // }else if( id==3){
+    // }
+
     // this.appController.setRootPage("FbNewsDetalPage");
-    this.appController.pushPage("FbNewsDetalPage", {newsId: news_content});
+    this.appController.pushPage("FbNewsDetalPage",{id: id});
     
   }
 

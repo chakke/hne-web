@@ -3,14 +3,14 @@
         <span class="big-title">Lịch thi đấu - Kết quả</span>
         <span class="small-title">{{(table|async)?.name}}</span>
         <span class="right-button">
-            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a class="fa fa-long-arrow-right" aria-hidden="true" href="/#/fb-schedule/"></a>
         </span>
     </div>
     <div class="box-content">
         <fb-loader *ngIf="!isDataUpdated"></fb-loader>
         <div *ngFor="let matches of (table|async)?.items">
             <div class="time">{{matches.time}}</div>
-            <div class="match a3-center" *ngFor="let match of matches.matches" (click)="onClickMatch(match)">
+            <div class="match a3-center" *ngFor="let match of matches.matches" (click)="onClickMatch(match)" tappable>
                 <div>
                     <div class="home a3-container a3-items-center a3-justify-end ">
                         <div class="home-name ">{{match.homeFc}}</div>

@@ -1,0 +1,38 @@
+fb-dropdown {
+    .schedule-dropdown {
+        width: 100%;
+        .dropdown-button {
+            background: transparent;
+            display: flex;
+            font-size: .9em;
+            border-bottom: 1px solid;
+            border-bottom-color: grey;
+            padding-left: 0;
+            width: 100%;
+            .text {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                margin-right: 2px;
+                text-align: left;
+                color: map-get($map: $colors, $key: secondary);
+            }
+            .icon {
+                color: grey;
+            }
+        }
+        .dropdown-button:focus {
+            outline: none;
+            border-bottom-color: map-get($map: $colors, $key: secondary);
+        }
+        .dropdown-menu {
+            background: rgba(black, .1);
+            .dropdown-item:hover {
+                background: rgba(lightblue, .6);
+            }
+        }
+    }
+}

@@ -1,14 +1,16 @@
 <div class="box box-table">
-    <div class="box-title">
+    <div class="box-title" *ngIf="isHomePage">
         <span class="big-title">Bảng xếp hạng</span>
         <span class="small-title">{{(table|async)?.name}}</span>
         <span class="right-button">
-            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a class="fa fa-long-arrow-right" tappable href="/#/fb-tables/" aria-hidden="true"></a>
         </span>
     </div>
     <div class="box-content">
         <fb-loader *ngIf="!isDataUpdated"></fb-loader>
-        <table class="table table-hover" *ngIf="isDataUpdated">
+
+        <!-- table on homepage-->
+        <table class="table table-hover" *ngIf="isDataUpdated && isHomePage">
             <tr>
                 <th colspan="2">Đội bóng</th>
                 <th text-center>Trận</th>
@@ -17,6 +19,72 @@
             <tr *ngFor="let item of (table| async)?.items ; let i = index" [class.first]="i == 0">
                 <td class="d-flex justify-content-center align-items-center">{{i+1}} <span class="{{item.rankChange}} arrow"></span> </td>
                 <td><img class="club-logo" src="{{item.clubLogo}}" alt="Logo">{{item.clubName}}</td>
+                <td text-center>{{item.won +item.draw +item.lost}}</td>
+                <td text-center>{{item.point}}</td>
+            </tr>
+        </table>
+
+        <!-- table on laptop -->
+        <table class="table table-hover " *ngIf="isDataUpdated && !isHomePage && showTable=='3'">
+            <tr class="table-page">
+                <th text-left>Xếp hạng</th>
+                <th text-left>Đội bóng</th>
+                <th text-center>Trận</th>
+                <th text-center>Thắng</th>
+                <th text-center>Hòa</th>
+                <th text-center>Thua</th>
+                <th text-center>BT</th>
+                <th text-center>BB</th>
+                <th text-center>HS</th>
+                <th text-center>Điểm</th>
+            </tr>
+            <tr *ngFor="let item of (table| async)?.items ; let i = index" [class.first]="i == 0">
+                <td class="d-flex justify-content-center align-items-center">{{i+1}} <span class="{{item.rankChange}} arrow"></span> </td>
+                <td text-left><img class="club-logo" src="{{item.clubLogo}}" alt="Logo">{{item.clubName}}</td>
+                <td text-center>{{item.won +item.draw +item.lost}}</td>
+                <td text-center>{{item.won}}</td>
+                <td text-center>{{item.draw}}</td>
+                <td text-center>{{item.lost}}</td>
+                <td text-center>{{item.goalsScore}}</td>
+                <td text-center>{{item.goalsLost}}</td>
+                <td text-center>{{item.goalsScore - item.goalsLost}}</td>
+                <td text-center>{{item.point}}</td>
+            </tr>
+        </table>
+
+        <!-- table on tablet -->
+        <table class="table table-hover " *ngIf="isDataUpdated && !isHomePage && showTable=='2'">
+            <tr class="table-page">
+                <th text-left>Xếp hạng</th>
+                <th text-left>Đội bóng</th>
+                <th text-center>Trận</th>
+                <th text-center>Thắng</th>
+                <th text-center>Hòa</th>
+                <th text-center>Thua</th>
+                <th text-center>Điểm</th>
+            </tr>
+            <tr *ngFor="let item of (table| async)?.items ; let i = index" [class.first]="i == 0">
+                <td class="d-flex justify-content-center align-items-center">{{i+1}} <span class="{{item.rankChange}} arrow"></span> </td>
+                <td text-left><img class="club-logo" src="{{item.clubLogo}}" alt="Logo">{{item.clubName}}</td>
+                <td text-center>{{item.won +item.draw +item.lost}}</td>
+                <td text-center>{{item.won}}</td>
+                <td text-center>{{item.draw}}</td>
+                <td text-center>{{item.lost}}</td>
+                <td text-center>{{item.point}}</td>
+            </tr>
+        </table>
+
+        <!-- table on devices -->
+        <table class="table table-hover " *ngIf="isDataUpdated && !isHomePage && showTable=='1'">
+            <tr class="table-page">
+                <th text-left>Xếp hạng</th>
+                <th text-left>Đội bóng</th>
+                <th text-center>Trận</th>
+                <th text-center>Điểm</th>
+            </tr>
+            <tr *ngFor="let item of (table| async)?.items ; let i = index" [class.first]="i == 0">
+                <td class="d-flex justify-content-center align-items-center">{{i+1}} <span class="{{item.rankChange}} arrow"></span> </td>
+                <td text-left><img class="club-logo" src="{{item.clubLogo}}" alt="Logo">{{item.clubName}}</td>
                 <td text-center>{{item.won +item.draw +item.lost}}</td>
                 <td text-center>{{item.point}}</td>
             </tr>

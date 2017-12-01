@@ -2,39 +2,56 @@
 <div class="box div-list-news">
   <div class="div-filter">
     <div class="col-md-5 small-font">
-      <span>Theo mùa giải</span>
-      <select class="select-item">
-        <option value="volvo">Hanoi Elevent - Seasion 1</option>
-        <option value="saab">Saigon Special - Seasion 1</option>
-      </select>
+      <div>
+        <span>Theo mùa giải</span>
+      </div>
+      <div>
+        <select class="small-font select-item">
+          <option value="volvo">Hanoi Elevent - Seasion 1</option>
+          <option value="saab">Saigon Special - Seasion 1</option>
+        </select>
+      </div>
     </div>
     <div class="col-md-3 small-font">
-      <span>Theo đội</span>
-      <select class="select-item">
-        <option value="volvo">Tất cả các đội</option>
-        <option value="saab">B-Gate</option>
-      </select>
+      <div>
+        <span>Theo đội</span>
+      </div>
+      <div>
+        <select class="small-font select-item">
+          <option value="volvo">Tất cả các đội</option>
+          <option value="saab">B-Gate</option>
+        </select>
+      </div>
     </div>
     <div class="col-md-4 small-font">
-      <span>Theo cầu thủ</span>
-      <select class="select-item">
-        <option value="volvo">Tất cả các cầu thủ</option>
-        <option value="saab">Duẩn Xấu Trai</option>
-        <option value="opel">Nam Béo</option>
-      </select>
+      <div>
+        <span>Theo cầu thủ</span>
+      </div>
+      <div>
+        <select class="small-font select-item">
+          <option value="volvo">Tất cả các cầu thủ</option>
+          <option value="saab">Duẩn Xấu Trai</option>
+          <option value="opel">Nam Béo</option>
+        </select>
+      </div>
     </div>
   </div>
-  <div class="div-item">
-    <div class="col-md-5 div-item-img">
-      <img class="img" src="assets/test/fb-pic5.jpg" alt="">
+  <div class="div-item" *ngFor="let item of (news|async)?.items" (click)="clickGoNewsDetail(item)" tappable>
+    <div class="col-md-5 div-item-img background-image" [ngStyle]="{'background-image': 'url(' + item.pictureUrl + ')'}">
+      <!-- <img class="img" src="{{item.pictureUrl}}" alt=""> -->
     </div>
     <div class="col-md-7 div-item-info">
-      <div class="small-font div-item-tag">
-        <span>Saigon special </span>
+      <div class="small-font color-gray div-item-tag">
+        <img class="img-tag" src="assets/test/tag.png" alt="">
+        <span>&nbsp;{{item.tag}} </span>
       </div>
-      <div class="normal-font div-item-title">Saigon specialSaigon special Saigon special</div>
-      <div class="small-font div-item-date">22/12/2017</div>
-      <div class="small-font div-item-desciption">Saigon special Saigon special Saigon special Saigon special Saigon special Saigon special</div>
+      <div class="big-font div-item-title">
+        <span class="span-title">{{item.title}}</span>
+      </div>
+      <div class="small-font color-gray div-item-date">{{item.date}}</div>
+      <div class="small-font div-item-desciption">
+        <span class="span-des">{{item.description}}</span>
+      </div>
     </div>
   </div>
 </div>

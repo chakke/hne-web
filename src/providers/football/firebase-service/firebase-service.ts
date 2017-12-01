@@ -194,7 +194,77 @@ export class FirebaseServiceProvider {
         }, 1000);
       })
     }
+  }
 
+  getNewDetailByID(newID: string): Promise<any>{
+    if (this.isUseFakeData) {
+      let items = [
+        {
+          id: "1",
+          title: "Vòng loại Special Nhí Cup diễn ra sôi nổi. Các cầu thủ có nguy cơ ngủ trong trận đấu.",
+          newDetail: {
+            description: "Vòng loại Special Nhí Cup diễn ra sôi nổi. Các cầu thủ có nguy cơ ngủ trong trận đấu. Vòng loại Special Nhí Cup diễn ra sôi nổi. Các cầu thủ có nguy cơ ngủ trong trận đấu.",
+            pictureUrl: "assets/test/fb-pic2.jpg",
+          },
+          date: "25 thg 11, 2017",
+          comment: 1,
+          tag: "Hanoi Eleven Cup",
+        }, {
+          id: "2",
+          title: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
+          newDetail: {
+            description: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào. Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
+            pictureUrl: "assets/test/fb-pic1.jpg",
+          },
+          date: "23 thg 11, 2017",
+          comment: 2,
+          tag: "Hanoi Eleven Cup"
+        }, {
+          id: "3",
+          title: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
+          newDetail: {
+            description: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân. Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
+            pictureUrl: "assets/test/fb-pic3.jpg",
+          },
+          date: "22 thg 11, 2017",
+          comment: 6,
+          tag: "Ao Làng Cup"
+        }, {
+          id: "4",
+          title: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ",
+          newDetail: {
+            description: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ diễn ra hết sức sôi nổi cùng 16 đội bóng đến từ các bản cùng tranh tài",
+            pictureUrl: "assets/test/fb-pic4.jpg",
+          },
+          date: "21 thg 11, 2017",
+          comment: 69,
+          tag: "Bản Mới Cup"
+        }, {
+          id: "5",
+          title: "Phóng viên đưa tin bọ bóng bay trúng đầu",
+          newDetail: {
+            description: "Phóng viên Lò A Sửu tại trận đấu giữa FC Nậm Cháy và FC A Pó trong lúc đưa tin bị bóng từ chân của VĐV trên sên bay vào đầu ngã lăn quay. Hiện tại vẫn chưa biết chính xác ai là thủ phạm",
+            pictureUrl: "assets/test/fb-pic5.jpg",
+          },
+          date: "20 thg 11, 2017",
+          comment: 96,
+          tag: "Lom Dom Cup"
+        }
+      ]
+      return new Promise((resolve,reject)=>{
+        let check : boolean = false;
+        for(let i = 0; i < items.length; i++){
+          if(newID==items[i].id){
+            check = true;
+            resolve(items[i]);
+          }
+        }
+        if(!check){
+          alert("Khong co du lieu");
+          resolve(0);
+        }
+      })
+    }
   }
 
   getNewsId(newsId: string): Observable<any> {
@@ -213,7 +283,7 @@ export class FirebaseServiceProvider {
               comment: 1,
               tag: "Hanoi Eleven Cup",
             }, {
-              id: "",
+              id: "2",
               title: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
               description: "Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào. Pha sút phạt tỉ đô của cầu thủ số 10 nhưng không biết tên và cũng không biết anh ta ở CLB nào.",
               pictureUrl: "assets/test/fb-pic1.jpg",
@@ -221,7 +291,7 @@ export class FirebaseServiceProvider {
               comment: 2,
               tag: "Hanoi Eleven Cup"
             }, {
-              id: "",
+              id: "3",
               title: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
               description: "Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân. Chút xíu nữa thôi là Ibrahimovic tung tuyệt khiến cầu thủ đội bạn bò trên sân.",
               pictureUrl: "assets/test/fb-pic3.jpg",
@@ -229,7 +299,7 @@ export class FirebaseServiceProvider {
               comment: 6,
               tag: "Ao Làng Cup"
             }, {
-              id: "",
+              id: "4",
               title: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ",
               description: "Lễ bế mạc giải vô địch bóng đá ao làng diễn ra tại SVĐ Cỏ Mỹ diễn ra hết sức sôi nổi cùng 16 đội bóng đến từ các bản cùng tranh tài",
               pictureUrl: "assets/test/fb-pic4.jpg",
@@ -237,7 +307,7 @@ export class FirebaseServiceProvider {
               comment: 69,
               tag: "Bản Mới Cup"
             }, {
-              id: "",
+              id: "5",
               title: "Phóng viên đưa tin bọ bóng bay trúng đầu",
               description: "Phóng viên Lò A Sửu tại trận đấu giữa FC Nậm Cháy và FC A Pó trong lúc đưa tin bị bóng từ chân của VĐV trên sên bay vào đầu ngã lăn quay. Hiện tại vẫn chưa biết chính xác ai là thủ phạm",
               pictureUrl: "assets/test/fb-pic5.jpg",
@@ -491,44 +561,44 @@ export class FirebaseServiceProvider {
             {
               id: "1",
               videoURL: "https://www.youtube.com/watch?v=pk1XQtfVH4Y",
-              imgURL: "assets/imgs/1.jpg",
-              title: "2017-18 NBA Season - Cleveland Cavaliers vs Philadelphia Sixers Full Highlights",
-              description: " Đối đầu với “ngựa ô” Philadelphia 76ers, LeBron cùng với D-Wade đã dội một gáo nước lạnh và đưa những đôi chân đang bay cao như Simmons hay Embiid trở lại mặt đất. Với chiến thắng này, Cleveland Cavaliers đang dần tiến sát tốp đầu và hiện đang đứng thứ 3 miền Đông với thành tích 13-7",
+              imgURL: "assets/imgs/img_1.jpg",
+              title: "Tổng hợp: Man City 2-1 Southampton (Vòng 14 Premier League 2017/18)",
+              description: "Antonio Conte có một quyết định bất ngờ là để Eden Hazard và Cesar Azpilicueta cùng trên ghế dự bị trong trận đấu này để sử dụng một đội hình Chelsea có Rudiger và Willian. Mặc dù khó hiểu, nhưng một trong những quyết định của ông đã tạo ra bước ngoặt trận đấu.",
               date: "27 tháng 11, 2017",
               duration: "09:38",
             },
             {
               id: "2",
               videoURL: "https://www.youtube.com/watch?v=ZtSraTslvPE",
-              imgURL: "assets/imgs/3.jpg",
-              title: "Detroit Pistons 118 - 108 Boston Celtics",
-              description: "",
+              imgURL: "assets/imgs/img_2.jpg",
+              title: "Tổng hợp: Stoke 0-3 Liverpool (Vòng 14 Premier League 2017/18)",
+              description: "Thế trận nhanh chóng thuộc về Chelsea và chỉ riêng trong hiệp 1 họ đã 3 lần có cầu thủ ngã trong vòng cấm nhưng không được hưởng penalty. Phút 10, Willian có cú đá phạt cực xoáy suýt nữa thành bàn, và đến phút 28 Alvaro Morata bắt vô-lê ngay sau một đường chuyền dài vào vòng cấm, nhưng Fabianski cản phá xuất sắc.",
               date: "27 tháng 11, 2017",
               duration: "09:32",
             },
             {
               id: "3",
               videoURL: "https://www.youtube.com/watch?v=0DRayWcXi9c",
-              imgURL: "assets/imgs/4.jpg",
-              title: "Sacramento Kings 110 - 106 Golden State Warriors",
-              description: "",
+              imgURL: "assets/imgs/img_3.png",
+              title: "Tổng hợp: Arsenal 5-0 Huddersfield (Vòng 14 Premier League 2017/18)",
+              description: "Sang hiệp 2, Antonio Conte vì lý do gì đó đã tự khiến mình bị đuổi lên khán đài (có lẽ do không muốn đứng dưới trời lạnh), nhưng thế ép sân của Chelsea tiếp tục được duy trì và ở phút 55, bàn mở tỷ số đã đến có phần may mắn. Một cú sút xa của Kante chạm Bony bên phía Swansea, bóng đổi hướng đúng về vị trí của Rudiger ngay sát khung thành và anh đã không bỏ lỡ thời cơ ngàn vàng để mở tỷ số.",
               date: "27 tháng 11, 2017",
               duration: "09:19",
             },
             {
               id: "4",
               videoURL: "https://www.youtube.com/watch?v=b3-6_W7UtXM",
-              imgURL: "assets/imgs/5.jpg",
-              title: "LA Lakers 115 - 120 LA Clippers",
-              description: "",
+              imgURL: "assets/imgs/img_4.png",
+              title: "Tổng hợp: Chelsea 1-0 Swansea (Vòng 14 Premier League 2017/18)",
+              description: "Có bàn dẫn trước, Chelsea để cho Swansea phần nào vây ép khung thành nhưng những cơ hội rõ rệt không xuất hiện nhiều cho đội khách. Chelsea thậm chí đã có cơ hội nâng lên 2-0 nhưng Morata lẫn Marcos Alonso đệm hụt quả căng ngang của Fabregas ở phút 84. Ở những phút cuối, Wilfried Bony suýt nữa đã thoát xuống tận dụng một quả tạt của đồng đội để dứt điểm cận thành.",
               date: "27 tháng 11, 2017",
               duration: "09:30",
             },
             {
               id: "5",
               videoURL: "https://www.youtube.com/watch?v=NF8E4Mb6TGI",
-              imgURL: "assets/imgs/6.jpg",
-              title: "Dallas Maveicks 108 - 115 San Antonio Spurs",
+              imgURL: "assets/imgs/img_5.jpg",
+              title: "Thắng tối thiểu 1-0 nhờ bàn thắng đầu tiên ở Premier League của Rudiger, Chelsea vẫn tiếp tục đứng thứ 3 trong khi Swansea vẫn đứng thứ 19, tức vị trí của hai đội không thay đổi.",
               description: "",
               date: "27 tháng 11, 2017",
               duration: "09:27",

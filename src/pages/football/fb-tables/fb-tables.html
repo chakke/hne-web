@@ -3,11 +3,39 @@
         <!-- Header + Menu -->
         <fb-header [content]="content6"></fb-header>
     </div>
-    <div class="container-fluid section main body-padding">
+    <div class="container-fluid section main body-padding" text-center>
+        <div class="section main-title">
+            <!-- main title -->
+            <img src="assets/image_2/title_bar.png">
+            <div class="title">
+                <span>{{mDatas.title.toUpperCase()}}</span>
+            </div>
+        </div>
 
+        <!-- main-content -->
+
+        <div class="section main-content">
+            <!-- main-option -->
+            <div class="main-option" padding-bottom>
+                <fb-dropdown no-padding class="col-md-4 col-sm-6 col-6" [dropdown]="leagueDropdown" (onSelected)="onSelectLeague($event)"></fb-dropdown>
+            </div>
+
+            <!-- main-table -->
+            <div class="main-table ">
+                <table-detail [tableId]="1" [isHomePage]="false"></table-detail>
+            </div>
+        </div>
     </div>
-    <div class="container-fluid section sponsor">
+    <div class="container-fluid section sponsor" margin-top>
         <!-- Nha tai tro -->
+        <donors-list background="1"></donors-list>
     </div>
-    <div class="container-fluid section footer"></div>
+    <div class="col-md-12 section footer">
+        <!-- Footer -->
+        <fb-footer></fb-footer>
+    </div>
+    <div class="container-fluid section footer">
+        <!-- Footer -->
+        <!-- <fb-footer></fb-footer> -->
+    </div>
 </ion-content>
