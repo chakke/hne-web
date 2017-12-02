@@ -15,24 +15,35 @@ import { News } from '../../../providers/football/interfaces/news';
 })
 export class FbNewsDetalPage {
   newDetail: News;
+  isLoadingData: boolean = true;
+
+  mDatas: any;
   constructor(
     public mAppControllerProvider: AppControllerProvider,
     public navCtrl: NavController, public navParams: NavParams) {
     this.newDetail = new News()
-    if (this.navParams.data['id']) {
-     this.onLoadData();
-    }
+
   }
-  isLoadingData: boolean = true;
   ionViewDidEnter() {
     // console.log('ionViewDidLoad FbNewsDetalPage');
+    if (this.navParams.get("item")) {
+      this.newDetail = this.navParams.get("item");
+      this.isLoadingData = false;
+      return;
+    } else if (this.navParams.data['id']) {
+      this.onLoadData();
+      return;
+    }else{
+      this.mAppControllerProvider.setRootPage("FbNewsPage");
+      return;
+    }
   }
-  onLoadData(){
+  onLoadData() {
     this.mAppControllerProvider.getNewsDetailByID(this.navParams.data['id']).then((data) => {
       if (data) {
         this.newDetail = data;
         console.log(this.newDetail);
-        
+
         this.isLoadingData = false;
       }
     })

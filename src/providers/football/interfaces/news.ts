@@ -1,14 +1,14 @@
 export class News{
     id: string;
     title: string;
-    NewDetail: Array<NewDetail>;
+    newDetail: Array<NewDetail>;
     date: string;
     comment: number;
     tag: string;
     constructor(data?: any){
         this.id = "";
         this.title = "";
-        this.NewDetail = [{
+        this.newDetail = [{
             description: "",
             pictureUrl: ""
         }];
@@ -22,7 +22,7 @@ export class News{
     pair(data: any){
         if(data.id)this.id = data.id;
         if(data.title)this.title = data.title;
-        if(data.NewDetail)this.NewDetail = data.NewDetail;
+        if(data.newDetail)this.newDetail = data.newDetail;
         if(data.date)this.date = data.date;
         if(data.comment) this.comment = data.comment;
         if(data.tag)this.tag = data.tag;

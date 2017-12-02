@@ -1,9 +1,10 @@
 <div class="schedule-dropdown">
     <div text-left>{{dropdown.title}}</div>
     <button class="dropdown-button" id="league-drop" data-toggle="dropdown">
-            <span class="text">{{currentOption.title}}</span>
-            <div class="icon"><ion-icon name="ios-arrow-down"></ion-icon></div>
-        </button>
+        <span class="text">{{currentOption.title}}</span>
+        <div class="icon-1"><ion-icon name="ios-arrow-down"></ion-icon></div>
+        <div class="icon-2"><ion-icon name="ios-arrow-up"></ion-icon></div>
+    </button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="league-drop">
         <li *ngFor="let option of dropdown.options" class="dropdown-item" role="presentation" (click)="onChooseOption(option)">{{option.title}}</li>
     </ul>
