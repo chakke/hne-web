@@ -1,61 +1,95 @@
 table-matches {
     .box {
         .box-content {
-            .time {
+            // .time {
+            //     font-size: map-get($map: $FBFont, $key: small);
+            //     color: map-get($map: $colors, $key: gray);
+            //     padding-left: map-get($map: $FBSizes, $key: titlePadding);
+            //     padding-right: map-get($map: $FBSizes, $key: titlePadding);
+            //     padding-top: map-get($map: $FBSizes, $key: smallerPadding);
+            // }
+            // .match {
+            //     display: flex;
+            //     align-items: center;
+            //     >div {
+            //         width: 100%;
+            //         display: flex;
+            //         padding: 4px 0;
+            //         border-bottom: 1px solid lightgray;
+            //         .home {
+            //             padding: 0;
+            //             width: 45%;
+            //             font-size: .9em;
+            //             .home-name {
+            //                 text-align: right;
+            //             }
+            //         }
+            //         .guest {
+            //             padding: 0;
+            //             width: 45%;
+            //             font-size: .9em;
+            //             text-align: center;
+            //             .guest-name {
+            //                 text-align: left;
+            //             }
+            //         }
+            //         .result {
+            //             padding: 0;
+            //             width: 10%;
+            //             // color: white;
+            //             white-space: nowrap;
+            //             min-width: 3em;
+            //             font-weight: bold;
+            //             >div {
+            //                 // background-color: map-get($map: $colors, $key: primary);
+            //                 width: 100%;
+            //                 text-align: center;
+            //                 font-size: .9em;
+            //             }
+            //         }
+            //         .logo {
+            //             width: 2em;
+            //             margin: 0 6px;
+            //         }
+            //     }
+            //     >div:hover {
+            //         background-color: #eee;
+            //         .result {
+            //             opacity: .6;
+            //         }
+            //     }
+            // }
+            #schedule {
                 font-size: map-get($map: $FBFont, $key: small);
-                color: map-get($map: $colors, $key: gray);
-                padding-left: map-get($map: $FBSizes, $key: titlePadding);
-                padding-right: map-get($map: $FBSizes, $key: titlePadding);
-                padding-top: map-get($map: $FBSizes, $key: smallerPadding);
-            }
-            .match {
-                display: flex;
-                align-items: center;
-                >div {
-                    width: 100%;
-                    display: flex;
-                    padding: 4px 0;
-                    border-bottom: 1px solid lightgray;
-                    .home {
+                .content {
+                    padding: 0;
+                    .item {
                         padding: 0;
-                        width: 45%;
-                        font-size: .9em;
-                        .home-name {
-                            text-align: right;
-                        }
-                    }
-                    .guest {
-                        padding: 0;
-                        width: 45%;
-                        font-size: .9em;
-                        text-align: center;
-                        .guest-name {
-                            text-align: left;
-                        }
-                    }
-                    .result {
-                        padding: 0;
-                        width: 10%;
-                        // color: white;
-                        white-space: nowrap;
-                        min-width: 3em;
-                        font-weight: bold;
-                        >div {
-                            // background-color: map-get($map: $colors, $key: primary);
-                            width: 100%;
-                            text-align: center;
+                        .date {
                             font-size: .9em;
+                            padding-left: map-get($map: $FBSizes, $key: titlePadding);
+                            padding-right: map-get($map: $FBSizes, $key: titlePadding);
+                            padding-top: map-get($map: $FBSizes, $key: smallerPadding);
+                            padding-bottom: 0;
+                            border: none;
                         }
-                    }
-                    .logo {
-                        width: 2em;
-                        margin: 0 6px;
-                    }
-                }
-                >div:hover {
-                    background-color: #eee;
-                    .result {
-                        opacity: .6;
+                        .match {
+                            padding: 4px 0;
+                            .team {
+                                padding: 0;
+                                .a1-margin-left {
+                                    margin-left: 4px;
+                                }
+                                .a1-margin-right {
+                                    margin-right: 4px;
+                                }
+                            }
+                            .result {
+                                background: transparent;
+                                color: black;
+                                font-weight: bold;
+                            }
+                        }
                     }
                 }
             }

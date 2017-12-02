@@ -1,4 +1,52 @@
-<div class="content">
-    <fb-dropdown class="col-md-3 col-sm-4 col-6" [dropdown]="leagueDropdown" (onSelected)="onSelectLeague($event)"></fb-dropdown>
-    <fb-dropdown class="col-md-3 col-sm-4 col-6" [dropdown]="teamDropdown" (onSelected)="onSelectTeam($event)"></fb-dropdown>
+<div class="content col-12">
+    <div no-padding class="dropdown-container col-md-12 col-sm-12 col-xs-12" *ngIf="page!=from.HOME">
+        <fb-dropdown class="col-md-3 col-sm-4 col-6" [dropdown]="leagueDropdown" (onSelected)="onSelectLeague($event)"></fb-dropdown>
+        <fb-dropdown class="col-md-3 col-sm-4 col-6" [dropdown]="teamDropdown" (onSelected)="onSelectTeam($event)"></fb-dropdown>
+    </div>
+    <div no-padding class="schedule-container">
+        <div *ngFor="let date of matches">
+            <div class="item col-md-12 col-sm-12 col-12">
+                <div class="date col-md-12 col-sm-12 col-12">{{date.time}}</div>
+                <div class="match d-block col-md-12 col-sm-12-col-12 a3-container a3-items-center" [class.waiting-match]="match.status==0" *ngFor="let match of date.matches">
+                    <div class="time col-md-1 col-sm-2 col-12" *ngIf="page!=from.HOME">
+                        <div class="a3-container a3-justify-center" *ngIf="match.status!=0">
+                            <div>
+                                <ion-icon name="md-time"></ion-icon>
+                            </div>
+                            <span>{{match.time.substring(11,match.time.length)}}</span>
+                        </div>
+                    </div>
+                    <div no-padding class="info col-md-6 col-sm-9 col-12 a3-container a3-items-center" [class.col-md-12]="page==from.HOME" [class.col-sm-12]="page==from.HOME">
+                        <div class="team col-md-5 col-sm-5 col-5 a3-container a3-justify-end a3-items-center a1-padding-right">
+                            <span class="home-name">{{match.homeFc}}</span>
+                            <div class="logo a1-margin-left">
+                                <img src={{match.homeLogo}}>
+                            </div>
+                        </div>
+                        <div class="result col-md-2 col-sm-2 col-2">
+                            <span>{{match.status!=0?match.homeResult + " - " + match.guestResult:match.time.substring(11,match.time.length)}}</span>
+                        </div>
+                        <div class="team col-md-5 col-sm-5 col-5 a3-container a3-justify-start a3-items-center a1-padding-left">
+                            <div class="logo a1-margin-right">
+                                <img src={{match.guestLogo}}>
+                            </div>
+                            <span class="guest-name">{{match.guestFc}}</span>
+                        </div>
+                    </div>
+                    <div class="stadium col-md-4 a3-container" *ngIf="page!=from.HOME">
+                        <div>
+                            <ion-icon name="ios-pin"></ion-icon>
+                        </div>
+                        <span>{{match.stadium}}</span>
+                    </div>
+                    <div class="detail col-md-1 col-sm-1 a3-container a3-justify-end" *ngIf="page!=from.HOME">
+                        <span class="text">Chi tiết</span>
+                        <div>
+                            <ion-icon name="md-arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

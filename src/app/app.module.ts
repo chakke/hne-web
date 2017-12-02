@@ -58,7 +58,7 @@ export const firebaseConfig = {
     AngularFireDatabase,
     // AngularFirestore,
     // AngularFirestoreDocument,
-    FirebaseServiceProvider
+    FirebaseServiceProvider,
   ]
 })
 export class AppModule { }

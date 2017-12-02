@@ -4,11 +4,14 @@
         <fb-header [content]="content5"></fb-header>
     </div>
     <div padding class="container-fluid section main body-padding">
-        <fb-schedule></fb-schedule>
+        <fb-schedule [page]="schedulePage" [parentSubject]="parentSubject" (loaded)="loaded($event)"></fb-schedule>
     </div>
-    <fb-spinner></fb-spinner>>
+    <fb-spinner id="loading-icon" class="col-md-12 section hidden"></fb-spinner>
     <div class="container-fluid section sponsor">
         <!-- Nha tai tro -->
     </div>
-    <div class="container-fluid section footer"></div>
+    <div class="col-md-12 section footer">
+        <!-- Footer -->
+        <fb-footer></fb-footer>
+    </div>
 </ion-content>

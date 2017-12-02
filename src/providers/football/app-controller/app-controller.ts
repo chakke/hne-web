@@ -5,7 +5,7 @@ import { Toast, ToastController, App } from 'ionic-angular';
 import { Menu } from '../interfaces/menu';
 import { Table } from '../interfaces/table';
 import { TableMatches } from '../interfaces/table-matches';
-import { Match } from '../interfaces/match';
+import { Match, Schedule } from '../interfaces/match';
 import { GaleryArr, Galery } from '../interfaces/image';
 
 import { FirebaseServiceProvider } from "../firebase-service/firebase-service";
@@ -142,7 +142,6 @@ export class AppControllerProvider {
     })
   }
 
-
   getNewsId(newsId: string): Observable<NewsInterface> {
     return this.firebaseService.getNewsId(newsId).map(elm => {
       return {
@@ -153,12 +152,12 @@ export class AppControllerProvider {
     })
   }
 
-  getNewsDetailByID(newID: string): Promise<News>{
-      return this.firebaseService.getNewDetailByID(newID);
+  getNewsDetailByID(newID: string): Promise<News> {
+    return this.firebaseService.getNewDetailByID(newID);
   }
 
-  
-  getVideoById(videoId: string): Observable<Videos>{
+
+  getVideoById(videoId: string): Observable<Videos> {
     return this.firebaseService.getVideoId(videoId).map(elm => {
       return {
         id: elm.id,
@@ -214,7 +213,7 @@ export class AppControllerProvider {
     })
   }
 
-  getGaleryById(id: number): Observable<Galery>{
+  getGaleryById(id: number): Observable<Galery> {
     return this.firebaseService.getGaleryById(id).map(elm => {
       return {
         id: elm.id,
@@ -224,11 +223,23 @@ export class AppControllerProvider {
     })
   }
 
-  getDornosList(): Observable<DonorsList>{
-    return this.firebaseService.getDonorsList().map(elm=>{
+  getDornosList(): Observable<DonorsList> {
+    return this.firebaseService.getDonorsList().map(elm => {
       return {
         id: elm.id,
         list: elm.list
+      }
+    })
+  }
+
+  getSchedule(id: number, from: number): Observable<Schedule>{
+    if(from > 20){
+      return;
+    }
+    return this.firebaseService.getSchedule(id, from).map(elm => {
+      return {
+        id: elm.id,
+        matches: elm.matches
       }
     })
   }

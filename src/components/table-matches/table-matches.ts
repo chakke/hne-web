@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { TableMatches } from '../../providers/football/interfaces/table-matches';
 import { AppControllerProvider } from "../../providers/football/app-controller/app-controller";
 
+import { Page } from '../fb-schedule/fb-schedule';
+
 @Component({
   selector: 'table-matches',
   templateUrl: 'table-matches.html'
@@ -10,6 +12,9 @@ import { AppControllerProvider } from "../../providers/football/app-controller/a
 export class TableMatchesComponent {
   @Input() tableId: string = "";
   @Output() clickMatch = new EventEmitter<number>();
+
+  schedulePage = Page.HOME;
+  
   table: Observable<TableMatches>;
   isDataUpdated = false;
 

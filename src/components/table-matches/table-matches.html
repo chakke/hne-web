@@ -8,7 +8,7 @@
     </div>
     <div class="box-content">
         <fb-loader *ngIf="!isDataUpdated"></fb-loader>
-        <div *ngFor="let matches of (table|async)?.items">
+        <!-- <div *ngFor="let matches of (table|async)?.items">
             <div class="time">{{matches.time}}</div>
             <div class="match a3-center" *ngFor="let match of matches.matches" (click)="onClickMatch(match)" tappable>
                 <div>
@@ -33,6 +33,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <fb-schedule id="schedule" [page]="schedulePage"></fb-schedule>
     </div>
 </div>

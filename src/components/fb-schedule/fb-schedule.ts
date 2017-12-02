@@ -1,14 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, ViewChild, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
-import { ScheduleMatch, MatchStatus, ScheduleItem } from '../../providers/football/interfaces/match';
+import { AppControllerProvider } from '../../providers/football/app-controller/app-controller';
+import { ScheduleMatch, MatchStatus, ScheduleItem, Schedule } from '../../providers/football/interfaces/match';
 
 import { DropDownElement, Dropdown } from '../fb-dropdown/fb-dropdown';
+
+export enum Page {
+  HOME, SCHEDULE
+}
 
 @Component({
   selector: 'fb-schedule',
   templateUrl: 'fb-schedule.html'
 })
 export class FbScheduleComponent {
+  @Input("page") page: number = -1;
+  @Output() loaded = new EventEmitter();
+  @Input() parentSubject: Subject<any>;
+  scrollSubject: Subject<string> = new Subject<string>();
+  mMatchStatus: MatchStatus;
+  from;
   mDatas = {
     leagues: {
       title: "Theo mùa giải",
@@ -45,6 +58,8 @@ export class FbScheduleComponent {
       currentId: 0
     },
   }
+  loading;
+  isLoading = false;
 
   currentLeague = {
     id: -1,
@@ -55,78 +70,62 @@ export class FbScheduleComponent {
   teamDropdown: Dropdown;
 
   matches: Array<ScheduleItem> = [];
+  matchesLength = 0;
 
-  mScheduleMatch: Array<ScheduleMatch> = [
-    {
-      id: 1,
-      time: "2017-11-30 22:00",
-      homeId: 1,
-      homeFc: "MV CORP",
-      homeLogo: "http://vietfootball.vn/data/uploads/2017/09/MVCorp.png",
-      homeResult: "0",
-      guestId: 2,
-      guestFc: "MOON",
-      guestLogo: "http://vietfootball.vn/data/uploads/2017/09/Moon5.png",
-      guestResult: "0",
-      stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
-      status: MatchStatus.WAITING
-    },
-    {
-      id: 2,
-      time: "2017-11-30 18:00",
-      homeId: 3,
-      homeFc: "NGUYỄN TRÃI",
-      homeLogo: "http://vietfootball.vn/data/uploads/2017/09/NguyenTrai5.png",
-      homeResult: "0",
-      guestId: 4,
-      guestFc: "DƯƠNG NỘI",
-      guestLogo: "http://vietfootball.vn/data/uploads/2017/09/DuongNoi5.png",
-      guestResult: "0",
-      stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
-      status: MatchStatus.WAITING
-    },
-    {
-      id: 3,
-      time: "2017-11-28 18:00",
-      homeId: 5,
-      homeFc: "HANEL OCEAN",
-      homeLogo: "http://vietfootball.vn/data/uploads/2017/09/Hanel5.png",
-      homeResult: "2",
-      guestId: 6,
-      guestFc: "VĂN MINH",
-      guestLogo: "http://vietfootball.vn/data/uploads/2017/09/VanMinh5.png",
-      guestResult: "4",
-      stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
-      status: MatchStatus.DONE
-    },
-    {
-      id: 4,
-      time: "2017-10-30 19:00",
-      homeId: 7,
-      homeFc: "CƯỜNG QUỐC",
-      homeLogo: "http://vietfootball.vn/data/uploads/2017/09/CuongQuoc5.png",
-      homeResult: "12",
-      guestId: 8,
-      guestFc: "THÀNH ĐỒNG",
-      guestLogo: "http://vietfootball.vn/data/uploads/2017/09/ThanhDong5.png",
-      guestResult: "14",
-      stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
-      status: MatchStatus.DONE
-    },
-  ];
+  mSchedule: Observable<Schedule>;
+  mScheduleMatch: Array<ScheduleMatch>;
 
 
-  constructor() {
+  constructor(public mAppControllerProvider: AppControllerProvider,
+    public mChangeDetectorRef: ChangeDetectorRef) {
+    console.log(MatchStatus);
+
+
+    this.from = Page;
     this.currentLeague = this.mDatas.leagues[0];
-    console.log('Hello FbScheduleComponent Component');
-    console.log(this.mScheduleMatch[0].time.substring(0, 10));
-    this.onResponseData();
     this.setUpOptions();
+    this.getData();
   }
 
-  onResponseData() {
-    this.mScheduleMatch.forEach(match => {
+  // fix me
+  ngAfterViewInit() {
+    if (this.parentSubject) {
+      this.parentSubject.subscribe(event => {
+        if (!this.isLoading) {
+          this.getData();
+        }
+      })
+
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.parentSubject) {
+      this.parentSubject.unsubscribe();
+    }
+  }
+
+  getData() {
+    console.log("let's get data");
+
+    this.isLoading = true;
+    try {
+      this.mSchedule = this.mAppControllerProvider.getSchedule(1, this.matchesLength);
+      this.mSchedule.subscribe(data => {
+        console.log(data);
+        this.onResponseData(data);
+      })
+    }
+    catch (e) {
+      this.isLoading = false;
+      this.loaded.emit({ done: true });
+    }
+  }
+
+  onResponseData(data) {
+    data.matches.forEach(match => {
       for (let i = 0; i < this.matches.length; i++) {
+        this.matchesLength++;
         if (this.matches[i].time == match.time.substring(0, 10)) {
           this.matches[i].matches.push(match);
           return;
@@ -139,9 +138,52 @@ export class FbScheduleComponent {
       item.matches = [match];
       this.matches.push(item);
     });
+    this.isLoading = false;
+    this.loaded.emit({ done: true });
+    this.arrangeByTime();
+    this.arrangeByStatus();
+    this.mChangeDetectorRef.detectChanges();
     console.log(this.matches);
-
   }
+
+  arrangeByTime() {
+    // fix me
+    this.matches.forEach(element => {
+      for (let i = 0; i < element.matches.length - 1; i++) {
+        for (let j = i + 0; j < element.matches.length; j++) {
+          if (element.matches[i].time.substring(11, element.matches[i].time.length) > element.matches[j].time.substring(11, element.matches[j].time.length)) {
+            let temp = element.matches[i];
+            element.matches[i] = element.matches[j];
+            element.matches[j] = temp;
+          }
+        }
+      }
+    });
+    for (let n = 0; n < this.matches.length - 1; n++) {
+      for (let m = n + 1; m < this.matches.length; m++) {
+        if (this.matches[n].time < this.matches[m].time) {
+          let temp = this.matches[n];
+          this.matches[n] = this.matches[m];
+          this.matches[m] = temp;
+        }
+      }
+    }
+  }
+
+  arrangeByStatus() {
+    this.matches.forEach(element => {
+      for (let i = 0; i < element.matches.length - 1; i++) {
+        for (let j = i + 0; j < element.matches.length; j++) {
+          if (element.matches[i].status > element.matches[j].status) {
+            let temp = element.matches[i];
+            element.matches[i] = element.matches[j];
+            element.matches[j] = temp;
+          }
+        }
+      }
+    });
+  }
+
 
   setUpOptions() {
     {
@@ -182,9 +224,9 @@ export class FbScheduleComponent {
 
   }
 
-  onSelectTeam(e){
+  onSelectTeam(e) {
     console.log(e);
-    
+
   }
 
 }

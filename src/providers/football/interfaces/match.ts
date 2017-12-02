@@ -35,3 +35,8 @@ export class ScheduleItem{
     time: string;
     matches: Array<ScheduleMatch>;
 }
+
+export class Schedule{
+    id: number;
+    matches: Array<ScheduleMatch>;
+}

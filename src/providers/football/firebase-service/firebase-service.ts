@@ -196,7 +196,7 @@ export class FirebaseServiceProvider {
     }
   }
 
-  getNewDetailByID(newID: string): Promise<any>{
+  getNewDetailByID(newID: string): Promise<any> {
     if (this.isUseFakeData) {
       let items = [
         {
@@ -251,15 +251,15 @@ export class FirebaseServiceProvider {
           tag: "Lom Dom Cup"
         }
       ]
-      return new Promise((resolve,reject)=>{
-        let check : boolean = false;
-        for(let i = 0; i < items.length; i++){
-          if(newID==items[i].id){
+      return new Promise((resolve, reject) => {
+        let check: boolean = false;
+        for (let i = 0; i < items.length; i++) {
+          if (newID == items[i].id) {
             check = true;
             resolve(items[i]);
           }
         }
-        if(!check){
+        if (!check) {
           alert("Khong co du lieu");
           resolve(0);
         }
@@ -397,32 +397,7 @@ export class FirebaseServiceProvider {
               id: from + 10,
               title: "",
               image: { id: from + 10, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
-            },
-            {
-              id: from + 11,
-              title: "",
-              image: { id: from + 11, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2167-min.jpg" }
-            },
-            // {
-            //   id: from + 12,
-            //   title: "",
-            //   image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
-            // },
-            // {
-            //   id: from + 13,
-            //   title: "",
-            //   image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg" }
-            // },
-            // {
-            //   id: from + 14,
-            //   title: "",
-            //   image: { id: 1, title: "", url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2171-min.jpg" }
-            // },
-            // {
-            //   id: from + 15,
-            //   title: "",
-            //   url: "http://www.hanoielevencup.com/uploads/media/61/IMG_2250-min.jpg"
-            // },
+            }
           ]
         })
       }, 1000);
@@ -608,5 +583,89 @@ export class FirebaseServiceProvider {
       }, 1000);
     })
 
+  }
+
+  getSchedule(id: number, from: number): Observable<any> {
+    if (this.isUseFakeData) {
+      return new Observable(observable => {
+        setTimeout(() => {
+          observable.next({
+            id: id,
+            matches: [
+              {
+                id: from + 1,
+                time: "2017-11-30 22:00",
+                homeId: 1,
+                homeFc: "MV CORP",
+                homeLogo: "http://vietfootball.vn/data/uploads/2017/09/MVCorp.png",
+                homeResult: "0",
+                guestId: 2,
+                guestFc: "MOON",
+                guestLogo: "http://vietfootball.vn/data/uploads/2017/09/Moon5.png",
+                guestResult: "0",
+                stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
+                status: 0
+              },
+              {
+                id: from + 2,
+                time: "2017-11-30 18:00",
+                homeId: 3,
+                homeFc: "NGUYỄN TRÃI",
+                homeLogo: "http://vietfootball.vn/data/uploads/2017/09/NguyenTrai5.png",
+                homeResult: "0",
+                guestId: 4,
+                guestFc: "DƯƠNG NỘI",
+                guestLogo: "http://vietfootball.vn/data/uploads/2017/09/DuongNoi5.png",
+                guestResult: "0",
+                stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
+                status: 1
+              },
+              {
+                id: from + 3,
+                time: "2017-11-28 18:00",
+                homeId: 5,
+                homeFc: "HANEL OCEAN",
+                homeLogo: "http://vietfootball.vn/data/uploads/2017/09/Hanel5.png",
+                homeResult: "2",
+                guestId: 6,
+                guestFc: "VĂN MINH",
+                guestLogo: "http://vietfootball.vn/data/uploads/2017/09/VanMinh5.png",
+                guestResult: "4",
+                stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
+                status: 2
+              },
+              {
+                id: from + 4,
+                time: "2017-10-30 19:00",
+                homeId: 7,
+                homeFc: "CƯỜNG QUỐC",
+                homeLogo: "http://vietfootball.vn/data/uploads/2017/09/CuongQuoc5.png",
+                homeResult: "12",
+                guestId: 8,
+                guestFc: "THÀNH ĐỒNG",
+                guestLogo: "http://vietfootball.vn/data/uploads/2017/09/ThanhDong5.png",
+                guestResult: "14",
+                stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
+                status: 0
+              },
+              {
+                id: from + 5,
+                time: "2017-11-30 19:00",
+                homeId: 7,
+                homeFc: "CƯỜNG QUỐC",
+                homeLogo: "http://vietfootball.vn/data/uploads/2017/09/CuongQuoc5.png",
+                homeResult: "12",
+                guestId: 8,
+                guestFc: "THÀNH ĐỒNG",
+                guestLogo: "http://vietfootball.vn/data/uploads/2017/09/ThanhDong5.png",
+                guestResult: "14",
+                stadium: "Sân ACB 2, Mỹ Đình, Hà Nội",
+                status: 2
+              },
+            ]
+          })
+        }, 2000);
+      })
+    }
   }
 }
