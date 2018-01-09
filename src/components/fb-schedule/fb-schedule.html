@@ -1,13 +1,13 @@
 <div class="content col-12">
     <div no-padding class="dropdown-container col-md-12 col-sm-12 col-xs-12" *ngIf="page!=from.HOME">
-        <fb-dropdown class="col-md-3 col-sm-4 col-6" [dropdown]="leagueDropdown" (onSelected)="onSelectLeague($event)"></fb-dropdown>
-        <fb-dropdown class="col-md-3 col-sm-4 col-6" [dropdown]="teamDropdown" (onSelected)="onSelectTeam($event)"></fb-dropdown>
+        <fb-dropdown no-padding class="col-md-3 col-sm-4 col-6 dropdown-margin" [dropdown]="leagueDropdown" (onSelected)="onSelectLeague($event)"></fb-dropdown>
+        <fb-dropdown no-padding class="col-md-3 col-sm-4 col-6" [dropdown]="teamDropdown" (onSelected)="onSelectTeam($event)"></fb-dropdown>
     </div>
     <div no-padding class="schedule-container">
         <div *ngFor="let date of matches">
             <div class="item col-md-12 col-sm-12 col-12">
                 <div class="date col-md-12 col-sm-12 col-12">{{date.time}}</div>
-                <div class="match d-block col-md-12 col-sm-12-col-12 a3-container a3-items-center" [class.waiting-match]="match.status==0" *ngFor="let match of date.matches">
+                <div class="match d-block col-md-12 col-sm-12-col-12 a3-container a3-items-center" [class.waiting-match]="match.status==0" *ngFor="let match of date.matches" (click)="onClickMatch(match)">
                     <div class="time col-md-1 col-sm-2 col-12" *ngIf="page!=from.HOME">
                         <div class="a3-container a3-justify-center" *ngIf="match.status!=0">
                             <div>

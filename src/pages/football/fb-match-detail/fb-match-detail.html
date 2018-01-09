@@ -1,14 +1,57 @@
-<ion-header>
+<ion-content>
 
-    <ion-navbar>
-        <ion-title>fb-match-detail</ion-title>
-    </ion-navbar>
+    <div class="container-fluid section header">
+        <!-- Header + Menu -->
+        <fb-header [content]="content1"></fb-header>
+    </div>
 
-</ion-header>
+    <div padding class="container-fluid section main body-padding">
+        <div no-padding class="col-md-2">
+            <table-matches [tableId]="2"></table-matches>
+        </div>
+        <div class="col-md-10">
+            <fb-match-detail></fb-match-detail>
+        </div>
+    </div>
+    <div class="container-fluid section sponsor">
+        <!-- Nha tai tro -->
+    </div>
+    <div class="col-md-12 section footer">
+        <!-- Footer -->
+        <fb-footer></fb-footer>
+    </div>
 
 
-<ion-content padding>
-    <fb-loader *ngIf="!isDataUpdated"></fb-loader>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <fb-loader *ngIf="!isDataUpdated"></fb-loader>
     <div *ngIf="isDataUpdated">
         <div>id: {{(mDatas|async)?.id}}</div>
         <div>{{(mDatas|async)?.time}}</div>
@@ -22,5 +65,5 @@
         </div>
         <div>{{(mDatas|async)?.homeResult}} - {{(mDatas|async)?.guestResult}}</div>
         <div>{{(mDatas|async)?.detail}}</div>
-    </div>
+    </div> -->
 </ion-content>

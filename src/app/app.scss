@@ -135,6 +135,31 @@
     background-color: #393a3e !important;
 }
 
+// -------------------PURE
+.a1-margin-right {
+    margin-right: 16px;
+}
+
+.a1-margin-left {
+    margin-left: 16px;
+}
+
+.a1-padding-right {
+    padding-right: 16px;
+}
+
+.a1-padding-left {
+    padding-left: 16px;
+}
+
+.a1-relative {
+    position: relative;
+}
+
+.a1-absolute {
+    position: absolute;
+}
+
 // -------------------FLEX
 .a3-container {
     display: flex;
@@ -164,20 +189,4 @@
 
 .a3-items-center {
     align-items: center;
-}
-
-.a1-margin-right {
-    margin-right: 16px;
-}
-
-.a1-margin-left {
-    margin-left: 16px;
-}
-
-.a1-padding-right {
-    padding-right: 16px;
-}
-
-.a1-padding-left {
-    padding-left: 16px;
 }

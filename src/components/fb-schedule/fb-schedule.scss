@@ -3,6 +3,9 @@ fb-schedule {
         background: white;
         padding-top: map-get($map: $FBSizes, $key: defaultPadding);
         padding-bottom: map-get($map: $FBSizes, $key: defaultPadding);
+        .dropdown-margin {
+            margin-left: 0;
+        }
         display: inline-block;
         @media (max-width: 575px) {
             padding-left: 0;
@@ -10,6 +13,9 @@ fb-schedule {
             font-size: .9em;
             .detail {
                 display: none;
+            }
+            .dropdown-margin {
+                margin-left: map-get($map: $FBSizes, $key: smallerPadding);
             }
             .a1-margin-left {
                 margin-left: 4px;
@@ -33,6 +39,9 @@ fb-schedule {
         @media (min-width: 768px) {
             padding-left: map-get($map: $FBSizes, $key: defaultPadding) * 2;
             padding-right: map-get($map: $FBSizes, $key: defaultPadding) * 2;
+            .dropdown-margin {
+                margin-left: map-get($map: $FBSizes, $key: defaultPadding);
+            }
             .stadium {
                 display: flex !important;
             }

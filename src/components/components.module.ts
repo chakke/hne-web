@@ -20,6 +20,7 @@ import { FbListNewsComponent } from "./fb-list-news/fb-list-news";
 
 import { VideoLastestComponent } from './video-lastest/video-lastest';
 import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
+import { FbMatchDetailComponent } from './fb-match-detail/fb-match-detail';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
         VideoLastestComponent,
         FbDropdownComponent,
         FbNewsBarComponent,
-        FbListNewsComponent
+        FbListNewsComponent,
+    FbMatchDetailComponent
     ],
     imports: [IonicPageModule],
     exports: [
@@ -65,7 +67,8 @@ import { FbDropdownComponent } from './fb-dropdown/fb-dropdown';
         VideoLastestComponent,
         FbDropdownComponent,
         FbNewsBarComponent,
-        FbListNewsComponent
+        FbListNewsComponent,
+    FbMatchDetailComponent
     ]
 })
 export class ComponentsModule { }

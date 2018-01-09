@@ -1,0 +1,15 @@
+fb-match-detail {
+    .main-img {
+        min-height: 50vh;
+        max-height: 50vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        img {
+            top: -40%;
+        }
+    }
+    .match-detail {
+        .match-result {}
+    }
+}

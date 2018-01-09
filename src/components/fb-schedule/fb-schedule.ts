@@ -1,4 +1,5 @@
-import { Component, Input, Output, ViewChild, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -77,6 +78,7 @@ export class FbScheduleComponent {
 
 
   constructor(public mAppControllerProvider: AppControllerProvider,
+    public navCtrl: NavController,
     public mChangeDetectorRef: ChangeDetectorRef) {
     console.log(MatchStatus);
 
@@ -87,7 +89,6 @@ export class FbScheduleComponent {
     this.getData();
   }
 
-  // fix me
   ngAfterViewInit() {
     if (this.parentSubject) {
       this.parentSubject.subscribe(event => {
@@ -95,7 +96,6 @@ export class FbScheduleComponent {
           this.getData();
         }
       })
-
     }
   }
 
@@ -227,6 +227,12 @@ export class FbScheduleComponent {
   onSelectTeam(e) {
     console.log(e);
 
+  }
+
+  onClickMatch(match) {
+    console.log(match);
+
+    this.navCtrl.push("FbMatchDetailPage", { id: match.id });
   }
 
 }
